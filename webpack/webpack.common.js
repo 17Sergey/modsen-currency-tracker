@@ -2,11 +2,17 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const Dotenv = require("dotenv-webpack");
 const CopyPlugin = require("copy-webpack-plugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 module.exports = {
     entry: path.resolve(__dirname, "..", "./src/index.tsx"),
     resolve: {
         extensions: [".tsx", ".ts", ".js"],
+        plugins: [
+            new TsconfigPathsPlugin({
+                extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],
+            }),
+        ],
     },
     module: {
         rules: [
@@ -25,7 +31,7 @@ module.exports = {
             },
             {
                 test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
-                type: "asset/resource", // out of the box with webpack 5
+                type: "asset/resource",
             },
             {
                 test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
