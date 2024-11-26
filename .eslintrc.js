@@ -20,6 +20,7 @@ module.exports = {
         },
     },
     extends: [
+        "airbnb-base",
         "plugin:react/recommended",
         "plugin:react-hooks/recommended",
         "plugin:@typescript-eslint/recommended",
@@ -43,5 +44,6 @@ module.exports = {
         "import/first": "error",
         "import/newline-after-import": "error",
         "import/no-duplicates": "error",
+        "import/prefer-default-export": "off",
     },
 };
