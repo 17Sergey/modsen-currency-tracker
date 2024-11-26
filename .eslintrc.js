@@ -1,10 +1,9 @@
 module.exports = {
-    plugins: ["import"],
+    plugins: ["import", "simple-import-sort"],
     parser: "@typescript-eslint/parser",
     parserOptions: {
         ecmaVersion: 2020,
         sourceType: "module",
-        project: "./tsconfig.json",
     },
     settings: {
         react: {
@@ -39,5 +38,10 @@ module.exports = {
         "react/jsx-uses-react": "off",
         "react/react-in-jsx-scope": "off",
         "@typescript-eslint/explicit-module-boundary-types": "off",
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error",
     },
 };

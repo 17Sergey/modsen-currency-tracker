@@ -1,11 +1,11 @@
 import "./styles.css";
 
-import Car from "./assets/images/car.jpg";
-import ReactIcon from "./assets/images/react.svg";
-
 import { Counter } from "@components/Counter";
 import { SomeOtherComponent } from "@components/SomeOtherComponent";
 import { dateHelper } from "@utils/dateHelper";
+
+import Car from "./assets/images/car.jpg";
+import ReactIcon from "./assets/images/react.svg";
 
 export const App = () => {
     return (
