@@ -1,80 +1,78 @@
 import { DefaultTheme } from "styled-components";
 
-export const defaultTheme: DefaultTheme = {
-    colors: {
-        primary: "#F17900",
-        primaryTransparent: "#fbd7b24d",
-
-        secondary: "#E0A449",
-
-        background: "#FAFAFA",
-        white: "#FFFFFF",
-
-        text: "#393939",
-        textTransparent: "#39393980",
-
-        lightGray: "#F9F9F9",
-        inputBackground: "#3939390D",
-
-        error: "#FF5861",
-    },
-    fonts: {
-        primary: "Lexend Deca",
-        secondary: "Inter",
-        fontSize: {
-            small: "0.95rem",
-            base: "1rem",
-            medium: "1.125rem",
-            subheading: "1.5rem",
-            heading: "2rem",
-            headingLarge: "3.5rem",
-        },
-    },
-    paddings: {
-        container: "1rem",
-        pageTop: "2rem",
-    },
-    margins: {
-        pageTop: "2rem",
-    },
-};
+export const lightTheme = {};
 
 export const darkTheme: DefaultTheme = {
-    ...defaultTheme,
     colors: {
-        primary: "#F17900",
-        primaryTransparent: "#fbd7b24d",
+        background: "#030304",
+        backgroundNeutral: "#202025",
 
-        secondary: "#E0A449",
+        textPrimary: "#FFFFFF",
+        textNeutral: "#D9D9D9",
+        textNeutralTransparent: "#A7B2C3",
+        textFooter: "#898989",
 
-        background: "#FAFAFA",
-        white: "#FFFFFF",
+        primary: "#00BC4F",
+        primaryTransparent: "#02471F",
 
-        text: "#393939",
-        textTransparent: "#39393980",
+        border: "#474747",
+        gray: "#9E9E9E",
+        inputBg: "#1B2028",
 
-        lightGray: "#F9F9F9",
-        inputBackground: "#3939390D",
+        chartHighlight: "#FF971D",
+        chartUp: "#16C782",
+        chartDown: "#EA3943",
+        mapSelectedTag: "#185CFF",
 
-        error: "#FF5861",
+        logoGradient: {
+            first: "#2ADD50",
+            second: "#AFDD2A",
+        },
+
+        captionGradient: {
+            first: "#00CE2C",
+            second: "#AEDF23",
+            third: "#A3DC00",
+        },
+
+        welcomeGradient: {
+            first: "#121212",
+            second: "#24794000",
+        },
     },
     fonts: {
-        primary: "Lexend Deca",
+        primary: "Poppins",
         secondary: "Inter",
-        fontSize: {
-            small: "0.95rem",
+        size: {
+            small: "0.75rem",
             base: "1rem",
-            medium: "1.125rem",
+            medium: "1.25rem",
             subheading: "1.5rem",
             heading: "2rem",
-            headingLarge: "3.5rem",
+            headingL: "2.1875rem",
+            headingXL: "2.375rem",
+
+            footerCaption: "1.625rem",
+            footerMenu: "1.75rem",
+            captionLarge: "4.75rem",
+            captionLargeWord: "5.625rem",
+        },
+        weight: {
+            light: 300,
+            regular: 400,
+            medium: 500,
+            semibold: 600,
+            bold: 700,
         },
     },
     paddings: {
         container: "1rem",
         pageTop: "2rem",
+        searchInput: "1.25rem",
+        currencyIcon: "2rem",
+        currencyCard: "2rem",
     },
     margins: {
-        pageTop: "2rem",
+        sectionTop: "3.5rem",
     },
 };
