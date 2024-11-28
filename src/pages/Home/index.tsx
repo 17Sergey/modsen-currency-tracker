@@ -1,7 +1,3 @@
-export function Home() {
-    return (
-        <>
-            <h1>Home page</h1>
-        </>
-    );
-}
+import { Home } from "./Home.tsx";
+
+export default Home;

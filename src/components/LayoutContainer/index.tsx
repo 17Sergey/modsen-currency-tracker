@@ -1,5 +1,3 @@
-import { StyledContainer } from "./styled.ts";
+import { LayoutContainer } from "./LayoutContainer.tsx";
 
-export function LayoutContainer({ children }: { children: React.ReactNode }) {
-    return <StyledContainer>{children}</StyledContainer>;
-}
+export default LayoutContainer;

@@ -1,3 +1,3 @@
-export function App() {
-    return <>App Hello world</>;
-}
+import { App } from "./App.tsx";
+
+export default App;

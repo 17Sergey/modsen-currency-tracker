@@ -1,7 +1,3 @@
-export function Contacts() {
-    return (
-        <>
-            <h1>Contacts page</h1>
-        </>
-    );
-}
+import { Contacts } from "./Contacts.tsx";
+
+export default Contacts;

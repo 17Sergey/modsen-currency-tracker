@@ -1,7 +1,3 @@
-export function Bank() {
-    return (
-        <>
-            <h1>Bank page</h1>
-        </>
-    );
-}
+import { Bank } from "./Bank.tsx";
+
+export default Bank;

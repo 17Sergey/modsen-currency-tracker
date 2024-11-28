@@ -16,6 +16,6 @@ export const StyledMain = styled.main`
     }
 `;
 
-export const StyledP = styled.p`
-    color: ${({ theme }) => theme.colors.logoGradient.first};
+export const StyledParagraph = styled.p`
+    color: ${({ theme }) => theme.colors.chartUp};
 `;

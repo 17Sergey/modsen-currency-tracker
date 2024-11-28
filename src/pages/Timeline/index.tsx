@@ -1,7 +1,3 @@
-export function Timeline() {
-    return (
-        <>
-            <h1>Timeline page</h1>
-        </>
-    );
-}
+import { Timeline } from "./Timeline.tsx";
+
+export default Timeline;
