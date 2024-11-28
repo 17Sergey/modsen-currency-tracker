@@ -17,5 +17,5 @@ export const StyledMain = styled.main`
 `;
 
 export const StyledP = styled.p`
-    /* color: ${({ theme }) => theme.colors.primary}; */
+    color: ${({ theme }) => theme.colors.logoGradient.first};
 `;

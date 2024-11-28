@@ -1,45 +1,41 @@
 import "styled-components";
 
-// TODO: Set up automatic types
-
 interface ThemeColors {
-    background: HEX;
-    backgroundNeutral: HEX;
+    background: string;
+    backgroundNeutral: string;
 
-    textPrimary: HEX;
-    textNeutral: HEX;
-    textNeutralTransparent: HEX;
-    textFooter: HEX;
+    textPrimary: string;
+    textNeutral: string;
+    textNeutralTransparent: string;
+    textFooter: string;
 
-    primary: HEX;
-    primaryTransparent: HEX;
+    primary: string;
+    primaryTransparent: string;
 
-    border: HEX;
-    gray: HEX;
-    inputBg: HEX;
+    border: string;
+    gray: string;
+    inputBg: string;
 
-    chartHighlight: HEX;
-    chartUp: HEX;
-    chartDown: HEX;
-    mapSelectedTag: HEX;
+    chartHighlight: string;
+    chartUp: string;
+    chartDown: string;
+    mapSelectedTag: string;
 
     logoGradient: {
-        first: HEX;
-        second: HEX;
+        first: string;
+        second: string;
     };
 
     captionGradient: {
-        first: HEX;
-        second: HEX;
-        third: HEX;
+        first: string;
+        second: string;
+        third: string;
     };
 
     welcomeGradient: {
-        first: HEX;
-        second: HEX;
+        first: string;
+        second: string;
     };
-
-    [key: string]: HEX;
 }
 
 interface ThemeFonts {
@@ -80,11 +76,17 @@ interface ThemeMargins {
     sectionTop: string;
 }
 
+interface ThemeWidths {
+    container: string;
+    currencyIcon: string;
+}
+
 declare module "styled-components" {
     export interface DefaultTheme {
-        colors: ThemeType;
+        colors: ThemeColors;
         fonts: ThemeFonts;
         paddings: ThemePaddings;
         margins: ThemeMargins;
+        widths: ThemeWidths;
     }
 }

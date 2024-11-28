@@ -1,8 +1,10 @@
 import { DefaultTheme } from "styled-components";
 
-export const lightTheme = {};
-
 export const darkTheme: DefaultTheme = {
+    widths: {
+        container: "1224px",
+        currencyIcon: "5rem",
+    },
     colors: {
         background: "#030304",
         backgroundNeutral: "#202025",
@@ -76,3 +78,5 @@ export const darkTheme: DefaultTheme = {
         sectionTop: "3.5rem",
     },
 };
+
+export const lightTheme: DefaultTheme = { ...darkTheme };
