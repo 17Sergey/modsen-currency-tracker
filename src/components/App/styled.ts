@@ -15,7 +15,3 @@ export const StyledMain = styled.main`
         padding: 2.5rem 0;
     }
 `;
-
-export const StyledParagraph = styled.p`
-    color: ${({ theme }) => theme.colors.chartUp};
-`;
