@@ -1,21 +1,20 @@
-import { Link } from "react-router";
-
-import CurrencyLogo from "@components/Icons/CurrencyLogo";
+import CurrencyLogo from "@components/CurrencyLogo";
+import ToggleTheme from "@components/Header/ToggleTheme";
 import LayoutContainer from "@components/LayoutContainer";
-import { PATHS } from "@constants/constants";
 
-import { StyledHeader } from "./styled.ts";
+import { HeaderMenu } from "./HeaderMenu/HeaderMenu.tsx";
+import { StyledHeader, StyledToggleContainer } from "./styled.ts";
 
 export const Header = () => {
     return (
         <>
             <LayoutContainer>
                 <StyledHeader>
-                    <Link to={PATHS.HOME}>
-                        <CurrencyLogo />
-                    </Link>
-                    {/* <HeaderMenu /> */}
-                    {/* <ToggleTheme /> */}
+                    <CurrencyLogo />
+                    <HeaderMenu />
+                    <StyledToggleContainer>
+                        <ToggleTheme />
+                    </StyledToggleContainer>
                 </StyledHeader>
             </LayoutContainer>
         </>
