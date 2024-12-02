@@ -16,16 +16,14 @@ export const App = () => {
             <StyledMain>
                 <Suspense fallback={<Loader />}>
                     <Routes>
-                        {ROUTES.map((route) => {
-                            return (
-                                <Route
-                                    key={route.path}
-                                    index={route.path === PATHS.HOME}
-                                    path={route.path}
-                                    element={<route.component />}
-                                />
-                            );
-                        })}
+                        {ROUTES.map((route) => (
+                            <Route
+                                key={route.path}
+                                index={route.path === PATHS.HOME}
+                                path={route.path}
+                                element={<route.component />}
+                            />
+                        ))}
                     </Routes>
                 </Suspense>
             </StyledMain>
