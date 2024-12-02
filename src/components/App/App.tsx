@@ -1,9 +1,10 @@
+import { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+
 import { Footer } from "@components/Footer/Footer.tsx";
 import { Header } from "@components/Header/Header.tsx";
 import { Loader } from "@components/Loader/Loader.tsx";
 import { ROUTES } from "@constants/routes.ts";
-import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
 
 import { StyledLayout, StyledMain } from "./styled.ts";
 

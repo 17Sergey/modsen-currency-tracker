@@ -1,7 +1,11 @@
+import LayoutContainer from "@components/LayoutContainer";
+
 export function Contacts() {
     return (
         <>
-            <h1>Contacts page</h1>
+            <LayoutContainer>
+                <h1>Contacts page</h1>
+            </LayoutContainer>
         </>
     );
 }

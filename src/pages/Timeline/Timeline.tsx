@@ -1,7 +1,11 @@
+import LayoutContainer from "@components/LayoutContainer";
+
 export function Timeline() {
     return (
         <>
-            <h1>Timeline page</h1>
+            <LayoutContainer>
+                <h1>Timeline page</h1>
+            </LayoutContainer>
         </>
     );
 }

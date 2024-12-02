@@ -1,7 +1,11 @@
+import LayoutContainer from "@components/LayoutContainer";
+
 export function Bank() {
     return (
         <>
-            <h1>Bank page</h1>
+            <LayoutContainer>
+                <h1>Bank page</h1>
+            </LayoutContainer>
         </>
     );
 }

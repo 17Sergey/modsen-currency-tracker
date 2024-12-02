@@ -1,3 +1,9 @@
+import LayoutContainer from "@components/LayoutContainer";
+
 export const Footer = () => {
-    return <footer>Footer</footer>;
+    return (
+        <LayoutContainer>
+            <footer>Footer</footer>
+        </LayoutContainer>
+    );
 };

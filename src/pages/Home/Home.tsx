@@ -1,7 +1,11 @@
+import LayoutContainer from "@components/LayoutContainer";
+
 export function Home() {
     return (
         <>
-            <h1>Home page</h1>
+            <LayoutContainer>
+                <h1>Home page</h1>
+            </LayoutContainer>
         </>
     );
 }
