@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 import CurrencyLogo from "@components/Icons/CurrencyLogo";
 import LayoutContainer from "@components/LayoutContainer";

@@ -4730,7 +4730,7 @@ react-router-dom@^7.0.1:
   dependencies:
     react-router "7.0.1"
 
-react-router@7.0.1:
+react-router@7.0.1, react-router@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-7.0.1.tgz#a171e35a5c6463f76b23353c4ce57b53c8b7b1b9"
   integrity sha512-WVAhv9oWCNsja5AkK6KLpXJDSJCQizOIyOd4vvB/+eHGbYx5vkhcmcmwWjQ9yqkRClogi+xjEg9fNEOd5EX/tw==
