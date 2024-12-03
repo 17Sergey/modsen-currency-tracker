@@ -26,7 +26,7 @@ export const HeaderMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
 
-    useDisableBodyScroll(isMenuOpen); // if menu is open it disables body scroll
+    useDisableBodyScroll(isMenuOpen);
 
     const getMenuItemsJSX = () =>
         MENU_ITEMS.map(({ caption, location }: MenuItem) => (

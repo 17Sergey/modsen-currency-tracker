@@ -2,6 +2,7 @@ import { Link } from "react-router";
 
 import CurrencyLogo from "@components/CurrencyLogo";
 import LayoutContainer from "@components/LayoutContainer";
+import { PATHS } from "@constants/constants.ts";
 
 import {
     StyledCaption,
@@ -35,10 +36,10 @@ export const Footer = () => {
                             <span>General</span>
                             <ul>
                                 <li>
-                                    <Link to={"/"}>Market</Link>
+                                    <Link to={PATHS.HOME}>Market</Link>
                                 </li>
                                 <li>
-                                    <Link to={"/"}>Service</Link>
+                                    <Link to={PATHS.HOME}>Service</Link>
                                 </li>
                             </ul>
                         </StyledNavBlock>
@@ -46,10 +47,10 @@ export const Footer = () => {
                             <span>Product</span>
                             <ul>
                                 <li>
-                                    <Link to={"/"}>Sparks</Link>
+                                    <Link to={PATHS.HOME}>Sparks</Link>
                                 </li>
                                 <li>
-                                    <Link to={"/"}>Snaps</Link>
+                                    <Link to={PATHS.HOME}>Snaps</Link>
                                 </li>
                             </ul>
                         </StyledNavBlock>
@@ -57,10 +58,10 @@ export const Footer = () => {
                             <span>Community</span>
                             <ul>
                                 <li>
-                                    <Link to={"/"}>Ideas</Link>
+                                    <Link to={PATHS.HOME}>Ideas</Link>
                                 </li>
                                 <li>
-                                    <Link to={"/"}>Streams</Link>
+                                    <Link to={PATHS.HOME}>Streams</Link>
                                 </li>
                             </ul>
                         </StyledNavBlock>
