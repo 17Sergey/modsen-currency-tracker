@@ -30,7 +30,7 @@ export const StyledLeft = styled.div`
 export const StyledCaption = styled.div`
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 1rem;
 
     p {
         font-weight: ${({ theme }) => theme.fonts.weight.semibold};

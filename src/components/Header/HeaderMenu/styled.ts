@@ -94,5 +94,5 @@ export const StyledOverlay = styled.div`
 `;
 
 export const StyledToggleCaption = styled.p`
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 `;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import BurgerIcon from "@assets/icons/burgerMenu.svg";
-import CrossIcon from "@assets/icons/crossIcon.svg";
+import BurgerIconUrl from "@assets/icons/burgerMenu.svg?url";
+import CrossIconUrl from "@assets/icons/crossIcon.svg?url";
 import { MENU_ITEMS } from "@constants/constants.ts";
 import { useDisableBodyScroll } from "@hooks/useDisableBodyScroll.ts";
 
@@ -39,10 +39,10 @@ export const HeaderMenu = () => {
         <StyledNav>
             <StyledDesktopMenu>{getMenuItemsJSX()}</StyledDesktopMenu>
             <StyledMobileMenu>
-                <StyledBurgerIcon src={BurgerIcon} onClick={toggleMenu} />
+                <StyledBurgerIcon src={BurgerIconUrl} alt="Burger menu" onClick={toggleMenu} />
                 {isMenuOpen && <StyledOverlay onClick={toggleMenu}></StyledOverlay>}
                 <StyledBurgerMenu $isMenuOpen={isMenuOpen}>
-                    <StyledCrossIcon src={CrossIcon} onClick={toggleMenu} />
+                    <StyledCrossIcon src={CrossIconUrl} alt="Close menu" onClick={toggleMenu} />
                     {getMenuItemsJSX()}
                     <div>
                         <StyledToggleCaption>Toggle theme:</StyledToggleCaption>
