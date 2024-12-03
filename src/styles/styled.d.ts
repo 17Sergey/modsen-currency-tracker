@@ -1,5 +1,7 @@
 import "styled-components";
 
+import { darkTheme } from "./theme.ts";
+
 type ThemeInterface = typeof darkTheme;
 
 declare module "styled-components" {

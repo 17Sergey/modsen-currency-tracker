@@ -72,7 +72,7 @@ html:focus-within {
 /* A elements that don't have a class get default styles */
 a {
   text-decoration: none;
-  color: #000;
+  color: inherit;
 }
 a:not([class]) {
   text-decoration-skip-ink: auto;

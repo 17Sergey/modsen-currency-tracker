@@ -1,1 +1,4 @@
-type SomeProperty = string;
+type MenuItem = {
+    caption: string;
+    location: string;
+};
