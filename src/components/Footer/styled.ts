@@ -1,29 +1,35 @@
 import styled from "styled-components";
 
+import { device } from "@styles/breakpoints";
+
 export const StyledFooter = styled.footer`
     margin-top: ${({ theme }) => theme.margins.sectionTop};
 `;
 
 export const StyledFlex = styled.div`
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 2rem;
+
+    @media only screen and (${device.lg}) {
+        flex-direction: column;
+        margin-bottom: 2rem;
+    }
 `;
 
 export const StyledLeft = styled.div`
-    margin-top: ${({ theme }) => theme.margins.sectionTop};
+    max-width: 400px;
+
+    @media only screen and (${device.lg}) {
+        max-width: 100%;
+    }
 `;
 
 export const StyledCaption = styled.div`
     display: flex;
     align-items: center;
     gap: 0.5rem;
-
-    img {
-        width: 2rem;
-        height: 2rem;
-    }
 
     p {
         font-weight: ${({ theme }) => theme.fonts.weight.semibold};
@@ -42,18 +48,27 @@ export const StyledCaption = styled.div`
     }
 `;
 
+export const StyledLogo = styled.div`
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    flex-shrink: 0;
+`;
+
 export const StyledDescription = styled.p`
     margin-top: 1.5rem;
-    max-width: 400px;
     line-height: 170%;
+
+    @media only screen and (${device.md}) {
+        max-width: 100%;
+    }
 `;
 
 export const StyledFooterNav = styled.nav`
     width: 100%;
-    max-width: 500px;
-    display: flex;
-    justify-content: space-between;
-    gap: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+    gap: 2rem 1rem;
 `;
 
 export const StyledNavBlock = styled.div`
@@ -71,6 +86,11 @@ export const StyledNavBlock = styled.div`
             font-weight: ${({ theme }) => theme.fonts.weight.regular};
             color: ${({ theme }) => theme.colors.textFooter};
             margin-top: 0.5rem;
+
+            &:hover {
+                text-decoration: underline;
+                text-underline-offset: 0.25rem;
+            }
         }
     }
 `;
@@ -81,8 +101,6 @@ export const StyledCopywright = styled.div`
     p {
         font-weight: ${({ theme }) => theme.fonts.weight.regular};
         color: ${({ theme }) => theme.colors.textFooter};
-
-        max-width: fit-content;
-        margin: 0 auto;
+        text-align: center;
     }
 `;

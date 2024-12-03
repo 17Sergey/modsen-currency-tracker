@@ -12,6 +12,7 @@ import {
     StyledFooter,
     StyledFooterNav,
     StyledLeft,
+    StyledLogo,
     StyledNavBlock,
 } from "./styled.ts";
 
@@ -22,7 +23,9 @@ export const Footer = () => {
                 <StyledFlex>
                     <StyledLeft>
                         <StyledCaption>
-                            <CurrencyLogo />
+                            <StyledLogo>
+                                <CurrencyLogo />
+                            </StyledLogo>
                             <p>Modsen Currency Tracker</p>
                         </StyledCaption>
                         <StyledDescription>
