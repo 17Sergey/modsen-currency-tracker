@@ -10,11 +10,12 @@ export const StyledFlex = styled.div`
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 2rem;
+    gap: 5rem;
 
     @media only screen and (${device.lg}) {
         flex-direction: column;
         margin-bottom: 2rem;
+        gap: 2rem;
     }
 `;
 
@@ -66,12 +67,14 @@ export const StyledDescription = styled.p`
 
 export const StyledFooterNav = styled.nav`
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
-    gap: 2rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
 `;
 
 export const StyledNavBlock = styled.div`
+    width: fit-content;
     span {
         color: ${({ theme }) => theme.colors.textPrimary};
         font-weight: ${({ theme }) => theme.fonts.weight.regular};
