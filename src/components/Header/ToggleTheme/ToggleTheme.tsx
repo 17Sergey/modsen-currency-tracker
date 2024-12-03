@@ -15,8 +15,8 @@ export const ToggleTheme = () => {
     return (
         <button
             aria-pressed={isDarkMode}
-            onClick={toggleTheme}
             aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
+            onClick={toggleTheme}
         >
             {/* {isDarkMode ? "🌙" : "☀️"} */}
             <StyledImg src={Toggler} alt="toggle-theme" />

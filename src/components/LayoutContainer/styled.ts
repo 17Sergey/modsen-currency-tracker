@@ -8,6 +8,10 @@ export const StyledContainer = styled.div`
     margin: 0 auto;
     padding: 0 ${({ theme }) => theme.paddings.container};
 
+    @media only screen and (${device.lg}) {
+        width: 95%;
+    }
+
     @media only screen and (${device.md}) {
         width: 100%;
     }

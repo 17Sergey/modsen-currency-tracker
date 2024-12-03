@@ -10,7 +10,7 @@ export const StyledHeader = styled.header`
     padding: 1.5rem 0;
 `;
 
-export const StyledToggleContainer = styled.div`
+export const StyledToggle = styled.div`
     @media only screen and (${device.md}) {
         display: none;
     }

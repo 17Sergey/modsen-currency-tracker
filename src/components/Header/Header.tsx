@@ -3,7 +3,7 @@ import ToggleTheme from "@components/Header/ToggleTheme";
 import LayoutContainer from "@components/LayoutContainer";
 
 import { HeaderMenu } from "./HeaderMenu/HeaderMenu.tsx";
-import { StyledHeader, StyledToggleContainer } from "./styled.ts";
+import { StyledHeader, StyledToggle } from "./styled.ts";
 
 export const Header = () => {
     return (
@@ -12,9 +12,9 @@ export const Header = () => {
                 <StyledHeader>
                     <CurrencyLogo />
                     <HeaderMenu />
-                    <StyledToggleContainer>
+                    <StyledToggle>
                         <ToggleTheme />
-                    </StyledToggleContainer>
+                    </StyledToggle>
                 </StyledHeader>
             </LayoutContainer>
         </>
