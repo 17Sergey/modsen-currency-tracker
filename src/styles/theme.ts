@@ -42,6 +42,12 @@ export const darkTheme = {
             first: "#121212",
             second: "#24794000",
         },
+
+        updatedAtPulses: {
+            inner: "#019841",
+            middle: "#02461F",
+            outer: "#022B14",
+        },
     },
     fonts: {
         primary: "Poppins",
@@ -84,6 +90,7 @@ export const lightTheme = {
     ...darkTheme,
     name: THEMES.LIGHT,
     colors: {
+        ...darkTheme.colors,
         background: "#FFFFFF",
         backgroundNeutral: "#FAFAFA",
 
@@ -99,25 +106,10 @@ export const lightTheme = {
         gray: "#9E9E9E",
         inputBg: "#1B2028",
 
-        chartHighlight: "#FF971D",
-        chartUp: "#16C782",
-        chartDown: "#EA3943",
-        mapSelectedTag: "#185CFF",
-
-        logoGradient: {
-            first: "#2ADD50",
-            second: "#AFDD2A",
-        },
-
-        captionGradient: {
-            first: "#00CE2C",
-            second: "#AEDF23",
-            third: "#A3DC00",
-        },
-
-        welcomeGradient: {
-            first: "#121212",
-            second: "#24794000",
+        updatedAtPulses: {
+            inner: "#00BC4F",
+            middle: "#7ADCA4",
+            outer: "#CCF2DC",
         },
     },
 };

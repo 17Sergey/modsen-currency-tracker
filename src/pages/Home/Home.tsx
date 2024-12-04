@@ -1,11 +1,9 @@
-import LayoutContainer from "@components/LayoutContainer";
+import LastUpdated from "@components/LastUpdated";
 
 export function Home() {
     return (
         <>
-            <LayoutContainer>
-                <h1>Home page</h1>
-            </LayoutContainer>
+            <LastUpdated />
         </>
     );
 }
