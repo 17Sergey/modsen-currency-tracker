@@ -87,7 +87,7 @@ export const lightTheme = {
         background: "#FFFFFF",
         backgroundNeutral: "#FAFAFA",
 
-        textPrimary: "#000000",
+        textPrimary: "#030304",
         textNeutral: "#D9D9D9",
         textNeutralTransparent: "#A7B2C3",
         textFooter: "#898989",

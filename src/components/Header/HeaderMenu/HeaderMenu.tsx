@@ -1,15 +1,15 @@
 import { useState } from "react";
 
-import BurgerIconUrl from "@assets/icons/burgerMenu.svg?url";
-import CrossIconUrl from "@assets/icons/crossIcon.svg?url";
 import { MENU_ITEMS } from "@constants/constants.ts";
 import { useDisableBodyScroll } from "@hooks/useDisableBodyScroll.ts";
 
 import { ToggleTheme } from "../ToggleTheme/ToggleTheme.tsx";
 
 import {
+    StyledBurgerButton,
     StyledBurgerIcon,
     StyledBurgerMenu,
+    StyledCloseButton,
     StyledCrossIcon,
     StyledDesktopMenu,
     StyledLink,
@@ -39,10 +39,24 @@ export const HeaderMenu = () => {
         <StyledNav>
             <StyledDesktopMenu>{getMenuItemsJSX()}</StyledDesktopMenu>
             <StyledMobileMenu>
-                <StyledBurgerIcon src={BurgerIconUrl} alt="Burger menu" onClick={toggleMenu} />
+                <StyledBurgerButton
+                    aria-expanded={isMenuOpen}
+                    aria-controls="menu"
+                    aria-label="Open menu"
+                    onClick={toggleMenu}
+                >
+                    <StyledBurgerIcon />
+                </StyledBurgerButton>
                 {isMenuOpen && <StyledOverlay onClick={toggleMenu}></StyledOverlay>}
                 <StyledBurgerMenu $isMenuOpen={isMenuOpen}>
-                    <StyledCrossIcon src={CrossIconUrl} alt="Close menu" onClick={toggleMenu} />
+                    <StyledCloseButton
+                        aria-expanded={!isMenuOpen}
+                        aria-controls="menu"
+                        aria-label="Close menu"
+                        onClick={toggleMenu}
+                    >
+                        <StyledCrossIcon />
+                    </StyledCloseButton>
                     {getMenuItemsJSX()}
                     <div>
                         <StyledToggleCaption>Toggle theme:</StyledToggleCaption>

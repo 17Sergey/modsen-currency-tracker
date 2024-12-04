@@ -1,6 +1,8 @@
 import { Link } from "react-router";
 import styled from "styled-components";
 
+import BurgerIcon from "@assets/icons/burgerMenu.svg";
+import CrossIcon from "@assets/icons/crossIcon.svg";
 import { device } from "@styles/breakpoints";
 
 export const StyledNav = styled.nav`
@@ -63,19 +65,30 @@ export const StyledBurgerMenu = styled.div<{
     background-color: ${({ $isMenuOpen, theme }) => $isMenuOpen && theme.colors.background};
 `;
 
-export const StyledBurgerIcon = styled.img`
+export const StyledBurgerButton = styled.button`
     width: 2rem;
     height: 2rem;
-    cursor: pointer;
 `;
 
-export const StyledCrossIcon = styled.img`
+export const StyledBurgerIcon = styled(BurgerIcon)`
+    width: 100%;
+    height: 100%;
+    stroke: ${({ theme }) => theme.colors.textPrimary};
+`;
+
+export const StyledCloseButton = styled.button`
     width: 2.5rem;
     height: 2.5rem;
-    cursor: pointer;
     align-self: flex-end;
     position: relative;
     left: 1rem;
+`;
+
+export const StyledCrossIcon = styled(CrossIcon)`
+    width: 100%;
+    height: 100%;
+    stroke: ${({ theme }) => theme.colors.textPrimary};
+    color: ${({ theme }) => theme.colors.textPrimary};
 `;
 
 export const StyledOverlay = styled.div`
