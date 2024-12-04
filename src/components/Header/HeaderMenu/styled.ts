@@ -14,7 +14,7 @@ export const StyledNav = styled.nav`
     }
 `;
 
-export const StyledDesktopMenu = styled.div`
+export const StyledDesktopMenu = styled.ul`
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -36,7 +36,7 @@ export const StyledLink = styled(Link)`
     }
 `;
 
-export const StyledMobileMenu = styled.div`
+export const StyledMobileMenu = styled.ul`
     display: none;
     @media only screen and (${device.md}) {
         display: block;
