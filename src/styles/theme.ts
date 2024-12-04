@@ -40,7 +40,7 @@ export const darkTheme = {
 
         welcomeGradient: {
             first: "#121212",
-            second: "#24794000",
+            second: "#24794020",
         },
 
         updatedAtPulses: {
@@ -60,11 +60,11 @@ export const darkTheme = {
             heading: "2rem", // 32px
             headingL: "2.1875rem", // 35px
             headingXL: "2.375rem", // 38px
-
             footerCaption: "1.625rem", // 26px
             footerMenu: "1.75rem", // 28px
-            captionLarge: "4.75rem", // 76px
-            captionLargeWord: "5.625rem", // 90px
+            captionMedium: "3.25rem",
+            captionLarge: "4.25rem",
+            captionLargeWord: "5rem",
         },
         weight: {
             light: 300,

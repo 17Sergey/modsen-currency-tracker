@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { device } from "@styles/breakpoints";
 
 export const StyledBlock = styled.section`
+    padding: 3rem 0;
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -38,7 +39,7 @@ const pulseAnimation = keyframes`
 export const StyledCircleOut = styled(StyledCircle)`
     z-index: 10;
     background-color: ${({ theme }) => theme.colors.updatedAtPulses.outer};
-    animation: ${pulseAnimation} 5s infinite;
+    animation: ${pulseAnimation} 3s infinite;
 `;
 
 export const StyledCircleMiddle = styled(StyledCircle)`

@@ -10,6 +10,11 @@ export const StyledHeader = styled.header`
     padding: 1.5rem 0;
 `;
 
+export const StyledCurrencyLogo = styled.div`
+    width: 2.5rem;
+    height: 2.5rem;
+`;
+
 export const StyledToggle = styled.div`
     @media only screen and (${device.md}) {
         display: none;

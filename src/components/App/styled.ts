@@ -1,7 +1,5 @@
 import styled from "styled-components";
 
-import { device } from "@styles/breakpoints";
-
 export const StyledLayout = styled.main`
     display: flex;
     flex-direction: column;
@@ -10,9 +8,4 @@ export const StyledLayout = styled.main`
 
 export const StyledMain = styled.main`
     flex-grow: 1;
-    padding: 5rem 0;
-
-    @media only screen and (${device.sm}) {
-        padding: 2.5rem 0;
-    }
 `;
