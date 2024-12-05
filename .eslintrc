@@ -33,6 +33,7 @@
     ],
     "rules": {
         "@typescript-eslint/no-unused-vars": ["error"],
+        "no-param-reassign": ["error", { "props": false }],
         "react/prop-types": "off",
         "react/jsx-uses-react": "off",
         "react/react-in-jsx-scope": "off",
