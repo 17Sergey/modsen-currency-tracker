@@ -9,19 +9,17 @@ import {
     StyledPulse,
 } from "./styled.ts";
 
-export const LastUpdated = () => {
-    return (
-        <>
-            <LayoutContainer>
-                <StyledBlock>
-                    <StyledPulse aria-hidden="true">
-                        <StyledCircleOut />
-                        <StyledCircleMiddle />
-                        <StyledCircleInner />
-                    </StyledPulse>
-                    <StyledCaption>Last updated at 11:59pm</StyledCaption>
-                </StyledBlock>
-            </LayoutContainer>
-        </>
-    );
-};
+export const LastUpdated = () => (
+    <>
+        <LayoutContainer>
+            <StyledBlock>
+                <StyledPulse aria-hidden="true">
+                    <StyledCircleOut />
+                    <StyledCircleMiddle />
+                    <StyledCircleInner />
+                </StyledPulse>
+                <StyledCaption>Last updated at 11:59pm</StyledCaption>
+            </StyledBlock>
+        </LayoutContainer>
+    </>
+);
