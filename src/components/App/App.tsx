@@ -9,25 +9,23 @@ import { ROUTES } from "@constants/routes.ts";
 
 import { StyledLayout, StyledMain } from "./styled.ts";
 
-export const App = () => {
-    return (
-        <StyledLayout>
-            <Header />
-            <StyledMain>
-                <Suspense fallback={<Loader />}>
-                    <Routes>
-                        {ROUTES.map((route) => (
-                            <Route
-                                key={route.path}
-                                index={route.path === PATHS.HOME}
-                                path={route.path}
-                                element={<route.component />}
-                            />
-                        ))}
-                    </Routes>
-                </Suspense>
-            </StyledMain>
-            <Footer />
-        </StyledLayout>
-    );
-};
+export const App = () => (
+    <StyledLayout>
+        <Header />
+        <StyledMain>
+            <Suspense fallback={<Loader />}>
+                <Routes>
+                    {ROUTES.map((route) => (
+                        <Route
+                            key={route.path}
+                            index={route.path === PATHS.HOME}
+                            path={route.path}
+                            element={<route.component />}
+                        />
+                    ))}
+                </Routes>
+            </Suspense>
+        </StyledMain>
+        <Footer />
+    </StyledLayout>
+);

@@ -1,11 +1,9 @@
-import LayoutContainer from "@components/LayoutContainer";
+import LastUpdated from "@components/LastUpdated";
+import WelcomeScreen from "@components/WelcomeScreen";
 
-export function Home() {
-    return (
-        <>
-            <LayoutContainer>
-                <h1>Home page</h1>
-            </LayoutContainer>
-        </>
-    );
-}
+export const Home = () => (
+    <>
+        <WelcomeScreen />
+        <LastUpdated />
+    </>
+);
