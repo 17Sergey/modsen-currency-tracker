@@ -7,7 +7,7 @@ export const StyledWelcomeSection = styled.section`
     padding: 4rem 0;
     background: ${({ theme }) =>
         theme.name === THEMES.DARK
-            ? `linear-gradient(90deg, ${theme.colors.welcomeGradient.first} 0%, ${theme.colors.welcomeGradient.second} 100%)` // Закрывающая скобка добавлена
+            ? `linear-gradient(90deg, ${theme.colors.welcomeGradient.first} 0%, ${theme.colors.welcomeGradient.second} 100%)`
             : "none"};
 
     @media only screen and (${device.sm}) {

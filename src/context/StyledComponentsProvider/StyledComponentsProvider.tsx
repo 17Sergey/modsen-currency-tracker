@@ -6,9 +6,8 @@ import { THEMES } from "@constants/constants";
 import { GlobalStyles } from "@styles/globalStyles";
 import { darkTheme, lightTheme } from "@styles/theme";
 
-type ToggleThemeType = () => void;
-
-export const ToggleThemeContext = createContext<ToggleThemeType | undefined>(undefined);
+type ToggleThemeFunctionType = () => void;
+export const ToggleThemeContext = createContext<ToggleThemeFunctionType | undefined>(undefined);
 
 export const StyledComponentsProvider: React.FC<PropsWithChildren> = ({ children }) => {
     const [theme, setTheme] = useState<DefaultTheme>(darkTheme);
