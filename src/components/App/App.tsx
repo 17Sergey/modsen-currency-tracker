@@ -13,7 +13,7 @@ export const App = () => (
     <StyledLayout>
         <Header />
         <StyledMain>
-            <Suspense fallback={<Loader />}>
+            <Suspense fallback={<Loader variant="sm" />}>
                 <Routes>
                     {ROUTES.map((route) => (
                         <Route
