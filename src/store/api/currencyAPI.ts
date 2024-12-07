@@ -1,21 +1,22 @@
+import { BASE_CURRENCY, CURRENCIES_LIST, CURRENCY_API_KEY } from "@constants/constants";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // TODO: Add Tags
 export const currencyAPI = createApi({
     reducerPath: "currencyAPI",
-    baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:3001" }),
+    baseQuery: fetchBaseQuery({ baseUrl: "https://api.freecurrencyapi.com/v1" }),
     endpoints: (build) => ({
-        getGoods: build.query<unknown, { count: string }>({
-            query: ({ count }) => `/posts${count && `?_limit=${count}`}`,
-        }),
-        addGood: build.mutation({
-            query: (body) => ({
-                method: "POST",
-                url: "/posts",
-                body,
-            }),
+        getCurrencies: build.query<CurrencyData[], void>({
+            query: () =>
+                `/latest?apikey=${CURRENCY_API_KEY}&base_currency=${BASE_CURRENCY}&currencies=${CURRENCIES_LIST}`,
+            transformResponse: (response: CurrencyResponse) => {
+                return Object.entries(response.data).map(([currency, value]) => ({
+                    currency,
+                    value,
+                }));
+            },
         }),
     }),
 });
 
-export const { useGetGoodsQuery, useAddGoodMutation } = currencyAPI;
+export const { useGetCurrenciesQuery } = currencyAPI;

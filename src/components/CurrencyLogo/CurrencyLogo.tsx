@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-import CurrencyLogoUrl from "@assets/icons/currencyLogo.svg?url";
+import CurrencyLogoUrl from "@assets/icons/CurrencyLogo.svg?url";
 import { PATHS } from "@constants/constants";
 
 export const CurrencyLogo = () => (

@@ -2,8 +2,8 @@ import styled, { keyframes } from "styled-components";
 
 import { device } from "@styles/breakpoints";
 
-export const StyledBlock = styled.section`
-    padding: 3rem 0;
+export const StyledSection = styled.section`
+    padding: ${({ theme }) => theme.paddings.lg} 0;
     display: flex;
     align-items: center;
     gap: 1.5rem;
@@ -14,8 +14,8 @@ export const StyledBlock = styled.section`
     }
 `;
 export const StyledPulse = styled.div`
-    width: 2.5rem;
-    height: 2.5rem;
+    width: ${({ theme }) => theme.widths.icons.base};
+    height: ${({ theme }) => theme.widths.icons.base};
     position: relative;
     flex-shrink: 0;
 `;
@@ -56,5 +56,5 @@ export const StyledCircleInner = styled(StyledCircle)`
 
 export const StyledCaption = styled.p`
     font-weight: ${({ theme }) => theme.fonts.weight.light};
-    font-size: ${({ theme }) => theme.fonts.size.medium};
+    font-size: ${({ theme }) => theme.fonts.size.md};
 `;

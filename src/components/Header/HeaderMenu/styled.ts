@@ -1,8 +1,8 @@
 import { Link } from "react-router";
 import styled from "styled-components";
 
-import BurgerIcon from "@assets/icons/burgerMenu.svg";
-import CrossIcon from "@assets/icons/crossIcon.svg";
+import BurgerIcon from "@assets/icons/BurgerMenu.svg";
+import CrossIcon from "@assets/icons/CrossIcon.svg";
 import { device } from "@styles/breakpoints";
 
 export const StyledNav = styled.nav`
@@ -34,7 +34,7 @@ export const StyledLink = styled(Link)`
 
     &:hover {
         text-decoration: underline;
-        text-underline-offset: 0.25rem;
+        text-underline-offset: ${({ theme }) => theme.paddings.xs};
     }
 `;
 
@@ -59,15 +59,15 @@ export const StyledBurgerMenu = styled.div<{
     gap: 2rem;
 
     height: 100vh;
-    padding: 2rem;
+    padding: ${({ theme }) => theme.paddings.xxl};
 
     transition: all 0.3s ease;
     background-color: ${({ $isMenuOpen, theme }) => $isMenuOpen && theme.colors.background};
 `;
 
 export const StyledBurgerButton = styled.button`
-    width: 2rem;
-    height: 2rem;
+    width: ${({ theme }) => theme.widths.icons.sm};
+    height: ${({ theme }) => theme.widths.icons.sm};
 `;
 
 export const StyledBurgerIcon = styled(BurgerIcon)`
@@ -77,8 +77,8 @@ export const StyledBurgerIcon = styled(BurgerIcon)`
 `;
 
 export const StyledCloseButton = styled.button`
-    width: 2.5rem;
-    height: 2.5rem;
+    width: ${({ theme }) => theme.widths.icons.base};
+    height: ${({ theme }) => theme.widths.icons.base};
     align-self: flex-end;
     position: relative;
     left: 1rem;
@@ -107,5 +107,5 @@ export const StyledOverlay = styled.div`
 `;
 
 export const StyledToggleCaption = styled.p`
-    margin-bottom: 1rem;
+    margin-bottom: ${({ theme }) => theme.margins.base};
 `;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { device } from "@styles/breakpoints";
 
 export const StyledFooter = styled.footer`
-    margin-top: ${({ theme }) => theme.margins.sectionTop};
+    margin-top: ${({ theme }) => theme.margins.xxl};
 `;
 
 export const StyledFlex = styled.div`
@@ -14,7 +14,7 @@ export const StyledFlex = styled.div`
 
     @media only screen and (${device.lg}) {
         flex-direction: column;
-        margin-bottom: 2rem;
+        margin-bottom: ${({ theme }) => theme.margins.m};
         gap: 2rem;
     }
 `;
@@ -34,7 +34,7 @@ export const StyledCaption = styled.div`
 
     p {
         font-weight: ${({ theme }) => theme.fonts.weight.semibold};
-        font-size: ${({ theme }) => theme.fonts.size.medium};
+        font-size: ${({ theme }) => theme.fonts.size.md};
 
         background: linear-gradient(
             to right,
@@ -50,14 +50,14 @@ export const StyledCaption = styled.div`
 `;
 
 export const StyledLogo = styled.div`
-    width: 2rem;
-    height: 2rem;
+    width: ${({ theme }) => theme.widths.icons.sm};
+    height: ${({ theme }) => theme.widths.icons.sm};
     display: block;
     flex-shrink: 0;
 `;
 
 export const StyledDescription = styled.p`
-    margin-top: 1.5rem;
+    margin-top: ${({ theme }) => theme.margins.m};
     line-height: 170%;
 
     @media only screen and (${device.md}) {
@@ -78,28 +78,28 @@ export const StyledNavBlock = styled.div`
     span {
         color: ${({ theme }) => theme.colors.textPrimary};
         font-weight: ${({ theme }) => theme.fonts.weight.regular};
-        font-size: ${({ theme }) => theme.fonts.size.medium};
+        font-size: ${({ theme }) => theme.fonts.size.md};
     }
 
     ul {
-        margin-top: 1.5rem;
+        margin-top: ${({ theme }) => theme.margins.m};
 
         // TODO: mixins for repeated css
         li {
             font-weight: ${({ theme }) => theme.fonts.weight.regular};
             color: ${({ theme }) => theme.colors.textFooter};
-            margin-top: 0.5rem;
+            margin-top: ${({ theme }) => theme.margins.sm};
 
             &:hover {
                 text-decoration: underline;
-                text-underline-offset: 0.25rem;
+                text-underline-offset: ${({ theme }) => theme.paddings.xs};
             }
         }
     }
 `;
 
 export const StyledCopywright = styled.div`
-    padding: ${({ theme }) => theme.paddings.pageTop} 0;
+    padding: ${({ theme }) => theme.paddings.xxl} 0;
 
     p {
         font-weight: ${({ theme }) => theme.fonts.weight.regular};

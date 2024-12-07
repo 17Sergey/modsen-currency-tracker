@@ -3,15 +3,15 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router";
 
 import App from "@components/App";
-import StyledComponentsProvider from "@context/StyledComponentsProvider";
+import ThemeProvider from "@context/ThemeProvider";
 import { store } from "@store/index.ts";
 
 createRoot(document.getElementById("root")!).render(
     <Provider store={store}>
-        <StyledComponentsProvider>
+        <ThemeProvider>
             <BrowserRouter>
                 <App />
             </BrowserRouter>
-        </StyledComponentsProvider>
+        </ThemeProvider>
     </Provider>
 );

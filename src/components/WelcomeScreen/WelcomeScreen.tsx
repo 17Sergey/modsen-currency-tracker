@@ -1,4 +1,4 @@
-import CurrencyLogo from "@assets/icons/currencyLogo.svg";
+import CurrencyLogo from "@assets/icons/CurrencyLogo.svg";
 import LayoutContainer from "@components/LayoutContainer";
 
 import {
