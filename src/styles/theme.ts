@@ -38,6 +38,8 @@ export const darkTheme = {
         chartDown: "#EA3943",
         mapSelectedTag: "#185CFF",
 
+        error: "#EA3943",
+
         logoGradient: {
             first: "#2ADD50",
             second: "#AFDD2A",

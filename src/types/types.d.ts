@@ -3,9 +3,14 @@ type MenuItem = {
     location: string;
 };
 
+type CurrencyData = {
+    currency: string;
+    value: number;
+};
+
 type CurrencyResponse = {
     meta: {
-        last_updated_at: string;
+        last_updated_at: Date;
     };
     data: {
         AUD: number;
@@ -19,9 +24,11 @@ type CurrencyResponse = {
     };
 };
 
-type CurrencyData = {
-    currency: string;
-    value: number;
+type CurrencyResponseTransformed = {
+    meta: {
+        last_updated_at: string;
+    };
+    data: CurrencyData[];
 };
 
 type LoaderVariants = "sm" | "md" | "lg";

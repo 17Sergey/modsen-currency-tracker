@@ -11,7 +11,7 @@ export const CardsSection = () => {
             <StyledSectionHeading>Quotes</StyledSectionHeading>
             {error && <p>Error: {JSON.stringify(error)}</p>}
             {isLoading && <Loader variant="md" />}
-            {currencies && <CurrenciesCardsList currencies={currencies} />}
+            {currencies && <CurrenciesCardsList currencies={currencies.data} />}
         </StyledCardsSection>
     );
 };

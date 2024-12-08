@@ -54,7 +54,16 @@ export const StyledCircleInner = styled(StyledCircle)`
     background-color: ${({ theme }) => theme.colors.updatedAtPulses.inner};
 `;
 
-export const StyledCaption = styled.p`
+export const StyledCaption = styled.div`
     font-weight: ${({ theme }) => theme.fonts.weight.light};
     font-size: ${({ theme }) => theme.fonts.size.md};
+`;
+
+export const StyledLoading = styled.div`
+    display: flex;
+    gap: 1rem;
+`;
+
+export const StyledError = styled.strong`
+    color: ${({ theme }) => theme.colors.error};
 `;

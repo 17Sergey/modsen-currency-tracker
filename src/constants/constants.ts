@@ -44,3 +44,13 @@ export const STOCKS_CODES = {
     BTC: "BTC",
     IFIX: "IFIX",
 };
+
+export const DATE_NUMBERS = {
+    DATE_PART_INDEX: 0,
+    TIME_PART_INDEX: 1,
+};
+
+export const CONVERTER_INPUTS = {
+    BASE_INPUT: "baseInput",
+    TARGET_INPUT: "targetInput",
+};
