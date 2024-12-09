@@ -32,11 +32,14 @@ export const darkTheme = {
         border: "#474747",
         gray: "#9E9E9E",
         inputBg: "#1B2028",
+        modalOverlay: "#000000",
 
         chartHighlight: "#FF971D",
         chartUp: "#16C782",
         chartDown: "#EA3943",
         mapSelectedTag: "#185CFF",
+
+        error: "#EA3943",
 
         logoGradient: {
             first: "#2ADD50",
@@ -119,7 +122,7 @@ export const lightTheme = {
         primary: "#00BC4F",
         primaryTransparent: "#02471F",
 
-        border: "#474747",
+        border: "#EBEBEB",
         gray: "#9E9E9E",
         inputBg: "#1B2028",
 
