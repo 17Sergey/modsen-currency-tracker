@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+import { THEMES } from "@constants/constants";
 import { device } from "@styles/breakpoints";
 
 export const StyledCard = styled.div`
@@ -36,7 +37,7 @@ export const StyledName = styled.p`
 `;
 
 export const StyledValue = styled.p`
-    color: ${({ theme }) => theme.colors.textNeutral};
+    color: ${({ theme }) => (theme.name === THEMES.DARK ? theme.colors.textNeutral : theme.colors.textPrimary)};
 `;
 
 export const StyledIcon = styled.div`

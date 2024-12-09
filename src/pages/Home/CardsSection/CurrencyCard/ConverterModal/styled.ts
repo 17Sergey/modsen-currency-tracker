@@ -2,12 +2,14 @@ import styled from "styled-components";
 
 import CrossIcon from "@assets/icons/CrossIcon.svg";
 import ExchangeIcon from "@assets/icons/ExchangeIcon.svg";
+import { THEMES } from "@constants/constants";
 import { device } from "@styles/breakpoints";
 
 export const StyledBox = styled.div`
     width: 50vw;
     padding: ${({ theme }) => theme.paddings.xl};
-    background-color: ${({ theme }) => theme.colors.border};
+    background-color: ${({ theme }) =>
+        theme.name === THEMES.DARK ? theme.colors.border : theme.colors.backgroundNeutral};
     border-radius: ${({ theme }) => theme.paddings.sm};
 
     @media only screen and (${device.lg}) {
@@ -44,39 +46,30 @@ export const StyledHeading = styled.h2`
     font-size: ${({ theme }) => theme.fonts.size.lg};
 `;
 
-export const StyledForm = styled.form``;
+export const StyledForm = styled.form`
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
+    flex-wrap: wrap;
 
-export const StyledInput = styled.input`
-    max-width: 100%;
-`;
+    @media only screen and (${device.xl}) {
+        display: block;
+    }
 
-export const StyledSelectedCurrency = styled.div`
-    margin: ${({ theme }) => theme.margins.base} 0;
+    margin-top: ${({ theme }) => theme.margins.md};
 `;
 
 export const StyledExchangeIcon = styled(ExchangeIcon)`
     width: ${({ theme }) => theme.widths.icons.sm};
     height: ${({ theme }) => theme.widths.icons.sm};
     fill: ${({ theme }) => theme.colors.textPrimary};
-`;
 
-export const StyledTargetCurrency = styled.div``;
+    transform: rotate(90deg);
+    flex-shrink: 0;
 
-export const StyledTargetFields = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    align-items: stretch;
-
-    @media only screen and (${device.sm}) {
-        gap: 0.5rem;
-        margin: ${({ theme }) => theme.margins.sm} 0;
-    }
-`;
-
-export const StyledSelect = styled.select`
-    @media only screen and (${device.sm}) {
-        order: -1;
-        margin: ${({ theme }) => theme.margins.sm} 0;
+    @media only screen and (${device.xl}) {
+        transform: none;
+        margin: ${({ theme }) => theme.margins.base} 0;
     }
 `;

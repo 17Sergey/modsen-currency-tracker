@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { THEMES } from "@constants/constants";
+
 export const StyledOverlay = styled.div`
     position: fixed;
     top: 0;
@@ -11,7 +13,8 @@ export const StyledOverlay = styled.div`
 
     cursor: pointer;
 
-    background-color: ${({ theme }) => theme.colors.backgroundNeutral};
+    background-color: ${({ theme }) =>
+        theme.name === THEMES.DARK ? theme.colors.backgroundNeutral : theme.colors.modalOverlay};
     opacity: 0.6;
 `;
 
