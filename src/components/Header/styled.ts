@@ -7,12 +7,12 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    padding: 1.5rem 0;
+    padding: ${({ theme }) => theme.paddings.xl} 0;
 `;
 
 export const StyledCurrencyLogo = styled.div`
-    width: 2.5rem;
-    height: 2.5rem;
+    width: ${({ theme }) => theme.widths.icons.base};
+    height: ${({ theme }) => theme.widths.icons.base};
 `;
 
 export const StyledToggle = styled.div`

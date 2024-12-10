@@ -4,14 +4,14 @@ import { THEMES } from "@constants/constants";
 import { device } from "@styles/breakpoints";
 
 export const StyledWelcomeSection = styled.section`
-    padding: 4rem 0;
+    padding: ${({ theme }) => theme.paddings.large} 0;
     background: ${({ theme }) =>
         theme.name === THEMES.DARK
             ? `linear-gradient(90deg, ${theme.colors.welcomeGradient.first} 0%, ${theme.colors.welcomeGradient.second} 100%)`
             : "none"};
 
-    @media only screen and (${device.sm}) {
-        padding: 2rem 0;
+    @media only screen and (${device.md}) {
+        padding: ${({ theme }) => theme.paddings.xxl} 0;
     }
 `;
 
@@ -35,9 +35,9 @@ export const StyledLeft = styled.div`
 `;
 
 export const StyledHeading = styled.h1`
-    font-size: ${({ theme }) => theme.fonts.size.captionLarge};
+    font-size: ${({ theme }) => theme.fonts.size.large};
     font-weight: ${({ theme }) => theme.fonts.weight.semibold};
-    padding-right: 5rem;
+    padding-right: ${({ theme }) => theme.paddings.large};
 
     background: linear-gradient(
         to right,
@@ -52,15 +52,12 @@ export const StyledHeading = styled.h1`
 
     @media only screen and (${device.md}) {
         padding-right: 0;
-        font-size: ${({ theme }) => theme.fonts.size.headingXL};
-    }
-    @media only screen and (${device.sm}) {
-        font-size: ${({ theme }) => theme.fonts.size.headingL};
+        font-size: ${({ theme }) => theme.fonts.size.xl};
     }
 `;
 
 export const StyledBigWord = styled.span`
-    font-size: ${({ theme }) => theme.fonts.size.captionLargeWord};
+    font-size: ${({ theme }) => theme.fonts.size.largest};
 
     @media only screen and (${device.md}) {
         font-size: inherit;
@@ -70,10 +67,10 @@ export const StyledBigWord = styled.span`
 export const StyledDescription = styled.p`
     max-width: 350px;
     margin-left: auto;
-    margin-top: 2rem;
+    margin-top: ${({ theme }) => theme.margins.md};
 
     text-align: center;
-    font-size: ${({ theme }) => theme.fonts.size.medium};
+    font-size: ${({ theme }) => theme.fonts.size.md};
     line-height: 200%;
 
     @media only screen and (${device.xl}) {
@@ -93,6 +90,6 @@ export const StyledCurrencyLogo = styled.div`
     }
 
     @media only screen and (${device.xl}) {
-        margin-top: 2rem;
+        margin-top: ${({ theme }) => theme.margins.md};
     }
 `;

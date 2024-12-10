@@ -1,7 +1,7 @@
 import { useTheme } from "styled-components";
 
 import { THEMES } from "@constants/constants.ts";
-import { useToggleTheme } from "@hooks/useToggleTheme.ts";
+import { useToggleTheme } from "@context/ThemeProvider/useToggleTheme.ts";
 
 import { StyledButton, StyledCircle, StyledEllipse } from "./styled.ts";
 

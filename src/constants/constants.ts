@@ -17,3 +17,40 @@ export const THEMES = {
     DARK: "dark",
     LIGHT: "light",
 };
+
+export const REDUX_SLICES = {
+    HOME_PAGE: "homePage",
+};
+
+export const BASE_CURRENCY = "USD";
+
+export const CURRENCIES_LIST = "EUR,AUD,JPY,CZK,GBP,PLN,RUB,CAD";
+
+export const CURRENCY_API_KEY = process.env.CURRENCY_API_KEY || "";
+
+export const CURRENCY_CODES = {
+    USD: "USD",
+    AUD: "AUD",
+    CAD: "CAD",
+    CZK: "CZK",
+    EUR: "EUR",
+    GBP: "GBP",
+    JPY: "JPY",
+    PLN: "PLN",
+    RUB: "RUB",
+};
+
+export const STOCKS_CODES = {
+    BTC: "BTC",
+    IFIX: "IFIX",
+};
+
+export const DATE_NUMBERS = {
+    DATE_PART_INDEX: 0,
+    TIME_PART_INDEX: 1,
+};
+
+export const CONVERTER_INPUTS = {
+    BASE_INPUT: "baseInput",
+    TARGET_INPUT: "targetInput",
+};

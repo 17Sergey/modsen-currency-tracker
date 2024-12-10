@@ -1,0 +1,3 @@
+type HomePageState = {
+    value: number;
+};
