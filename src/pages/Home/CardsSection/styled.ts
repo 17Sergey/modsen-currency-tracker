@@ -23,3 +23,7 @@ export const StyledSectionHeading = styled.h2`
         background-color: ${({ theme }) => theme.colors.border};
     }
 `;
+
+export const StyledError = styled.span`
+    color: ${({ theme }) => theme.colors.chartDown};
+`;
