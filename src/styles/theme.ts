@@ -37,6 +37,7 @@ export const darkTheme = {
         chartHighlight: "#FF971D",
         chartUp: "#16C782",
         chartDown: "#EA3943",
+        chartGrid: "#FFFFFF10",
         mapSelectedTag: "#185CFF",
 
         error: "#EA3943",
@@ -125,6 +126,8 @@ export const lightTheme = {
         border: "#EBEBEB",
         gray: "#9E9E9E",
         inputBg: "#1B2028",
+
+        chartGrid: "#00000030",
 
         updatedAtPulses: {
             inner: "#00BC4F",

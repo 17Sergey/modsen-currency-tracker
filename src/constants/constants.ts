@@ -54,3 +54,5 @@ export const CONVERTER_INPUTS = {
     BASE_INPUT: "baseInput",
     TARGET_INPUT: "targetInput",
 };
+
+export const CANDLE_STICK_CHART_ID = "candleStickChart";

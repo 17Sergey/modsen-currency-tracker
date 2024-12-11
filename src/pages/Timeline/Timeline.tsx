@@ -1,9 +1,10 @@
 import LayoutContainer from "@components/LayoutContainer";
+import ChartSection from "@pages/Timeline/ChartSection";
 
 export const Timeline = () => (
     <>
         <LayoutContainer>
-            <h1>Timeline page</h1>
+            <ChartSection />
         </LayoutContainer>
     </>
 );
