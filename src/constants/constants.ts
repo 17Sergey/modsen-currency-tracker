@@ -42,7 +42,7 @@ export const CURRENCY_CODES = {
 
 export const STOCKS_CODES = {
     BTC: "BTC",
-    IFIX: "IFIX",
+    LTC: "LTC",
 };
 
 export const DATE_NUMBERS = {

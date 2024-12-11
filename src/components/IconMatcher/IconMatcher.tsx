@@ -14,12 +14,14 @@ import YenIcon from "@assets/icons/currencies/YenIcon.svg?url";
 import CurrencyLogo from "@assets/icons/CurrencyLogo.svg?url";
 import { CURRENCY_CODES, STOCKS_CODES } from "@constants/constants";
 
-type CurrencyIconProps = Pick<CurrencyData, "currency">;
+type IconMatcherProps = {
+    code: string;
+};
 
-export const CurrencyIcon: FC<CurrencyIconProps> = ({ currency }) => {
+export const IconMatcher: FC<IconMatcherProps> = ({ code }) => {
     let iconSource = "";
 
-    switch (currency) {
+    switch (code) {
         case CURRENCY_CODES.USD:
             iconSource = DollarIcon;
             break;
@@ -50,12 +52,12 @@ export const CurrencyIcon: FC<CurrencyIconProps> = ({ currency }) => {
         case STOCKS_CODES.BTC:
             iconSource = BitcoinIcon;
             break;
-        case STOCKS_CODES.IFIX:
+        case STOCKS_CODES.LTC:
             iconSource = IfixIcon;
             break;
         default:
             iconSource = CurrencyLogo;
             break;
     }
-    return <img src={iconSource} alt="Currency Logo" />;
+    return <img src={iconSource} alt={`${code} Logo`} />;
 };

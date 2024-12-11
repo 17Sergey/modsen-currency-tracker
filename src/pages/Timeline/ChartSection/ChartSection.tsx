@@ -2,8 +2,9 @@ import { FC, useEffect } from "react";
 import CandlestickChart from "react-candlestick-chart";
 
 import { CANDLE_STICK_CHART_ID } from "@constants/constants";
+import CurrentStocksCard from "@pages/Timeline/ChartSection/CurrentStocksCard";
 
-import { StyledChart } from "./styled.ts";
+import { StyledButton, StyledChart, StyledControls } from "./styled.ts";
 
 export const ChartSection: FC = () => {
     const data = [
@@ -396,8 +397,19 @@ export const ChartSection: FC = () => {
         }
     });
 
+    const handleEditChartData = () => {};
+
+    const currentStocks = {
+        name: "Bitcoin",
+        code: "BTC",
+    };
+
     return (
         <section>
+            <StyledControls>
+                <CurrentStocksCard stocks={currentStocks} />
+                <StyledButton onClick={handleEditChartData}>Edit chart data</StyledButton>
+            </StyledControls>
             <StyledChart>
                 <CandlestickChart
                     data={formattedData}

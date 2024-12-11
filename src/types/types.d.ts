@@ -61,3 +61,8 @@ type TradeData = {
     volume_traded: number;
     trades_count: number;
 };
+
+type StocksType = {
+    name: string;
+    code: string;
+};
