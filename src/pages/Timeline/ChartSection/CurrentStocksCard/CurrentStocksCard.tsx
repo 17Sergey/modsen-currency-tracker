@@ -5,18 +5,18 @@ import { IconMatcher } from "@components/IconMatcher/IconMatcher.tsx";
 import { StyledCard, StyledCode, StyledIcon, StyledName, StyledText } from "./styled.ts";
 
 type CurrentStocksCardProps = {
-    stocks: StocksType;
+    stock: StockType;
 };
 
-export const CurrentStocksCard: FC<CurrentStocksCardProps> = ({ stocks }) => (
+export const CurrentStocksCard: FC<CurrentStocksCardProps> = ({ stock }) => (
     <>
         <StyledCard>
             <StyledIcon>
-                <IconMatcher code={stocks.code} />
+                <IconMatcher code={stock.code} />
             </StyledIcon>
             <StyledText>
-                <StyledName>{stocks.name}</StyledName>
-                <StyledCode>{stocks.code}</StyledCode>
+                <StyledName>{stock.name}</StyledName>
+                <StyledCode>{stock.code}</StyledCode>
             </StyledText>
         </StyledCard>
     </>

@@ -6,8 +6,8 @@ import BovespaIcon from "@assets/icons/currencies/BovespaIcon.svg?url";
 import CanadianDollarIcon from "@assets/icons/currencies/CanadianDollarIcon.svg?url";
 import DollarIcon from "@assets/icons/currencies/DollarIcon.svg?url";
 import EuroIcon from "@assets/icons/currencies/EuroIcon.svg?url";
-import IfixIcon from "@assets/icons/currencies/IfixIcon.svg?url";
 import LibraIcon from "@assets/icons/currencies/LibraIcon.svg?url";
+import LtcIcon from "@assets/icons/currencies/LtcIcon.svg?url";
 import PesoArgentinoIcon from "@assets/icons/currencies/PesoArgentinoIcon.svg?url";
 import WonIcon from "@assets/icons/currencies/WonIcon.svg?url";
 import YenIcon from "@assets/icons/currencies/YenIcon.svg?url";
@@ -53,7 +53,7 @@ export const IconMatcher: FC<IconMatcherProps> = ({ code }) => {
             iconSource = BitcoinIcon;
             break;
         case STOCKS_CODES.LTC:
-            iconSource = IfixIcon;
+            iconSource = LtcIcon;
             break;
         default:
             iconSource = CurrencyLogo;

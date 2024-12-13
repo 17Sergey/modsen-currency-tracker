@@ -18,6 +18,11 @@ export const THEMES = {
     LIGHT: "light",
 };
 
+export const Z_INDEX_MANAGER = {
+    UNDER_MAX: "10000",
+    MAX: "100000",
+};
+
 export const REDUX_SLICES = {
     HOME_PAGE: "homePage",
 };
@@ -45,6 +50,19 @@ export const STOCKS_CODES = {
     LTC: "LTC",
 };
 
+export const AVAILIABLE_STOCKS: AvailableStocks = {
+    BTC: {
+        name: "Bitcoin",
+        code: "BTC",
+    },
+    LTC: {
+        name: "Litecoin",
+        code: "LTC",
+    },
+};
+
+export const STOCKS_OPTIONS = Object.keys(AVAILIABLE_STOCKS);
+
 export const DATE_NUMBERS = {
     DATE_PART_INDEX: 0,
     TIME_PART_INDEX: 1,
@@ -56,3 +74,11 @@ export const CONVERTER_INPUTS = {
 };
 
 export const CANDLE_STICK_CHART_ID = "candleStickChart";
+
+export const EDIT_DAY_INPUTS = {
+    DATE: "date",
+    OPEN: "open",
+    HIGH: "high",
+    LOW: "low",
+    CLOSE: "close",
+};

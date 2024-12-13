@@ -3,6 +3,8 @@ import styled from "styled-components";
 export const StyledCard = styled.div`
     display: flex;
     gap: ${({ theme }) => theme.margins.m};
+    max-width: 100%;
+    min-width: 200px;
 `;
 
 export const StyledIcon = styled.div`

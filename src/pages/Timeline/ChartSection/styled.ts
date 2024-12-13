@@ -1,18 +1,10 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
-    background-color: ${({ theme }) => theme.colors.backgroundNeutral};
-    padding: ${({ theme }) => theme.paddings.base} ${({ theme }) => theme.paddings.xl};
-    border-radius: ${({ theme }) => theme.paddings.sm};
-    transition: 0.2s ease all;
+import { button } from "@styles/mixins/button";
+import { customScroll } from "@styles/mixins/customScroll";
 
-    &:hover {
-        background-color: ${({ theme }) => theme.colors.inputBg};
-        opacity: 0.8;
-    }
-    &:active {
-        transform: scale(0.9);
-    }
+export const StyledButton = styled.button`
+    ${button}
 `;
 
 export const StyledControls = styled.div`
@@ -20,9 +12,13 @@ export const StyledControls = styled.div`
     display: flex;
     gap: ${({ theme }) => theme.margins.md};
     align-items: center;
+    flex-wrap: wrap;
 `;
 
 export const StyledChart = styled.div`
+    ${customScroll}
     max-width: 100%;
     overflow-x: auto;
+
+    scrollbar-color: ${(props) => props.theme.colors.primary} ${(props) => props.theme.colors.border};
 `;

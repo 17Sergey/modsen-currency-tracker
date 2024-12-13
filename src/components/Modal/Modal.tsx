@@ -15,7 +15,7 @@ export const Modal: FC<ModalProps> = ({ children, onClose }) => {
     return (
         <Portal rootId="modal-portal">
             <div role="dialog" aria-modal="true">
-                <StyledOverlay onClick={onClose} />
+                <StyledOverlay onClick={onClose}></StyledOverlay>
                 <StyledModalBox>{children}</StyledModalBox>
             </div>
         </Portal>

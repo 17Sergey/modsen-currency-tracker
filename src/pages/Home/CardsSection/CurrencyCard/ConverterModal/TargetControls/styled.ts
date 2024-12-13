@@ -1,18 +1,19 @@
 import styled from "styled-components";
 
 import { device } from "@styles/breakpoints";
+import { input } from "@styles/mixins/input";
 
 export const StyledTargetCurrency = styled.div``;
 
 export const StyledInput = styled.input`
-    max-width: 100%;
-    margin: ${({ theme }) => theme.margins.xs} 0;
+    ${input}
 `;
 
 export const StyledTargetFields = styled.div`
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    align-items: center;
 
     @media only screen and (${device.sm}) {
         gap: 0.5rem;

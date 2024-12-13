@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
+import { input } from "@styles/mixins/input";
+
 export const StyledBaseCurrency = styled.div``;
 
 export const StyledInput = styled.input`
-    max-width: 100%;
-    margin: ${({ theme }) => theme.margins.xs} 0;
+    ${input}
 `;

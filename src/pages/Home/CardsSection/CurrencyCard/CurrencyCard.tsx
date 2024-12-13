@@ -1,7 +1,6 @@
 import { FC } from "react";
 
 import IconMatcher from "@components/IconMatcher/index.tsx";
-import { useDisableBodyScroll } from "@hooks/useDisableBodyScroll.ts";
 import { useModal } from "@hooks/useModal.ts";
 import ConverterModal from "@pages/Home/CardsSection/CurrencyCard/ConverterModal";
 import { getCurrencyCaption } from "@utils/getCurrencyCaption.ts";
@@ -12,7 +11,6 @@ type CurrencyCardProps = CurrencyData;
 
 export const CurrencyCard: FC<CurrencyCardProps> = ({ currency, value }) => {
     const { isModalOpen, openModal, closeModal } = useModal();
-    useDisableBodyScroll(isModalOpen);
 
     return (
         <StyledCard>

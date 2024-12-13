@@ -12,6 +12,12 @@ export const StyledCard = styled.div`
     background-color: ${({ theme }) => theme.colors.backgroundNeutral};
     border-radius: ${({ theme }) => theme.paddings.xs};
     border: 1px solid ${({ theme }) => theme.colors.border};
+
+    transition: all ease 0.3s;
+
+    &:hover {
+        background-color: ${({ theme }) => theme.colors.border};
+    }
 `;
 export const StyledMockButton = styled.button`
     position: absolute;

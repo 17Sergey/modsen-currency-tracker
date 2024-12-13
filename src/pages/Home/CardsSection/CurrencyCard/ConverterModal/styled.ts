@@ -4,13 +4,22 @@ import CrossIcon from "@assets/icons/CrossIcon.svg";
 import ExchangeIcon from "@assets/icons/ExchangeIcon.svg";
 import { THEMES } from "@constants/constants";
 import { device } from "@styles/breakpoints";
+import { customScroll } from "@styles/mixins/customScroll";
+import { modalBox } from "@styles/mixins/modal";
 
 export const StyledBox = styled.div`
+    ${modalBox}
+    ${customScroll}
+
+
     width: 50vw;
     padding: ${({ theme }) => theme.paddings.xl};
     background-color: ${({ theme }) =>
         theme.name === THEMES.DARK ? theme.colors.border : theme.colors.backgroundNeutral};
     border-radius: ${({ theme }) => theme.paddings.sm};
+
+    max-height: 95vh;
+    overflow-y: auto;
 
     @media only screen and (${device.lg}) {
         width: 80vw;
@@ -24,10 +33,9 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledCloseBtn = styled.button`
-    position: relative;
-    top: -0.5rem;
-    right: -0.5rem;
-    flex-shrink: 0;
+    position: fixed;
+    top: 1rem;
+    right: 0rem;
 
     width: ${({ theme }) => theme.widths.icons.base};
     height: ${({ theme }) => theme.widths.icons.base};
@@ -47,15 +55,7 @@ export const StyledHeading = styled.h2`
 `;
 
 export const StyledForm = styled.form`
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 1rem;
-    flex-wrap: wrap;
-
-    @media only screen and (${device.xl}) {
-        display: block;
-    }
+    display: block;
 
     margin-top: ${({ theme }) => theme.margins.md};
 `;
@@ -65,11 +65,5 @@ export const StyledExchangeIcon = styled(ExchangeIcon)`
     height: ${({ theme }) => theme.widths.icons.sm};
     fill: ${({ theme }) => theme.colors.textPrimary};
 
-    transform: rotate(90deg);
-    flex-shrink: 0;
-
-    @media only screen and (${device.xl}) {
-        transform: none;
-        margin: ${({ theme }) => theme.margins.base} 0;
-    }
+    margin: ${({ theme }) => theme.margins.base} 0;
 `;

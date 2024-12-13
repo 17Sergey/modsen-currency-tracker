@@ -39,4 +39,10 @@ export const dateHelper = {
 
         return `${hoursNumber}:${minutes} ${dayHalf}`;
     },
+    getPrettyDateFromStr(str: string) {
+        return str.split("-").reverse().join(".");
+    },
+    getDateFromPrettyStr(str: string) {
+        return str.split(".").reverse().join("-");
+    },
 };

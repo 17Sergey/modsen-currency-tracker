@@ -5,12 +5,12 @@ import { getCurrencyCaption } from "@utils/getCurrencyCaption.ts";
 import { SelectTargetCurrency } from "./SelectTargetCurrency/SelectTargetCurrency.tsx";
 import { StyledInput, StyledTargetCurrency, StyledTargetFields } from "./styled.ts";
 
-type BaseInputProps = ConverterCommonInputProps & {
+type TargetControlsProps = ConverterCommonInputProps & {
     curreciesArray: CurrencyData[];
-    onHandleSelectChange: SelectChangeEventHandler;
+    onHandleSelectChange: OnHandleSelectChangeCallback;
 };
 
-export const TargetInput: FC<BaseInputProps> = ({
+export const TargetControls: FC<TargetControlsProps> = ({
     name,
     currencyItem,
     onHandleInputChange,

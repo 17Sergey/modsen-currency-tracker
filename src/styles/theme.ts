@@ -6,6 +6,7 @@ export const darkTheme = {
         container: "1224px",
         currencyIcon: "5rem",
         icons: {
+            xs: "1rem",
             sm: "2rem",
             base: "2.5rem",
             md: "3rem",
@@ -16,6 +17,7 @@ export const darkTheme = {
             md: "5rem",
             lg: "7rem",
         },
+        customScroll: "0.25rem",
     },
     colors: {
         background: "#030304",
@@ -32,12 +34,12 @@ export const darkTheme = {
         border: "#474747",
         gray: "#9E9E9E",
         inputBg: "#1B2028",
-        modalOverlay: "#000000",
+        modalOverlay: "#00000060",
 
         chartHighlight: "#FF971D",
         chartUp: "#16C782",
         chartDown: "#EA3943",
-        chartGrid: "#FFFFFF10",
+        chartGrid: "#FFFFFF30",
         mapSelectedTag: "#185CFF",
 
         error: "#EA3943",
@@ -88,6 +90,7 @@ export const darkTheme = {
     paddings: {
         xs: "0.25rem",
         sm: "0.5rem",
+        m: "0.75rem",
         base: "1rem",
         md: "1.25rem",
         xl: "1.5rem",

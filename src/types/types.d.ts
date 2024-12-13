@@ -37,6 +37,8 @@ type InputChangeEventHandler = (e: ChangeEvent<HTMLInputElement>) => void;
 
 type SelectChangeEventHandler = (e: ChangeEvent<HTMLSelectElement>) => void;
 
+type OnHandleSelectChangeCallback = (optionValue: strin) => void;
+
 type ConverterCommonInputProps = {
     name: string;
     currencyItem: CurrencyData;
@@ -62,7 +64,27 @@ type TradeData = {
     trades_count: number;
 };
 
-type StocksType = {
+type FormattedStock = {
+    date: string;
+    open: number;
+    high: number;
+    low: number;
+    close: number;
+};
+
+type FormattedStocksData = FormattedStock[];
+
+type StockType = {
     name: string;
     code: string;
+};
+
+type AvailableStocks = {
+    [key: string]: StockType;
+};
+
+type OnSelectCallback = (value: string) => void;
+
+type StringKeyedObject<T> = {
+    [key: string]: T;
 };

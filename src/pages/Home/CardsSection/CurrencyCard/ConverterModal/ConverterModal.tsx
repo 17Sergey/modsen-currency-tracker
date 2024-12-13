@@ -4,7 +4,7 @@ import Modal from "@components/Modal";
 import { useCurrencyConverter } from "@hooks/useCurrencyConverter.ts";
 import { useCurrencyData } from "@hooks/useCurrencyData.ts";
 import BaseInput from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/BaseInput/index.tsx";
-import TargetInput from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/TargetInput";
+import TargetControls from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/TargetControls";
 
 import {
     StyledBox,
@@ -51,7 +51,7 @@ export const ConverterModal: FC<ConverterModalProps> = ({ baseCurrency, onClose 
                         onHandleInputChange={handleInputChange}
                     />
                     <StyledExchangeIcon />
-                    <TargetInput
+                    <TargetControls
                         name={"targetCurrencyValue"}
                         currencyItem={targetCurrencyItem}
                         onHandleInputChange={handleInputChange}

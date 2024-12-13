@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
-import { convertCurrency } from "@utils/convertCurrency.tsx";
+import { convertCurrency } from "@utils/convertCurrency.ts";
 import { isValidNumber } from "@utils/isValidNumber.ts";
 
 export const useCurrencyConverter = (baseCurrency: CurrencyData, initialCurrencies: CurrencyData[]) => {
@@ -47,9 +47,8 @@ export const useCurrencyConverter = (baseCurrency: CurrencyData, initialCurrenci
         setChangedInput(e.target.name);
     };
 
-    const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-        const newCurrency =
-            initialCurrencies.find(({ currency }) => currency === e.target.value) || initialCurrencies[0];
+    const handleSelectChange: OnHandleSelectChangeCallback = (option) => {
+        const newCurrency = initialCurrencies.find(({ currency }) => currency === option) || initialCurrencies[0];
         setFormData({ ...formData, selectedTargetCurrency: newCurrency });
     };
 
