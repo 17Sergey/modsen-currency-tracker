@@ -87,3 +87,9 @@ export const EDIT_DAY_BUTTONS = {
     PREVIOUS: "PREVIOUS",
     NEXT: "NEXT",
 };
+
+export const DEFAULT_COORDINATES = {
+    longitude: -100,
+    latitude: 40,
+    zoom: 2,
+};
