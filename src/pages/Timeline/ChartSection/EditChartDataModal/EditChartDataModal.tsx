@@ -1,6 +1,7 @@
 import { FC, useMemo, useState } from "react";
 
 import Modal from "@components/Modal";
+import { EDIT_DAY_BUTTONS } from "@constants/constants.ts";
 import EditDayForm from "@pages/Timeline/ChartSection/EditChartDataModal/EditDayForm";
 
 import { CurrentStocksCard } from "../CurrentStocksCard/CurrentStocksCard.tsx";
@@ -34,14 +35,28 @@ export const EditChartDataModal: FC<EditChartDataModalProps> = ({ currentStock, 
 
     const currentDay = newData[currentDayIndex];
 
+    const [disabledBtn, setDisabledBtn] = useState<string | null>(null);
+
+    const resetDisabled = () => {
+        setDisabledBtn(null);
+    };
+
     const goPreviousDay = () => {
-        if (currentDayIndex === 0) return;
+        if (currentDayIndex === 0) {
+            setDisabledBtn(EDIT_DAY_BUTTONS.PREVIOUS);
+            return;
+        }
         setCurrentDayIndex((curr) => curr - 1);
+        if (disabledBtn) resetDisabled();
     };
 
     const goNextDay = () => {
-        if (currentDayIndex === newData.length - 1) return;
+        if (currentDayIndex === newData.length - 1) {
+            setDisabledBtn(EDIT_DAY_BUTTONS.NEXT);
+            return;
+        }
         setCurrentDayIndex((curr) => curr + 1);
+        if (disabledBtn) resetDisabled();
     };
 
     const handleSelectDay = (day: string) => {
@@ -49,6 +64,7 @@ export const EditChartDataModal: FC<EditChartDataModalProps> = ({ currentStock, 
         if (foundIndex === -1) return;
 
         setCurrentDayIndex(foundIndex);
+        if (disabledBtn) resetDisabled();
     };
 
     const handleEditDay = (dayData: FormattedStock) => {
@@ -80,8 +96,15 @@ export const EditChartDataModal: FC<EditChartDataModalProps> = ({ currentStock, 
                     </StyledDataFormWrapper>
                     <StyledButtons>
                         <StyledDayButtons>
-                            <StyledDayButton onClick={goPreviousDay}>Previous day</StyledDayButton>
-                            <StyledDayButton onClick={goNextDay}>Next day</StyledDayButton>
+                            <StyledDayButton
+                                disabled={disabledBtn === EDIT_DAY_BUTTONS.PREVIOUS}
+                                onClick={goPreviousDay}
+                            >
+                                Previous day
+                            </StyledDayButton>
+                            <StyledDayButton disabled={disabledBtn === EDIT_DAY_BUTTONS.NEXT} onClick={goNextDay}>
+                                Next day
+                            </StyledDayButton>
                         </StyledDayButtons>
                         <StyledUpdateButton onClick={handleUpdateBtn}>Update data</StyledUpdateButton>
                     </StyledButtons>

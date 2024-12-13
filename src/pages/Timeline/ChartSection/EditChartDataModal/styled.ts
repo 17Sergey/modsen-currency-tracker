@@ -4,6 +4,7 @@ import CrossIcon from "@assets/icons/CrossIcon.svg";
 import ExchangeIcon from "@assets/icons/ExchangeIcon.svg";
 import { THEMES } from "@constants/constants";
 import { device } from "@styles/breakpoints";
+import { button } from "@styles/mixins/button";
 import { customScroll } from "@styles/mixins/customScroll";
 import { modalBox } from "@styles/mixins/modal";
 
@@ -25,18 +26,10 @@ export const StyledBox = styled.div`
 `;
 
 export const StyledButton = styled.button`
-    background-color: ${({ theme }) =>
-        theme.name === THEMES.DARK ? theme.colors.backgroundNeutral : theme.colors.border};
-    padding: ${({ theme }) => theme.paddings.base} ${({ theme }) => theme.paddings.xl};
-    border-radius: ${({ theme }) => theme.paddings.sm};
-    transition: 0.2s ease all;
+    ${button}
 
-    &:hover {
-        background-color: ${({ theme }) => theme.colors.textNeutralTransparent};
-        opacity: 0.8;
-    }
     &:active {
-        transform: scale(0.9);
+        transform: none;
     }
 
     @media only screen and (${device.md}) {

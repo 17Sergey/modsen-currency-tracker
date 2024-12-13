@@ -16,4 +16,9 @@ export const button = css`
     &:active {
         transform: scale(0.9);
     }
+
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
 `;

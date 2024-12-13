@@ -6,8 +6,8 @@ import CurrentStocksCard from "@pages/Timeline/ChartSection/CurrentStocksCard";
 import DataChart from "@pages/Timeline/ChartSection/DataChart";
 import EditChartDataModal from "@pages/Timeline/ChartSection/EditChartDataModal";
 
-import { useChartData } from "./hooks/useChartData.ts";
-import { useCurrentStock } from "./hooks/useCurrentStock.ts";
+import { useChartData } from "./_hooks/useChartData.ts";
+import { useCurrentStock } from "./_hooks/useCurrentStock.ts";
 import { StocksSelect } from "./StocksSelect/StocksSelect.tsx";
 import { StyledButton, StyledChart, StyledControls } from "./styled.ts";
 

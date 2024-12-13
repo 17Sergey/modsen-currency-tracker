@@ -82,3 +82,8 @@ export const EDIT_DAY_INPUTS = {
     LOW: "low",
     CLOSE: "close",
 };
+
+export const EDIT_DAY_BUTTONS = {
+    PREVIOUS: "PREVIOUS",
+    NEXT: "NEXT",
+};
