@@ -28,24 +28,6 @@ export const DataChart: FC<DataChartProps> = ({ chartData }) => {
 
     const { scrollableRef } = useDisableScrollInsideElement();
 
-    // const [chartWidth, setChartWidth] = useState(1168);
-
-    // const changeWidth = () => {
-    //     // const newWidth = scrollableRef.current?.clientWidth || 1168;
-    //     // console.log(window.innerWidth - 2 * 16);
-    //     const width = window.innerWidth - 2 * 16;
-    //     setChartWidth(width);
-    // };
-
-    // const debouncedUpdateWidth = useDebounceCallback(changeWidth, 500);
-
-    // useEffect(() => {
-    //     window.addEventListener("resize", debouncedUpdateWidth);
-    //     return () => {
-    //         window.removeEventListener("resize", debouncedUpdateWidth);
-    //     };
-    // }, []);
-
     return (
         <StyledChart ref={scrollableRef}>
             <CandlestickChart

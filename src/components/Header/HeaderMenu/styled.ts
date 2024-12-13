@@ -81,7 +81,8 @@ export const StyledCloseButton = styled.button`
     height: ${({ theme }) => theme.widths.icons.base};
     align-self: flex-end;
     position: relative;
-    left: 1rem;
+    left: 0.75rem;
+    top: -0.5rem;
 `;
 
 export const StyledCrossIcon = styled(CrossIcon)`

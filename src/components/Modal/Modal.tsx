@@ -1,4 +1,5 @@
 import { ComponentProps, FC } from "react";
+import { useScrollLock } from "usehooks-ts";
 
 import Portal from "@components/Portal";
 import { useOnEscapeKey } from "@hooks/useOnEscapeKey.ts";
@@ -11,6 +12,7 @@ type ModalProps = {
 
 export const Modal: FC<ModalProps> = ({ children, onClose }) => {
     useOnEscapeKey(onClose);
+    useScrollLock();
 
     return (
         <Portal rootId="modal-portal">
