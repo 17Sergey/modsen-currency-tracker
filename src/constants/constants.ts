@@ -89,7 +89,28 @@ export const EDIT_DAY_BUTTONS = {
 };
 
 export const DEFAULT_COORDINATES = {
-    longitude: -100,
-    latitude: 40,
-    zoom: 2,
+    longitude: 27.56077,
+    latitude: 53.90187,
+    zoom: 14.06,
 };
+
+export const BANKS_DATA = {
+    BELARUSBANK: {
+        coordinates: {
+            longitude: 27.55184,
+            latitude: 53.89182,
+            zoom: 19.13,
+        },
+        currencies: ["USD", "AUD", "CAD"],
+    },
+    PARITETBANK: {
+        coordinates: {
+            longitude: 27.65932,
+            latitude: 53.99355,
+            zoom: 19.32,
+        },
+        currencies: ["USD", "EUR", "RUB"],
+    },
+};
+
+export const BANKS = Object.keys(BANKS_DATA);
