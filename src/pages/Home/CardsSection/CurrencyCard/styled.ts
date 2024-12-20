@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { THEMES } from "@constants/constants";
+import { THEMES, Z_INDEX_MANAGER } from "@constants/constants";
 import { device } from "@styles/breakpoints";
 
 export const StyledCard = styled.div`
@@ -25,7 +25,7 @@ export const StyledMockButton = styled.button`
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 10;
+    z-index: ${Z_INDEX_MANAGER.TEN};
 `;
 
 export const StyledInfo = styled.div`
@@ -33,7 +33,7 @@ export const StyledInfo = styled.div`
     flex-direction: column;
     justify-content: space-between;
 
-    z-index: 20;
+    z-index: ${Z_INDEX_MANAGER.TWENTY};
 `;
 
 export const StyledName = styled.p`
@@ -50,7 +50,6 @@ export const StyledIcon = styled.div`
     width: ${({ theme }) => theme.widths.icons.xl};
     height: auto;
     flex-shrink: 0;
-    z-index: 20;
 
     & img {
         aspect-ratio: 1 / 1;

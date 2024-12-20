@@ -2,28 +2,24 @@ import styled from "styled-components";
 
 import CrossIcon from "@assets/icons/CrossIcon.svg";
 import ExchangeIcon from "@assets/icons/ExchangeIcon.svg";
-import { THEMES } from "@constants/constants";
 import { device } from "@styles/breakpoints";
-import { customScroll } from "@styles/mixins/customScroll";
-import { modalBox } from "@styles/mixins/modal";
+import { closeBtn } from "@styles/mixins/modal/closeBtn";
+import { crossIcon } from "@styles/mixins/modal/crossIcon";
+import { scrollableContent } from "@styles/mixins/modal/scrollableContent";
+import { modalBox } from "@styles/mixins/modalBox";
 
 export const StyledBox = styled.div`
     ${modalBox}
-    ${customScroll}
 
-
-    width: 50vw;
-    padding: ${({ theme }) => theme.paddings.xl};
-    background-color: ${({ theme }) =>
-        theme.name === THEMES.DARK ? theme.colors.border : theme.colors.backgroundNeutral};
-    border-radius: ${({ theme }) => theme.paddings.sm};
-
-    max-height: 95vh;
-    overflow-y: auto;
+    max-height: 90vh;
 
     @media only screen and (${device.lg}) {
         width: 80vw;
     }
+`;
+
+export const StyledScrollableContent = styled.div`
+    ${scrollableContent}
 `;
 
 export const StyledWrapper = styled.div`
@@ -33,19 +29,11 @@ export const StyledWrapper = styled.div`
 `;
 
 export const StyledCloseBtn = styled.button`
-    position: fixed;
-    top: 1rem;
-    right: 0rem;
-
-    width: ${({ theme }) => theme.widths.icons.base};
-    height: ${({ theme }) => theme.widths.icons.base};
+    ${closeBtn}
 `;
 
 export const StyledCrossIcon = styled(CrossIcon)`
-    width: 100%;
-    height: 100%;
-    stroke: ${({ theme }) => theme.colors.textPrimary};
-    color: ${({ theme }) => theme.colors.textPrimary};
+    ${crossIcon}
 `;
 
 export const StyledHeading = styled.h2`

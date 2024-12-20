@@ -1,9 +1,22 @@
 import styled from "styled-components";
 
-import { modalOverlay } from "@styles/mixins/modal";
+import { Z_INDEX_MANAGER } from "@constants/constants";
 
-export const StyledOverlay = styled.div`
-    ${modalOverlay}
+export const StyledWrapper = styled.div`
+    position: fixed;
+    inset: 0;
+    z-index: ${Z_INDEX_MANAGER.MODAL_OVERLAY};
+    background-color: ${({ theme }) => theme.colors.modalOverlay};
+
+    display: grid;
+    place-items: center;
+
+    cursor: pointer;
+    overflow-y: auto;
 `;
 
-export const StyledModalBox = styled.div``;
+export const StyledModalBox = styled.div`
+    cursor: default;
+    position: relative;
+    z-index: ${Z_INDEX_MANAGER.MODAL_BOX};
+`;

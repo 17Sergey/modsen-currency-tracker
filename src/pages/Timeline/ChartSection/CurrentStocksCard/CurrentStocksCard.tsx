@@ -9,15 +9,13 @@ type CurrentStocksCardProps = {
 };
 
 export const CurrentStocksCard: FC<CurrentStocksCardProps> = ({ stock }) => (
-    <>
-        <StyledCard>
-            <StyledIcon>
-                <IconMatcher code={stock.code} />
-            </StyledIcon>
-            <StyledText>
-                <StyledName>{stock.name}</StyledName>
-                <StyledCode>{stock.code}</StyledCode>
-            </StyledText>
-        </StyledCard>
-    </>
+    <StyledCard>
+        <StyledIcon>
+            <IconMatcher code={stock.code} />
+        </StyledIcon>
+        <StyledText>
+            <StyledName>{stock.name}</StyledName>
+            <StyledCode>{stock.code}</StyledCode>
+        </StyledText>
+    </StyledCard>
 );

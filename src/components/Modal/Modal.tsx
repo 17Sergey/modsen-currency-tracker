@@ -4,7 +4,7 @@ import { useScrollLock } from "usehooks-ts";
 import Portal from "@components/Portal";
 import { useOnEscapeKey } from "@hooks/useOnEscapeKey.ts";
 
-import { StyledModalBox, StyledOverlay } from "./styled.ts";
+import { StyledModalBox, StyledWrapper } from "./styled.ts";
 
 type ModalProps = {
     onClose: VoidFunction;
@@ -16,10 +16,9 @@ export const Modal: FC<ModalProps> = ({ children, onClose }) => {
 
     return (
         <Portal rootId="modal-portal">
-            <div role="dialog" aria-modal="true">
-                <StyledOverlay onClick={onClose}></StyledOverlay>
-                <StyledModalBox>{children}</StyledModalBox>
-            </div>
+            <StyledWrapper role="dialog" aria-modal="true" onClick={onClose}>
+                <StyledModalBox onClick={(e) => e.stopPropagation()}>{children}</StyledModalBox>
+            </StyledWrapper>
         </Portal>
     );
 };

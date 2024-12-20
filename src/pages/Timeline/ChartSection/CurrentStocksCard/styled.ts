@@ -5,6 +5,8 @@ export const StyledCard = styled.div`
     gap: ${({ theme }) => theme.margins.m};
     max-width: 100%;
     min-width: 200px;
+
+    padding: 0 ${({ theme }) => theme.paddings.xs};
 `;
 
 export const StyledIcon = styled.div`

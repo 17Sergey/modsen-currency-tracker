@@ -1,8 +1,8 @@
 import { FC, FormEvent } from "react";
 
 import Modal from "@components/Modal";
+import { useAvailiableCurrencies } from "@hooks/useAvailiableCurrencies.ts";
 import { useCurrencyConverter } from "@hooks/useCurrencyConverter.ts";
-import { useCurrencyData } from "@hooks/useCurrencyData.ts";
 import BaseInput from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/BaseInput/index.tsx";
 import TargetControls from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/TargetControls";
 
@@ -13,6 +13,7 @@ import {
     StyledExchangeIcon,
     StyledForm,
     StyledHeading,
+    StyledScrollableContent,
     StyledWrapper,
 } from "./styled.ts";
 
@@ -22,7 +23,7 @@ type ConverterModalProps = {
 };
 
 export const ConverterModal: FC<ConverterModalProps> = ({ baseCurrency, onClose }) => {
-    const currenciesArray = useCurrencyData();
+    const currenciesArray = useAvailiableCurrencies();
     const { formData, handleInputChange, handleSelectChange } = useCurrencyConverter(baseCurrency, currenciesArray);
 
     const baseCurrencyItem = { value: Number(formData.baseCurrencyValue), currency: baseCurrency.currency };
@@ -44,21 +45,23 @@ export const ConverterModal: FC<ConverterModalProps> = ({ baseCurrency, onClose 
                         <StyledCrossIcon />
                     </StyledCloseBtn>
                 </StyledWrapper>
-                <StyledForm onSubmit={handleSubmit}>
-                    <BaseInput
-                        name={"baseCurrencyValue"}
-                        currencyItem={baseCurrencyItem}
-                        onHandleInputChange={handleInputChange}
-                    />
-                    <StyledExchangeIcon />
-                    <TargetControls
-                        name={"targetCurrencyValue"}
-                        currencyItem={targetCurrencyItem}
-                        onHandleInputChange={handleInputChange}
-                        curreciesArray={currenciesArray}
-                        onHandleSelectChange={handleSelectChange}
-                    />
-                </StyledForm>
+                <StyledScrollableContent>
+                    <StyledForm onSubmit={handleSubmit}>
+                        <BaseInput
+                            name={"baseCurrencyValue"}
+                            currencyItem={baseCurrencyItem}
+                            onHandleInputChange={handleInputChange}
+                        />
+                        <StyledExchangeIcon />
+                        <TargetControls
+                            name={"targetCurrencyValue"}
+                            currencyItem={targetCurrencyItem}
+                            onHandleInputChange={handleInputChange}
+                            curreciesArray={currenciesArray}
+                            onHandleSelectChange={handleSelectChange}
+                        />
+                    </StyledForm>
+                </StyledScrollableContent>
             </StyledBox>
         </Modal>
     );

@@ -6,5 +6,5 @@ export const StyledStocksSelect = styled.div`
     max-width: 100%;
     min-width: 160px;
 
-    z-index: ${Z_INDEX_MANAGER.UNDER_MAX};
+    z-index: ${Z_INDEX_MANAGER.TEN};
 `;

@@ -3,15 +3,15 @@ import { FC, useMemo, useState } from "react";
 import Modal from "@components/Modal";
 import { EDIT_DAY_BUTTONS } from "@constants/constants.ts";
 import EditDayForm from "@pages/Timeline/ChartSection/EditChartDataModal/EditDayForm";
+import { ChartPublisher } from "@utils/Publisher/ChartPublisher.ts";
 
 import { CurrentStocksCard } from "../CurrentStocksCard/CurrentStocksCard.tsx";
 
 import {
-    StyledBox,
+    StyledBoxWrapper,
     StyledButtons,
     StyledCloseBtn,
     StyledCrossIcon,
-    StyledDataFormWrapper,
     StyledDayButton,
     StyledDayButtons,
     StyledScrollableContent,
@@ -75,41 +75,39 @@ export const EditChartDataModal: FC<EditChartDataModalProps> = ({ currentStock, 
     const handleUpdateBtn = () => {
         if (!isDataModified) return;
 
+        ChartPublisher.notifySubscribers();
         onUpdateData(newData);
+
+        setIsDataModified(false);
     };
 
     return (
         <Modal onClose={onClose}>
-            <StyledBox>
+            <StyledBoxWrapper>
                 <StyledCloseBtn aria-label="Close modal" onClick={onClose}>
                     <StyledCrossIcon />
                 </StyledCloseBtn>
                 <CurrentStocksCard stock={currentStock} />
                 <StyledScrollableContent>
-                    <StyledDataFormWrapper>
-                        <EditDayForm
-                            dataDays={dataDays}
-                            dayData={currentDay}
-                            onEdit={handleEditDay}
-                            onSelectDay={handleSelectDay}
-                        />
-                    </StyledDataFormWrapper>
-                    <StyledButtons>
-                        <StyledDayButtons>
-                            <StyledDayButton
-                                disabled={disabledBtn === EDIT_DAY_BUTTONS.PREVIOUS}
-                                onClick={goPreviousDay}
-                            >
-                                Previous day
-                            </StyledDayButton>
-                            <StyledDayButton disabled={disabledBtn === EDIT_DAY_BUTTONS.NEXT} onClick={goNextDay}>
-                                Next day
-                            </StyledDayButton>
-                        </StyledDayButtons>
-                        <StyledUpdateButton onClick={handleUpdateBtn}>Update data</StyledUpdateButton>
-                    </StyledButtons>
+                    <EditDayForm
+                        dataDays={dataDays}
+                        dayData={currentDay}
+                        onEdit={handleEditDay}
+                        onSelectDay={handleSelectDay}
+                    />
                 </StyledScrollableContent>
-            </StyledBox>
+                <StyledButtons>
+                    <StyledDayButtons>
+                        <StyledDayButton disabled={disabledBtn === EDIT_DAY_BUTTONS.PREVIOUS} onClick={goPreviousDay}>
+                            Previous day
+                        </StyledDayButton>
+                        <StyledDayButton disabled={disabledBtn === EDIT_DAY_BUTTONS.NEXT} onClick={goNextDay}>
+                            Next day
+                        </StyledDayButton>
+                    </StyledDayButtons>
+                    <StyledUpdateButton onClick={handleUpdateBtn}>Update data</StyledUpdateButton>
+                </StyledButtons>
+            </StyledBoxWrapper>
         </Modal>
     );
 };

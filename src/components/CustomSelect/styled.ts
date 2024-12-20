@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 import ChevronIcon from "@assets/icons/ChevronIcon.svg";
 import { button } from "@styles/mixins/button";
+import { customScroll } from "@styles/mixins/customScroll";
 
 export const StyledSelectWrapper = styled.div`
     position: relative;
@@ -36,23 +37,20 @@ export const StyledChevronIcon = styled(ChevronIcon)`
 `;
 
 export const StyledDropdownList = styled.div`
-    position: absolute;
-    bottom: -0.25rem;
-    left: 0;
-    right: 0;
-    transform: translateY(100%);
-
     background-color: ${({ theme }) => theme.colors.backgroundNeutral};
     border-radius: ${({ theme }) => theme.paddings.sm};
 
     max-height: 150px;
     overflow-y: auto;
+
+    ${customScroll}
 `;
 
 export const StyledDropdownOption = styled.li`
     transition: 0.2s ease all;
     padding: ${({ theme }) => theme.paddings.m} ${({ theme }) => theme.paddings.base};
     border-radius: ${({ theme }) => theme.paddings.sm};
+    cursor: pointer;
 
     display: flex;
     align-items: center;

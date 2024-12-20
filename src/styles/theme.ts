@@ -7,6 +7,7 @@ export const darkTheme = {
         currencyIcon: "5rem",
         icons: {
             xs: "1rem",
+            xxs: "1.5rem",
             sm: "2rem",
             base: "2.5rem",
             md: "3rem",
@@ -40,7 +41,7 @@ export const darkTheme = {
         chartUp: "#16C782",
         chartDown: "#EA3943",
         chartGrid: "#FFFFFF30",
-        mapSelectedTag: "#185CFF",
+        mapSelectedTag: "#3FB1CE",
 
         error: "#EA3943",
 
@@ -107,6 +108,7 @@ export const darkTheme = {
         xl: "4rem",
         xxl: "6rem",
         lg: "9rem",
+        toast: "0.5rem",
     },
 };
 
@@ -128,7 +130,7 @@ export const lightTheme = {
 
         border: "#EBEBEB",
         gray: "#9E9E9E",
-        inputBg: "#1B2028",
+        inputBg: "#FAFAFA",
 
         chartGrid: "#00000030",
 
