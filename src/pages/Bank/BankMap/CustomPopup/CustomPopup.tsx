@@ -1,7 +1,7 @@
 import { ComponentProps, FC, PropsWithChildren } from "react";
 import { Popup } from "react-map-gl";
 
-import { DEFAULT_MAP_POPUP_OFFSET } from "@constants/constants.ts";
+import { DEFAULT_MAP_POPUP_OFFSET } from "@constants/bankPage";
 
 type CustomPopupProps = PropsWithChildren & ComponentProps<typeof Popup>;
 

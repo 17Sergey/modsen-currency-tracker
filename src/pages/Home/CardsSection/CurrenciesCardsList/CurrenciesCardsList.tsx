@@ -6,16 +6,14 @@ interface CurrenciesCardsListInterface {
     currencies: CurrencyData[];
 }
 
-export const CurrenciesCardsList: React.FC<CurrenciesCardsListInterface> = ({ currencies }) => {
-    return (
-        <StyledWrapper>
-            <StyledList>
-                {currencies.map(({ currency, value }) => (
-                    <StyledListItem key={currency}>
-                        <CurrencyCard currency={currency} value={value} />
-                    </StyledListItem>
-                ))}
-            </StyledList>
-        </StyledWrapper>
-    );
-};
+export const CurrenciesCardsList: React.FC<CurrenciesCardsListInterface> = ({ currencies }) => (
+    <StyledWrapper>
+        <StyledList>
+            {currencies.map(({ currency, value }) => (
+                <StyledListItem key={currency}>
+                    <CurrencyCard currency={currency} value={value} />
+                </StyledListItem>
+            ))}
+        </StyledList>
+    </StyledWrapper>
+);

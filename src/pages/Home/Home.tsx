@@ -1,14 +1,27 @@
 import LastUpdated from "@components/LastUpdated";
 import LayoutContainer from "@components/LayoutContainer";
 import WelcomeScreen from "@components/WelcomeScreen";
+import { useFetchCachedCurrencies } from "@hooks/useFetchCachedCurrencies.ts";
 import CardsSection from "@pages/Home/CardsSection";
 
-export const Home = () => (
-    <>
-        <WelcomeScreen />
-        <LayoutContainer>
-            <LastUpdated />
-            <CardsSection />
-        </LayoutContainer>
-    </>
-);
+export const Home = () => {
+    const { displayedCurrencies, error, isLoading, lastUpdatedAt } = useFetchCachedCurrencies();
+
+    const dataExists = Boolean(displayedCurrencies);
+    const errorMessage = error ? "We failed to fetch currencies data" : null;
+
+    return (
+        <>
+            <WelcomeScreen />
+            <LayoutContainer>
+                <LastUpdated
+                    dataExists={dataExists}
+                    lastUpdatedAt={lastUpdatedAt}
+                    isLoading={isLoading}
+                    errorMessage={errorMessage}
+                />
+                <CardsSection currencies={displayedCurrencies} isLoading={isLoading} errorMessage={errorMessage} />
+            </LayoutContainer>
+        </>
+    );
+};

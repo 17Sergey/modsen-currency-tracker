@@ -30,14 +30,12 @@ export const Contacts = () => (
                     <StyledInfoItemHeading>Contact us:</StyledInfoItemHeading>
                     <StyledInfoItemText>
                         <StyledAddress>
-                            <div>
-                                <StyledStrong>Email:</StyledStrong>{" "}
-                                <a href="mailto:modsencurrencytracker@gmail.com">modsencurrencytracker@gmail.com</a>
-                            </div>
-                            <div>
-                                <StyledStrong>Phone:</StyledStrong>
-                                <a href="tel:+375292048885">+375 (29) 209-80-81</a>
-                            </div>
+                            <StyledStrong>Email:</StyledStrong>{" "}
+                            <a href="mailto:modsencurrencytracker@gmail.com">modsencurrencytracker@gmail.com</a>
+                        </StyledAddress>
+                        <StyledAddress>
+                            <StyledStrong>Phone:</StyledStrong>
+                            <a href="tel:+375292048885">+375 (29) 209-80-81</a>
                         </StyledAddress>
                     </StyledInfoItemText>
                 </StyledInfoItem>

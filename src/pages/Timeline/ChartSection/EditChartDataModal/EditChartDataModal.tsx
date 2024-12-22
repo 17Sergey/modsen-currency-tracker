@@ -1,7 +1,7 @@
 import { FC, useMemo, useState } from "react";
 
 import Modal from "@components/Modal";
-import { EDIT_DAY_BUTTONS } from "@constants/constants.ts";
+import { EDIT_DAY_BUTTONS } from "@constants/timelinePage.ts";
 import EditDayForm from "@pages/Timeline/ChartSection/EditChartDataModal/EditDayForm";
 import { ChartPublisher } from "@utils/Publisher/ChartPublisher.ts";
 
@@ -105,7 +105,9 @@ export const EditChartDataModal: FC<EditChartDataModalProps> = ({ currentStock, 
                             Next day
                         </StyledDayButton>
                     </StyledDayButtons>
-                    <StyledUpdateButton onClick={handleUpdateBtn}>Update data</StyledUpdateButton>
+                    <StyledUpdateButton onClick={handleUpdateBtn} disabled={!isDataModified}>
+                        Update data
+                    </StyledUpdateButton>
                 </StyledButtons>
             </StyledBoxWrapper>
         </Modal>

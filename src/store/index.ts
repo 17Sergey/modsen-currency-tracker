@@ -1,14 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import { currencyAPI } from "./api/currencyAPI.ts";
-import { homePageReducer } from "./reducers/homePageReducer.ts";
+import { appAPI } from "./api/appAPI.ts";
 
 export const store = configureStore({
     reducer: {
-        homePage: homePageReducer,
-        [currencyAPI.reducerPath]: currencyAPI.reducer,
+        [appAPI.reducerPath]: appAPI.reducer,
     },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(currencyAPI.middleware),
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(appAPI.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

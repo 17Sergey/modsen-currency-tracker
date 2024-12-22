@@ -1,8 +1,8 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import CandlestickChart from "react-candlestick-chart";
 import { useTheme } from "styled-components";
 
-import { CANDLE_STICK_CHART_ID } from "@constants/constants.ts";
+import { CANDLE_STICK_CHART_ID } from "@constants/timelinePage.ts";
 
 import { useDebouncedResize } from "./_hooks/useDebouncedResize.ts";
 import { useDisableScrollInsideElement } from "./useDisableScrollInsideElement.ts";
@@ -43,3 +43,5 @@ export const DataChart: FC<DataChartProps> = ({ chartData }) => {
         </div>
     );
 };
+
+export const MemoizedDataChart = memo(DataChart);

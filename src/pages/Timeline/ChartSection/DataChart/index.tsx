@@ -1,3 +1,3 @@
-import { DataChart } from "./DataChart.tsx";
+import { MemoizedDataChart } from "./DataChart.tsx";
 
-export default DataChart;
+export default MemoizedDataChart;

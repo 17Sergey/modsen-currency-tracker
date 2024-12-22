@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-import { DEFAULT_TOAST_LIFETIME } from "@constants/constants";
+import { DEFAULT_TOAST_LIFETIME } from "@constants/timelinePage";
 import { useToast } from "@hooks/useToast";
 import { ChartPublisher } from "@utils/Publisher/ChartPublisher";
 

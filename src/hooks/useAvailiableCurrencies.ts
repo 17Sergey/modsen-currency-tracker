@@ -1,14 +1,15 @@
 import { useMemo } from "react";
 
-import { CURRENCY_CODES } from "@constants/constants.ts";
-import { useGetCurrenciesQuery } from "@store/api/currencyAPI";
+import { CURRENCY_CODES } from "@constants/homePage.ts";
+
+import { useFetchCachedCurrencies } from "./useFetchCachedCurrencies.ts";
 
 const USD_ITEM = { currency: CURRENCY_CODES.USD, value: 1 };
 
 export const useAvailiableCurrencies = () => {
-    const { data: currencies } = useGetCurrenciesQuery();
+    const { displayedCurrencies } = useFetchCachedCurrencies();
 
-    const currenciesArray = useMemo(() => currencies?.data.concat([USD_ITEM]) || [], [currencies]);
+    const currenciesArray = useMemo(() => displayedCurrencies?.concat([USD_ITEM]) || [], [displayedCurrencies]);
 
     return currenciesArray;
 };

@@ -1,4 +1,4 @@
-import { CURRENCY_CODES } from "@constants/constants";
+import { CURRENCY_CODES } from "@constants/homePage";
 
 export const getCurrencyCaption = (currencyCode: string) => {
     switch (currencyCode) {

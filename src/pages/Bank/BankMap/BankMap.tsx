@@ -2,7 +2,7 @@ import { FC } from "react";
 import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import { BANKS_DATA, DEFAULT_COORDINATES } from "@constants/constants.ts";
+import { BANKS_DATA, DEFAULT_COORDINATES } from "@constants/bankPage.ts";
 import { useUserLocation } from "@hooks/useUserLocation.ts";
 import { findBanksByCurrency } from "@utils/findBanksByCurrency.ts";
 

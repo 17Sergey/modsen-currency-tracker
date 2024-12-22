@@ -13,3 +13,10 @@ export const StyledControls = styled.div`
     align-items: center;
     flex-wrap: wrap;
 `;
+
+export const StyledLoader = styled.div`
+    max-width: fit-content;
+
+    margin: 0 auto;
+    margin-top: ${({ theme }) => theme.margins.xxl};
+`;

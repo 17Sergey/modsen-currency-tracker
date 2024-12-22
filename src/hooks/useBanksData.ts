@@ -1,6 +1,6 @@
-import { BANKS_DATA } from "@constants/constants";
+import { BANKS_DATA } from "@constants/bankPage";
 
 export const useBanksData = () => {
-    // Further improvement would be to fetch data from API
+    // TODO: Further improvement would be to fetch data from API
     return BANKS_DATA;
 };

@@ -19,10 +19,11 @@ type CustomSelectProps = {
     options: string[];
     placeholder: string;
     onSelect: (value: string) => void;
+    onClear?: VoidFunction;
     renderOption?: (props: RenderOptionProps) => JSX.Element;
 };
 
-export const ElasticSearch: FC<CustomSelectProps> = ({ options, placeholder, onSelect, renderOption }) => {
+export const ElasticSearch: FC<CustomSelectProps> = ({ options, placeholder, onSelect, onClear, renderOption }) => {
     const [query, setQuery] = useState("");
     const [debouncedQuery] = useDebounceValue(query, 300);
 
@@ -39,6 +40,8 @@ export const ElasticSearch: FC<CustomSelectProps> = ({ options, placeholder, onS
     const handleClear = () => {
         setQuery("");
         setIsOptionsVisible(false);
+
+        if (onClear) onClear();
     };
 
     useEffect(() => {

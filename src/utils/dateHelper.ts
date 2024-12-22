@@ -1,5 +1,3 @@
-import { DATE_NUMBERS } from "@constants/constants";
-
 export const dateHelper = {
     formatDate(date: Date) {
         const day = String(date.getDate()).padStart(2, "0");
@@ -12,7 +10,6 @@ export const dateHelper = {
 
         return `${day}.${month}.${year}T${hours}:${minutes}:${seconds}`;
     },
-    // TODO: add ESLint rule for return types of function
     generateLastDay() {
         const today = new Date();
         const lastDay = new Date(today);
@@ -21,23 +18,21 @@ export const dateHelper = {
 
         return lastDay;
     },
-    extractDate(dateString: string) {
-        if (dateString === "") return dateString;
-        const datePart = dateString.split("T")[DATE_NUMBERS.DATE_PART_INDEX];
-        return datePart;
+    generateFormattedLastDay() {
+        const lastDay = this.generateLastDay();
+        return this.formatDate(lastDay);
     },
-    extractHoursAndMinutes(dateString: string) {
-        if (!dateString) return dateString;
+    extractDate(date: Date) {
+        if (!date) return "";
 
-        const timePart = dateString.split("T")[DATE_NUMBERS.TIME_PART_INDEX];
-        const [hours, minutes] = timePart.split(":");
-        let hoursNumber = Number(hours);
-        const isPM = hoursNumber >= 12;
+        const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "2-digit", day: "2-digit" };
+        return date.toLocaleDateString(undefined, options);
+    },
+    extractHoursAndMinutes(date: Date) {
+        if (!date) return "";
 
-        hoursNumber = hoursNumber % 12 || 12;
-        const dayHalf = isPM ? "PM" : "AM";
-
-        return `${hoursNumber}:${minutes} ${dayHalf}`;
+        const options: Intl.DateTimeFormatOptions = { hour: "2-digit", minute: "2-digit", hour12: true };
+        return date.toLocaleTimeString(undefined, options);
     },
     getPrettyDateFromStr(str: string) {
         return str.split("-").reverse().join(".");

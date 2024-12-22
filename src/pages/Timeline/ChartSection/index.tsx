@@ -1,3 +1,3 @@
-import { ChartSection } from "./ChartSection.tsx";
+import { MemoizedChartSection } from "./ChartSection.tsx";
 
-export default ChartSection;
+export default MemoizedChartSection;

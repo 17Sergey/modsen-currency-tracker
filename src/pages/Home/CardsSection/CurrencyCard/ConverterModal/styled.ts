@@ -18,8 +18,17 @@ export const StyledBox = styled.div`
     }
 `;
 
+export const StyledHeading = styled.h2`
+    color: ${({ theme }) => theme.colors.textPrimary};
+    font-weight: ${({ theme }) => theme.fonts.weight.regular};
+    font-size: ${({ theme }) => theme.fonts.size.lg};
+
+    padding-left: ${({ theme }) => theme.paddings.xs};
+`;
+
 export const StyledScrollableContent = styled.div`
     ${scrollableContent}
+    padding-left: ${({ theme }) => theme.paddings.xs};
 `;
 
 export const StyledWrapper = styled.div`
@@ -30,16 +39,12 @@ export const StyledWrapper = styled.div`
 
 export const StyledCloseBtn = styled.button`
     ${closeBtn}
+    top: 0.5rem;
+    right: 0.5rem;
 `;
 
 export const StyledCrossIcon = styled(CrossIcon)`
     ${crossIcon}
-`;
-
-export const StyledHeading = styled.h2`
-    color: ${({ theme }) => theme.colors.textPrimary};
-    font-weight: ${({ theme }) => theme.fonts.weight.regular};
-    font-size: ${({ theme }) => theme.fonts.size.lg};
 `;
 
 export const StyledForm = styled.form`

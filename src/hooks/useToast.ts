@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { DEFAULT_TOAST_LIFETIME } from "@constants/constants";
+import { DEFAULT_TOAST_LIFETIME } from "@constants/timelinePage";
 
 export const useToast = (lifetime = DEFAULT_TOAST_LIFETIME) => {
     const [isToastVisible, setIsToastVisible] = useState(false);

@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
 
-import { EDIT_DAY_INPUTS } from "@constants/constants.ts";
+import { EDIT_DAY_INPUTS } from "@constants/timelinePage.ts";
 import { isValidNumber } from "@utils/isValidNumber.ts";
 
 import { DaySelect } from "./DaySelect/DaySelect.tsx";

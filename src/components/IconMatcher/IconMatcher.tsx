@@ -12,7 +12,8 @@ import PesoArgentinoIcon from "@assets/icons/currencies/PesoArgentinoIcon.svg?ur
 import WonIcon from "@assets/icons/currencies/WonIcon.svg?url";
 import YenIcon from "@assets/icons/currencies/YenIcon.svg?url";
 import CurrencyLogo from "@assets/icons/CurrencyLogo.svg?url";
-import { CURRENCY_CODES, STOCKS_CODES } from "@constants/constants";
+import { CURRENCY_CODES } from "@constants/homePage";
+import { STOCKS_CODES } from "@constants/timelinePage";
 
 type IconMatcherProps = {
     code: string;

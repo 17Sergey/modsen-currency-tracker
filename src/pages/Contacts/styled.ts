@@ -21,15 +21,11 @@ export const StyledInfoItem = styled.li``;
 
 export const StyledAddress = styled.address`
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: ${({ theme }) => theme.margins.sm};
+    align-items: center;
 
-    div {
-        display: flex;
-        flex-wrap: wrap;
-        gap: ${({ theme }) => theme.margins.sm};
-        align-items: center;
-    }
+    margin-top: ${({ theme }) => theme.margins.base};
 `;
 
 export const StyledInfoItemHeading = styled.p`

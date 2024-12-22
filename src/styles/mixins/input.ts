@@ -15,4 +15,8 @@ export const input = css`
     font-size: ${({ theme }) => theme.fonts.size.md};
     font-weight: ${({ theme }) => theme.fonts.weight.semibold};
     color: ${({ theme }) => theme.colors.textPrimary};
+
+    :focus {
+        outline: 1px solid ${({ theme }) => theme.colors.textPrimary};
+    }
 `;

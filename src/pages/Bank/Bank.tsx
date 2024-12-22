@@ -18,6 +18,10 @@ export const Bank = () => {
         setFoundCurrency(currency);
     };
 
+    const handleClearSearch = () => {
+        setFoundCurrency("");
+    };
+
     const renderOption = ({ option: currency, onOptionClick }: RenderOptionProps) => {
         return (
             <StyledCurrencyOptionButton key={currency} onClick={() => onOptionClick(currency)}>
@@ -36,6 +40,7 @@ export const Bank = () => {
                         options={currencyCodes}
                         placeholder={"Type currency code..."}
                         onSelect={handleSelectFoundCurrency}
+                        onClear={handleClearSearch}
                         renderOption={renderOption}
                     />
                 </StyledElastic>

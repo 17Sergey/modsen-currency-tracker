@@ -41,9 +41,11 @@ export const useCurrencyConverter = (baseCurrency: CurrencyData, initialCurrenci
     ]);
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (!isValidNumber(e.target.value)) return;
+        const { value } = e.target;
 
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        if (!isValidNumber(value)) return;
+
+        setFormData({ ...formData, [e.target.name]: value });
         setChangedInput(e.target.name);
     };
 

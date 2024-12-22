@@ -1,3 +1,0 @@
-type HomePageState = {
-    value: number;
-};

@@ -1,13 +1,18 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
-import { AVAILIABLE_STOCKS } from "@constants/constants";
+import { LOCAL_STORAGE_KEYS } from "@constants/constants";
+import { AVAILIABLE_STOCKS } from "@constants/timelinePage";
 
 export const useCurrentStock = () => {
-    const [currentStock, setCurrenctStock] = useState(AVAILIABLE_STOCKS.BTC);
+    const storedStock = localStorage.getItem(LOCAL_STORAGE_KEYS.CHART_STOCK) || "";
+    const parsedStock = JSON.parse(storedStock) as StockCodesType;
 
-    const handleSelectStock = (option: string) => {
-        setCurrenctStock(AVAILIABLE_STOCKS[option]);
-    };
+    const [currentStock, setCurrenctStock] = useState(AVAILIABLE_STOCKS[parsedStock]);
+
+    const handleSelectStock = useCallback((option: string) => {
+        const stockCode = option as StockCodesType;
+        setCurrenctStock(AVAILIABLE_STOCKS[stockCode]);
+    }, []);
 
     return { currentStock, handleSelectStock };
 };
