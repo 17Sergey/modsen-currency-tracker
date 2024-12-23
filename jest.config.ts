@@ -1,0 +1,21 @@
+export default {
+    preset: "ts-jest",
+    testEnvironment: "jsdom",
+    moduleNameMapper: {
+        "^@api/(.*)$": "<rootDir>/src/api/$1",
+        "^@assets/(.*)$": "<rootDir>/src/assets/$1",
+        "^@components/(.*)$": "<rootDir>/src/components/$1",
+        "^@constants/(.*)$": "<rootDir>/src/constants/$1",
+        "^@context/(.*)$": "<rootDir>/src/context/$1",
+        "^@hooks/(.*)$": "<rootDir>/src/hooks/$1",
+        "^@hoc/(.*)$": "<rootDir>/src/hoc/$1",
+        "^@pages/(.*)$": "<rootDir>/src/pages/$1",
+        "^@styles/(.*)$": "<rootDir>/src/styles/$1",
+        "^@store/(.*)$": "<rootDir>/src/store/$1",
+        "^@types/(.*)$": "<rootDir>/src/types/$1",
+        "^@utils/(.*)$": "<rootDir>/src/utils/$1",
+    },
+    setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
+    collectCoverage: true,
+    coverageDirectory: "coverage",
+};
