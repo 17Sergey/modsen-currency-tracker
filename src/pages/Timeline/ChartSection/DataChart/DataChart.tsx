@@ -1,10 +1,10 @@
 import { Component, createRef } from "react";
 import CandlestickChart from "react-candlestick-chart";
-import { DefaultTheme, withTheme } from "styled-components";
+import { DefaultTheme } from "styled-components";
 
 import { CANDLE_STICK_CHART_ID } from "@constants/timelinePage.ts";
 
-type DataChartProps = {
+export type DataChartProps = {
     chartData: FormattedStocksData;
     theme: DefaultTheme;
 };
@@ -13,7 +13,7 @@ type DataChartState = {
     chartWidth: number;
 };
 
-class DataChart extends Component<DataChartProps, DataChartState> {
+export class DataChart extends Component<DataChartProps, DataChartState> {
     private scrollableRef = createRef<HTMLDivElement>();
 
     constructor(props: DataChartProps) {
@@ -94,5 +94,3 @@ class DataChart extends Component<DataChartProps, DataChartState> {
         );
     }
 }
-
-export default withTheme(DataChart) as React.ComponentType<Omit<DataChartProps, "theme">>;

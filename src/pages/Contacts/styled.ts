@@ -32,7 +32,7 @@ export const StyledInfoItemHeading = styled.p`
     ${headingMd}
 `;
 
-export const StyledInfoItemText = styled.p``;
+export const StyledInfoItemText = styled.div``;
 
 export const StyledStrong = styled.strong`
     font-weight: ${({ theme }) => theme.fonts.weight.semibold};

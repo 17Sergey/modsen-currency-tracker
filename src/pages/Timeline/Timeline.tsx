@@ -4,8 +4,8 @@ import LastUpdated from "@components/LastUpdated";
 import LayoutContainer from "@components/LayoutContainer";
 import ChartSection from "@pages/Timeline/ChartSection";
 
-import { useChartData } from "./ChartSection/_hooks/useChartData.ts";
-import { useCurrentStock } from "./ChartSection/_hooks/useCurrentStock.ts";
+import { useChartData } from "./_hooks/useChartData.ts";
+import { useCurrentStock } from "./_hooks/useCurrentStock.ts";
 import { StyledError } from "./styled.ts";
 
 export const Timeline = () => {

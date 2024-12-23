@@ -1,5 +1,5 @@
-// import { withTheme } from "styled-components";
+import { withTheme } from "styled-components";
 
-// import { DataChart } from "./DataChart.tsx";
+import { DataChart, DataChartProps } from "./DataChart.tsx";
 
-// export default withTheme(DataChart);
+export default withTheme(DataChart) as React.ComponentType<Omit<DataChartProps, "theme">>;

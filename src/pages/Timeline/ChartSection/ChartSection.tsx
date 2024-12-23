@@ -1,4 +1,4 @@
-import { Component, memo } from "react";
+import { Component } from "react";
 
 import { Loader } from "@components/Loader/Loader.tsx";
 import { Toast } from "@components/Toast/Toast.tsx";
@@ -7,7 +7,7 @@ import CurrentStocksCard from "@pages/Timeline/ChartSection/CurrentStocksCard";
 import EditChartDataModal from "@pages/Timeline/ChartSection/EditChartDataModal";
 import { ChartPublisher } from "@utils/Publisher/ChartPublisher.ts";
 
-import DataChart from "./DataChart/DataChart.tsx";
+import DataChart from "./DataChart/index.tsx";
 import { StocksSelect } from "./StocksSelect/StocksSelect.tsx";
 import { StyledButton, StyledControls, StyledLoader } from "./styled.ts";
 
@@ -24,7 +24,7 @@ type ChartDataState = {
     isToastVisible: boolean;
 };
 
-class ChartSection extends Component<ChartDataProps, ChartDataState> {
+export class ChartSection extends Component<ChartDataProps, ChartDataState> {
     private toastTimeout: NodeJS.Timeout | null = null;
 
     constructor(props: ChartDataProps) {
@@ -104,5 +104,3 @@ class ChartSection extends Component<ChartDataProps, ChartDataState> {
         );
     }
 }
-
-export const MemoizedChartSection = memo(ChartSection);

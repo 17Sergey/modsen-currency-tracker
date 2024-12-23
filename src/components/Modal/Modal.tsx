@@ -8,7 +8,7 @@ import { StyledModalBox, StyledWrapper } from "./styled.ts";
 
 type ModalProps = {
     onClose: VoidFunction;
-} & ComponentProps<"dialog">;
+} & ComponentProps<"div">;
 
 export const Modal: FC<ModalProps> = ({ children, onClose }) => {
     useOnEscapeKey(onClose);

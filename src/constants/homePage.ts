@@ -10,7 +10,7 @@ export const CURRENCY_CODES = {
     RUB: "RUB",
 };
 
-export const CURRENCIES_DATA_EXPIRY_TIME = 60 * 1000; // 60 секунд
+export const CURRENCIES_DATA_EXPIRY_TIME = 60 * 1000; // 60 seconds
 
 export const CURRENCIES_LIST = "EUR,AUD,JPY,CZK,GBP,PLN,RUB,CAD";
 

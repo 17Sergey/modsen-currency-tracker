@@ -1,6 +1,6 @@
 export const DEFAULT_TOAST_LIFETIME = 3000;
 
-export const CHART_DATA_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 1 час
+export const CHART_DATA_EXPIRY_TIME = 24 * 60 * 60 * 1000; // 24 hours
 
 type StockCodesObjectType = {
     [key in StockCodesType]: StockCodesType;
