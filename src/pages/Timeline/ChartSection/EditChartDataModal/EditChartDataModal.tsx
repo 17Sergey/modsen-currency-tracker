@@ -1,4 +1,4 @@
-import { FC, useMemo, useState } from "react";
+import React, { Component } from "react";
 
 import Modal from "@components/Modal";
 import { EDIT_DAY_BUTTONS } from "@constants/timelinePage.ts";
@@ -25,91 +25,113 @@ type EditChartDataModalProps = {
     onUpdateData: (data: FormattedStocksData) => void;
 };
 
-export const EditChartDataModal: FC<EditChartDataModalProps> = ({ currentStock, data, onUpdateData, onClose }) => {
-    const newData = useMemo(() => [...data], [data]);
-    const dataDays = useMemo(() => data.map(({ date }) => date), [data]);
+type EditChartDataModalState = {
+    currentDayIndex: number;
+    isDataModified: boolean;
+    disabledBtn: string | null;
+};
 
-    const [isDataModified, setIsDataModified] = useState(false);
+export class EditChartDataModal extends Component<EditChartDataModalProps, EditChartDataModalState> {
+    private newData: FormattedStocksData;
 
-    const [currentDayIndex, setCurrentDayIndex] = useState(0);
+    constructor(props: EditChartDataModalProps) {
+        super(props);
+        this.newData = [...props.data];
+        this.state = {
+            currentDayIndex: 0,
+            isDataModified: false,
+            disabledBtn: null,
+        };
+    }
 
-    const currentDay = newData[currentDayIndex];
-
-    const [disabledBtn, setDisabledBtn] = useState<string | null>(null);
-
-    const resetDisabled = () => {
-        setDisabledBtn(null);
-    };
-
-    const goPreviousDay = () => {
+    goPreviousDay = () => {
+        const { currentDayIndex } = this.state;
         if (currentDayIndex === 0) {
-            setDisabledBtn(EDIT_DAY_BUTTONS.PREVIOUS);
+            this.setState({ disabledBtn: EDIT_DAY_BUTTONS.PREVIOUS });
             return;
         }
-        setCurrentDayIndex((curr) => curr - 1);
-        if (disabledBtn) resetDisabled();
+        this.setState((prevState) => ({
+            currentDayIndex: prevState.currentDayIndex - 1,
+            disabledBtn: null,
+        }));
     };
 
-    const goNextDay = () => {
-        if (currentDayIndex === newData.length - 1) {
-            setDisabledBtn(EDIT_DAY_BUTTONS.NEXT);
+    goNextDay = () => {
+        const { currentDayIndex } = this.state;
+        if (currentDayIndex === this.newData.length - 1) {
+            this.setState({ disabledBtn: EDIT_DAY_BUTTONS.NEXT });
             return;
         }
-        setCurrentDayIndex((curr) => curr + 1);
-        if (disabledBtn) resetDisabled();
+        this.setState((prevState) => ({
+            currentDayIndex: prevState.currentDayIndex + 1,
+            disabledBtn: null,
+        }));
     };
 
-    const handleSelectDay = (day: string) => {
-        const foundIndex = newData.findIndex(({ date }) => date === day);
+    handleSelectDay = (day: string) => {
+        const foundIndex = this.newData.findIndex(({ date }) => date === day);
         if (foundIndex === -1) return;
 
-        setCurrentDayIndex(foundIndex);
-        if (disabledBtn) resetDisabled();
+        this.setState({ currentDayIndex: foundIndex, disabledBtn: null });
     };
 
-    const handleEditDay = (dayData: FormattedStock) => {
-        newData[currentDayIndex] = dayData;
-        if (!isDataModified) setIsDataModified(true);
+    handleEditDay = (dayData: FormattedStock) => {
+        const { currentDayIndex, isDataModified } = this.state;
+        this.newData[currentDayIndex] = dayData;
+        if (!isDataModified) {
+            this.setState({ isDataModified: true });
+        }
     };
 
-    const handleUpdateBtn = () => {
+    handleUpdateBtn = () => {
+        const { isDataModified } = this.state;
         if (!isDataModified) return;
 
         ChartPublisher.notifySubscribers();
-        onUpdateData(newData);
+        this.props.onUpdateData(this.newData);
 
-        setIsDataModified(false);
+        this.setState({ isDataModified: false });
     };
 
-    return (
-        <Modal onClose={onClose}>
-            <StyledBoxWrapper>
-                <StyledCloseBtn aria-label="Close modal" onClick={onClose}>
-                    <StyledCrossIcon />
-                </StyledCloseBtn>
-                <CurrentStocksCard stock={currentStock} />
-                <StyledScrollableContent>
-                    <EditDayForm
-                        dataDays={dataDays}
-                        dayData={currentDay}
-                        onEdit={handleEditDay}
-                        onSelectDay={handleSelectDay}
-                    />
-                </StyledScrollableContent>
-                <StyledButtons>
-                    <StyledDayButtons>
-                        <StyledDayButton disabled={disabledBtn === EDIT_DAY_BUTTONS.PREVIOUS} onClick={goPreviousDay}>
-                            Previous day
-                        </StyledDayButton>
-                        <StyledDayButton disabled={disabledBtn === EDIT_DAY_BUTTONS.NEXT} onClick={goNextDay}>
-                            Next day
-                        </StyledDayButton>
-                    </StyledDayButtons>
-                    <StyledUpdateButton onClick={handleUpdateBtn} disabled={!isDataModified}>
-                        Update data
-                    </StyledUpdateButton>
-                </StyledButtons>
-            </StyledBoxWrapper>
-        </Modal>
-    );
-};
+    render() {
+        const { currentStock, onClose } = this.props;
+        const { currentDayIndex, disabledBtn } = this.state;
+        const currentDay = this.newData[currentDayIndex];
+        const dataDays = this.props.data.map(({ date }) => date);
+
+        return (
+            <Modal onClose={onClose}>
+                <StyledBoxWrapper>
+                    <StyledCloseBtn aria-label="Close modal" onClick={onClose}>
+                        <StyledCrossIcon />
+                    </StyledCloseBtn>
+                    <CurrentStocksCard stock={currentStock} />
+                    <StyledScrollableContent>
+                        <EditDayForm
+                            dataDays={dataDays}
+                            dayData={currentDay}
+                            onEdit={this.handleEditDay}
+                            onSelectDay={this.handleSelectDay}
+                        />
+                    </StyledScrollableContent>
+                    <StyledButtons>
+                        <StyledDayButtons>
+                            <StyledDayButton
+                                disabled={disabledBtn === EDIT_DAY_BUTTONS.PREVIOUS}
+                                onClick={this.goPreviousDay}
+                            >
+                                Previous day
+                            </StyledDayButton>
+                            <StyledDayButton disabled={disabledBtn === EDIT_DAY_BUTTONS.NEXT} onClick={this.goNextDay}>
+                                Next day
+                            </StyledDayButton>
+                        </StyledDayButtons>
+                        <StyledUpdateButton onClick={this.handleUpdateBtn} disabled={!this.state.isDataModified}>
+                            Update data
+                        </StyledUpdateButton>
+                    </StyledButtons>
+                </StyledBoxWrapper>
+            </Modal>
+        );
+    }
+}

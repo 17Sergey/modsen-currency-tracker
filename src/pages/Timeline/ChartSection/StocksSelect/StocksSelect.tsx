@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { Component } from "react";
 
 import { CustomSelect } from "@components/CustomSelect/CustomSelect.tsx";
 
@@ -10,10 +10,14 @@ type StocksSelectProps = {
     onSelect: OnSelectCallback;
 };
 
-export const StocksSelect: FC<StocksSelectProps> = ({ options, currentStock, onSelect }) => {
-    return (
-        <StyledStocksSelect>
-            <CustomSelect options={options} currenctValue={currentStock.code} onSelect={onSelect} />
-        </StyledStocksSelect>
-    );
-};
+export class StocksSelect extends Component<StocksSelectProps> {
+    render() {
+        const { options, currentStock, onSelect } = this.props;
+
+        return (
+            <StyledStocksSelect>
+                <CustomSelect options={options} currenctValue={currentStock.code} onSelect={onSelect} />
+            </StyledStocksSelect>
+        );
+    }
+}

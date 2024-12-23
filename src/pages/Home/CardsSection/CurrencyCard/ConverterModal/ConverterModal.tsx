@@ -2,7 +2,7 @@ import { FC, FormEvent } from "react";
 
 import Modal from "@components/Modal";
 import { useAvailiableCurrencies } from "@hooks/useAvailiableCurrencies.ts";
-import { useCurrencyConverter } from "@hooks/useCurrencyConverter.ts";
+import { useCurrencyConverter } from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/_hooks/useCurrencyConverter.ts";
 import BaseInput from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/BaseInput/index.tsx";
 import TargetControls from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/TargetControls";
 

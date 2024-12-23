@@ -1,6 +1,7 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
 import { convertCurrency } from "@utils/convertCurrency.ts";
+import { isValidCurrencyAmount } from "@utils/isValidCurrencyAmount";
 import { isValidNumber } from "@utils/isValidNumber.ts";
 
 export const useCurrencyConverter = (baseCurrency: CurrencyData, initialCurrencies: CurrencyData[]) => {
@@ -44,6 +45,8 @@ export const useCurrencyConverter = (baseCurrency: CurrencyData, initialCurrenci
         const { value } = e.target;
 
         if (!isValidNumber(value)) return;
+
+        if (!isValidCurrencyAmount(value)) return;
 
         setFormData({ ...formData, [e.target.name]: value });
         setChangedInput(e.target.name);

@@ -1,4 +1,4 @@
-import { ChangeEvent, FC, FormEvent, useEffect, useState } from "react";
+import { ChangeEvent, Component, FormEvent } from "react";
 
 import { EDIT_DAY_INPUTS } from "@constants/timelinePage.ts";
 import { isValidNumber } from "@utils/isValidNumber.ts";
@@ -14,54 +14,78 @@ type EditDayFormProps = {
     onSelectDay: OnSelectCallback;
 };
 
-export const EditDayForm: FC<EditDayFormProps> = ({ dataDays, dayData, onEdit, onSelectDay }) => {
-    const [formData, setFormData] = useState(dayData);
+type EditDayFormState = {
+    formData: FormattedStock;
+};
 
-    useEffect(() => {
-        setFormData(dayData);
-    }, [dayData]);
+export class EditDayForm extends Component<EditDayFormProps, EditDayFormState> {
+    constructor(props: EditDayFormProps) {
+        super(props);
+        this.state = {
+            formData: props.dayData,
+        };
+    }
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    componentDidMount() {
+        this.setFormData(this.props.dayData);
+    }
+
+    componentDidUpdate(prevProps: EditDayFormProps) {
+        if (prevProps.dayData !== this.props.dayData) {
+            this.setFormData(this.props.dayData);
+        }
+    }
+
+    setFormData = (dayData: FormattedStock) => {
+        this.setState({ formData: dayData });
+    };
+
+    handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         if (!isValidNumber(e.target.value)) return;
 
-        const newData = { ...formData, [e.target.name]: Number(e.target.value) };
-        setFormData(newData);
-        onEdit(newData);
+        const newData = { ...this.state.formData, [e.target.name]: Number(e.target.value) };
+        this.setState({ formData: newData });
+        this.props.onEdit(newData);
     };
 
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    static handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
-    };
+    }
 
-    return (
-        <StyledForm onSubmit={handleSubmit}>
-            <DaySelect days={dataDays} currentDay={dayData.date} onSelect={onSelectDay} />
-            <StyledInputsWrapper>
-                <EditDayInput
-                    label="Open:"
-                    name={EDIT_DAY_INPUTS.OPEN}
-                    value={formData.open}
-                    onChange={handleInputChange}
-                />
-                <EditDayInput
-                    label="Closed:"
-                    name={EDIT_DAY_INPUTS.CLOSE}
-                    value={formData.close}
-                    onChange={handleInputChange}
-                />
-                <EditDayInput
-                    label="High:"
-                    name={EDIT_DAY_INPUTS.HIGH}
-                    value={formData.high}
-                    onChange={handleInputChange}
-                />
-                <EditDayInput
-                    label="Low:"
-                    name={EDIT_DAY_INPUTS.LOW}
-                    value={formData.low}
-                    onChange={handleInputChange}
-                />
-            </StyledInputsWrapper>
-        </StyledForm>
-    );
-};
+    render() {
+        const { dataDays, dayData } = this.props;
+        const { formData } = this.state;
+
+        return (
+            <StyledForm onSubmit={EditDayForm.handleSubmit}>
+                <DaySelect days={dataDays} currentDay={dayData.date} onSelect={this.props.onSelectDay} />
+                <StyledInputsWrapper>
+                    <EditDayInput
+                        label="Open:"
+                        name={EDIT_DAY_INPUTS.OPEN}
+                        value={formData.open}
+                        onChange={this.handleInputChange}
+                    />
+                    <EditDayInput
+                        label="Closed:"
+                        name={EDIT_DAY_INPUTS.CLOSE}
+                        value={formData.close}
+                        onChange={this.handleInputChange}
+                    />
+                    <EditDayInput
+                        label="High:"
+                        name={EDIT_DAY_INPUTS.HIGH}
+                        value={formData.high}
+                        onChange={this.handleInputChange}
+                    />
+                    <EditDayInput
+                        label="Low:"
+                        name={EDIT_DAY_INPUTS.LOW}
+                        value={formData.low}
+                        onChange={this.handleInputChange}
+                    />
+                </StyledInputsWrapper>
+            </StyledForm>
+        );
+    }
+}

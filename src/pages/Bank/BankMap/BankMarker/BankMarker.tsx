@@ -1,7 +1,5 @@
-import { FC } from "react";
+import React, { Component } from "react";
 import { Marker } from "react-map-gl";
-
-import { useMapMarkerPopup } from "@hooks/useMapMarkerPopup.ts";
 
 import CustomPopup from "../CustomPopup/index.tsx";
 
@@ -11,28 +9,49 @@ type BankMarkerProps = {
     bankData: MatchedBankResultType;
 };
 
-export const BankMarker: FC<BankMarkerProps> = ({ bankData }) => {
-    const { coordinates, bank, currencies } = bankData;
-    const { latitude, longitude } = coordinates;
-
-    const { showPopup, openPopup, closePopup } = useMapMarkerPopup();
-
-    return (
-        <Marker key={`${latitude}:${longitude}`} longitude={longitude} latitude={latitude} onClick={openPopup}>
-            <StyledMapMarker />
-            {showPopup && (
-                <CustomPopup latitude={latitude} longitude={longitude} onClose={closePopup}>
-                    <StyledPopupContent>
-                        <strong>{bank}</strong>
-                        <ul>
-                            {currencies.map((currency) => (
-                                <li key={currency}>{currency}</li>
-                            ))}
-                        </ul>
-                        <button onClick={closePopup}>Close popup</button>
-                    </StyledPopupContent>
-                </CustomPopup>
-            )}
-        </Marker>
-    );
+type BankMarkerState = {
+    showPopup: boolean;
 };
+
+export class BankMarker extends Component<BankMarkerProps, BankMarkerState> {
+    constructor(props: BankMarkerProps) {
+        super(props);
+        this.state = {
+            showPopup: false,
+        };
+    }
+
+    openPopup = () => {
+        this.setState({ showPopup: true });
+    };
+
+    closePopup = () => {
+        this.setState({ showPopup: false });
+    };
+
+    render() {
+        const { bankData } = this.props;
+        const { coordinates, bank, currencies } = bankData;
+        const { latitude, longitude } = coordinates;
+        const { showPopup } = this.state;
+
+        return (
+            <Marker key={`${latitude}:${longitude}`} longitude={longitude} latitude={latitude} onClick={this.openPopup}>
+                <StyledMapMarker />
+                {showPopup && (
+                    <CustomPopup latitude={latitude} longitude={longitude} onClose={this.closePopup}>
+                        <StyledPopupContent>
+                            <strong>{bank}</strong>
+                            <ul>
+                                {currencies.map((currency) => (
+                                    <li key={currency}>{currency}</li>
+                                ))}
+                            </ul>
+                            <button onClick={this.closePopup}>Close popup</button>
+                        </StyledPopupContent>
+                    </CustomPopup>
+                )}
+            </Marker>
+        );
+    }
+}

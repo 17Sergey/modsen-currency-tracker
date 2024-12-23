@@ -1,3 +1,5 @@
-import { MemoizedDataChart } from "./DataChart.tsx";
+// import { withTheme } from "styled-components";
 
-export default MemoizedDataChart;
+// import { DataChart } from "./DataChart.tsx";
+
+// export default withTheme(DataChart);

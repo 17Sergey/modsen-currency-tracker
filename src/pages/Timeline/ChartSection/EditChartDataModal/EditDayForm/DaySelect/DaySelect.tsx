@@ -1,4 +1,4 @@
-import { FC } from "react";
+import React, { Component } from "react";
 
 import { CustomSelect } from "@components/CustomSelect/CustomSelect.tsx";
 import { dateHelper } from "@utils/dateHelper.ts";
@@ -11,18 +11,47 @@ type DaySelectProps = {
     onSelect: OnSelectCallback;
 };
 
-export const DaySelect: FC<DaySelectProps> = ({ days, currentDay, onSelect }) => {
-    const formattedDays = days.map((day) => dateHelper.getPrettyDateFromStr(day));
-    const formattedCurrentDay = dateHelper.getPrettyDateFromStr(currentDay);
+type DaySelectState = {
+    formattedDays: string[];
+    formattedCurrentDay: string;
+};
 
-    const handleSelectDay = (day: string) => {
+export class DaySelect extends Component<DaySelectProps, DaySelectState> {
+    constructor(props: DaySelectProps) {
+        super(props);
+        this.state = {
+            formattedDays: DaySelect.formatDays(props.days),
+            formattedCurrentDay: dateHelper.getPrettyDateFromStr(props.currentDay),
+        };
+    }
+
+    static getDerivedStateFromProps(nextProps: DaySelectProps) {
+        return {
+            formattedDays: DaySelect.formatDays(nextProps.days),
+            formattedCurrentDay: dateHelper.getPrettyDateFromStr(nextProps.currentDay),
+        };
+    }
+
+    static formatDays(days: string[]): string[] {
+        return days.map((day) => dateHelper.getPrettyDateFromStr(day));
+    }
+
+    handleSelectDay = (day: string) => {
         const formattedDay = dateHelper.getDateFromPrettyStr(day);
-        onSelect(formattedDay);
+        this.props.onSelect(formattedDay);
     };
 
-    return (
-        <StyledDaySelect>
-            <CustomSelect options={formattedDays} currenctValue={formattedCurrentDay} onSelect={handleSelectDay} />
-        </StyledDaySelect>
-    );
-};
+    render() {
+        const { formattedDays, formattedCurrentDay } = this.state;
+
+        return (
+            <StyledDaySelect>
+                <CustomSelect
+                    options={formattedDays}
+                    currenctValue={formattedCurrentDay}
+                    onSelect={this.handleSelectDay}
+                />
+            </StyledDaySelect>
+        );
+    }
+}
