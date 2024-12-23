@@ -35,7 +35,9 @@ export const darkTheme = {
         border: "#474747",
         gray: "#9E9E9E",
         inputBg: "#1B2028",
+
         modalOverlay: "#00000060",
+        modalBox: "#4A4E69",
 
         chartHighlight: "#FF971D",
         chartUp: "#16C782",

@@ -5,8 +5,8 @@ import ExchangeIcon from "@assets/icons/ExchangeIcon.svg";
 import { device } from "@styles/breakpoints";
 import { closeBtn } from "@styles/mixins/modal/closeBtn";
 import { crossIcon } from "@styles/mixins/modal/crossIcon";
+import { modalBox } from "@styles/mixins/modal/modalBox";
 import { scrollableContent } from "@styles/mixins/modal/scrollableContent";
-import { modalBox } from "@styles/mixins/modalBox";
 
 export const StyledBox = styled.div`
     ${modalBox}
