@@ -3,7 +3,7 @@ export const findBanksByCurrency = (currency: string, banksData: BanksDataType):
         branches
             .filter((branch) => branch.currencies.some((backCurrency) => backCurrency.includes(currency)))
             .map((branch) => ({
-                bank: bankName.slice(0, bankName.length - 1),
+                bank: bankName,
                 coordinates: branch.coordinates,
                 currencies: branch.currencies,
             }))

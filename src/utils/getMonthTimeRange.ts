@@ -1,34 +1,50 @@
-export const getMonthTimeRange = () => {
-    const now = new Date();
+export const getMonthTimeRange = (date: Date) => {
+    const now = new Date(date);
 
     const START_HOUR = 0;
     const START_MINUTE = 0;
     const START_SECOND = 0;
 
-    const ONE_DAY = 1;
-    const ONE_MONTH = 1;
-
     const END_HOUR = 23;
     const END_MINUTE = 59;
     const END_SECOND = 59;
+
+    const ONE_MONTH = 1;
+    const ONE_DAY = 1;
+
     const DATE_LENGTH_WITHOUT_MILLISECONDS = 19;
 
-    const timeStart = new Date(
+    const yesterday = new Date(now);
+    yesterday.setUTCDate(now.getUTCDate() - ONE_DAY);
+
+    const yesterdayMonthAgo = new Date(yesterday);
+    yesterdayMonthAgo.setUTCMonth(yesterday.getUTCMonth() - ONE_MONTH);
+
+    const timeStartString = new Date(
         Date.UTC(
-            now.getUTCFullYear(),
-            now.getUTCMonth() - ONE_MONTH,
-            now.getUTCDate() - ONE_DAY,
+            yesterdayMonthAgo.getUTCFullYear(),
+            yesterdayMonthAgo.getUTCMonth(),
+            yesterdayMonthAgo.getUTCDate(),
             START_HOUR,
             START_MINUTE,
             START_SECOND
         )
-    );
-    const timeStartString = timeStart.toISOString().slice(0, DATE_LENGTH_WITHOUT_MILLISECONDS);
+    )
+        .toISOString()
+        .slice(0, DATE_LENGTH_WITHOUT_MILLISECONDS);
 
-    const timeEnd = new Date(
-        Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() - ONE_DAY, END_HOUR, END_MINUTE, END_SECOND)
-    );
-    const timeEndString = timeEnd.toISOString().slice(0, DATE_LENGTH_WITHOUT_MILLISECONDS);
+    const timeEndString = new Date(
+        Date.UTC(
+            yesterday.getUTCFullYear(),
+            yesterday.getUTCMonth(),
+            yesterday.getUTCDate(),
+            END_HOUR,
+            END_MINUTE,
+            END_SECOND
+        )
+    )
+        .toISOString()
+        .slice(0, DATE_LENGTH_WITHOUT_MILLISECONDS);
 
     return [timeStartString, timeEndString];
 };

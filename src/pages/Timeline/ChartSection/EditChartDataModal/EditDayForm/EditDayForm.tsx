@@ -1,7 +1,7 @@
 import { ChangeEvent, Component, FormEvent } from "react";
 
 import { EDIT_DAY_INPUTS } from "@constants/timelinePage.ts";
-import { isValidNumber } from "@utils/isValidNumber.ts";
+import { isValidNumericInput } from "@utils/isValidNumericInput.ts";
 
 import { DaySelect } from "./DaySelect/DaySelect.tsx";
 import { EditDayInput } from "./EditDayInput/EditDayInput.tsx";
@@ -41,7 +41,7 @@ export class EditDayForm extends Component<EditDayFormProps, EditDayFormState> {
     };
 
     handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-        if (!isValidNumber(e.target.value)) return;
+        if (!isValidNumericInput(e.target.value)) return;
 
         const newData = { ...this.state.formData, [e.target.name]: Number(e.target.value) };
         this.setState({ formData: newData });

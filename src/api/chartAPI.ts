@@ -30,7 +30,9 @@ export const chartAPI = {
 
         const timeStartQuery = this.constants.QUERY_PARAMS.TIME_START;
         const timeEndQuery = this.constants.QUERY_PARAMS.TIME_END;
-        const [timeStart, timeEnd] = getMonthTimeRange();
+
+        const now = new Date();
+        const [timeStart, timeEnd] = getMonthTimeRange(now);
 
         const url = `${baseUrl}/${code}/history?${periodQuery}=${period}&${timeStartQuery}=${timeStart}&${timeEndQuery}=${timeEnd}`;
 

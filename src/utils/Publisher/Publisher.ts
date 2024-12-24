@@ -1,7 +1,7 @@
 type SubscriberFunction = VoidFunction;
 
 export class Publisher {
-    private subscribers: SubscriberFunction[];
+    public subscribers: SubscriberFunction[];
 
     constructor() {
         this.subscribers = [];

@@ -22,7 +22,7 @@ export const dateHelper = {
         const lastDay = this.generateLastDay();
         return this.formatDate(lastDay);
     },
-    extractDate(date: Date) {
+    extractDateToPrettyString(date: Date) {
         if (!date) return "";
 
         const options: Intl.DateTimeFormatOptions = { year: "numeric", month: "2-digit", day: "2-digit" };
