@@ -1,6 +1,8 @@
-const Dotenv = require("dotenv-webpack");
+/* eslint-disable */
 
-module.exports = {
+import Dotenv from "dotenv-webpack";
+
+const config = {
     mode: "production",
     devtool: "source-map",
     plugins: [
@@ -9,3 +11,5 @@ module.exports = {
         }),
     ],
 };
+
+export default config;

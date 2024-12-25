@@ -1,7 +1,9 @@
-const ReactRefreshWebpackPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
-const Dotenv = require("dotenv-webpack");
+/* eslint-disable */
 
-module.exports = {
+import Dotenv from "dotenv-webpack";
+import ReactRefreshWebpackPlugin from "@pmmmwh/react-refresh-webpack-plugin";
+
+const config = {
     mode: "development",
     devServer: {
         hot: true,
@@ -11,3 +13,5 @@ module.exports = {
     devtool: "cheap-module-source-map",
     plugins: [new ReactRefreshWebpackPlugin(), new Dotenv()],
 };
+
+export default config;

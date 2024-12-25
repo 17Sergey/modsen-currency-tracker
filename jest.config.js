@@ -1,7 +1,11 @@
 export default {
-    preset: "ts-jest",
     testEnvironment: "jsdom",
+    setupFiles: [`<rootDir>/jest-env.js`],
+    setupFilesAfterEnv: ["<rootDir>/jest-setup.js"],
     moduleNameMapper: {
+        "\\.(jpg|jpeg|png|gif|svg\\?url)$": "<rootDir>/src/utils/testing/__mocks__/imgSrcMock.ts",
+        "\\.(svg)$": "<rootDir>/src/utils/testing/__mocks__/imgSvgMock.ts",
+
         "^@api/(.*)$": "<rootDir>/src/api/$1",
         "^@assets/(.*)$": "<rootDir>/src/assets/$1",
         "^@components/(.*)$": "<rootDir>/src/components/$1",
@@ -15,7 +19,5 @@ export default {
         "^@types/(.*)$": "<rootDir>/src/types/$1",
         "^@utils/(.*)$": "<rootDir>/src/utils/$1",
     },
-    setupFilesAfterEnv: ["<rootDir>/jest.setup.ts"],
-    collectCoverage: true,
-    coverageDirectory: "coverage",
+    moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
 };

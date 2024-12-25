@@ -5,8 +5,7 @@ import { PATHS } from "@constants/constants";
 
 export const CurrencyLogo = () => (
     <div>
-        <Link to={PATHS.HOME} title="Go to Home page">
-            <img src={CurrencyLogoUrl} alt="Currency logo" />
-        </Link>
+        <Link to={PATHS.HOME} title="Go to Home page"></Link>
+        <img src={CurrencyLogoUrl} alt="Currency logo" />
     </div>
 );

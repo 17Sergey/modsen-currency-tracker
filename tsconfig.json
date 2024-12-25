@@ -21,7 +21,6 @@
             "@constants/*": ["./src/constants/*"],
             "@context/*": ["./src/context/*"],
             "@hooks/*": ["./src/hooks/*"],
-            "@hoc/*": ["./src/hoc/*"],
             "@pages/*": ["./src/pages/*"],
             "@styles/*": ["./src/styles/*"],
             "@store/*": ["./src/store/*"],
@@ -29,5 +28,6 @@
             "@utils/*": ["./src/utils/*"]
         }
     },
-    "include": ["src/**/*", "src/styles/styled.d.ts"]
+    "include": ["src/**/*", "src/styles/styled.d.ts", "jest-setup.js", "src/utils/testing/__mocks__"],
+    "types": ["node", "jest", "@testing-library/jest-dom"]
 }

@@ -1,14 +1,14 @@
-import Bank from "@pages/Bank";
-import Contacts from "@pages/Contacts";
-import Home from "@pages/Home";
-import Timeline from "@pages/Timeline";
+import { LazyBank } from "@pages/Bank/LazyBank.tsx";
+import { LazyContacts } from "@pages/Contacts/LazyContacts.tsx";
+import { LazyHome } from "@pages/Home/LazyHome.tsx";
+import { LazyTimeline } from "@pages/Timeline/LazyTimeline.tsx";
 
 import { PATHS } from "./constants.ts";
 
 export const ROUTES = [
-    { path: PATHS.HOME, component: Home },
-    { path: PATHS.TIMELINE, component: Timeline },
-    { path: PATHS.BANK, component: Bank },
-    { path: PATHS.CONTACTS, component: Contacts },
-    { path: PATHS.CATCH_ALL, component: Home },
+    { path: PATHS.HOME, component: LazyHome },
+    { path: PATHS.TIMELINE, component: LazyTimeline },
+    { path: PATHS.BANK, component: LazyBank },
+    { path: PATHS.CONTACTS, component: LazyContacts },
+    { path: PATHS.CATCH_ALL, component: LazyHome },
 ];
