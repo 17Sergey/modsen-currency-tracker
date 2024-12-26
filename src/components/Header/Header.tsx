@@ -12,7 +12,7 @@ export const Header = () => (
                 <CurrencyLogo />
             </StyledCurrencyLogo>
             <HeaderMenu />
-            <StyledToggle>
+            <StyledToggle data-cy={"toggleThemeDesktop"}>
                 <ToggleTheme />
             </StyledToggle>
         </StyledHeader>

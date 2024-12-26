@@ -28,6 +28,6 @@
             "@utils/*": ["./src/utils/*"]
         }
     },
-    "include": ["src/**/*", "src/styles/styled.d.ts", "jest-setup.js", "src/utils/testing/__mocks__"],
+    "include": ["src/**/*", "src/styles/styled.d.ts", "jest-setup.js", "src/utils/testing/__mocks__", "cypress", "jest"],
     "types": ["node", "jest", "@testing-library/jest-dom"]
 }
