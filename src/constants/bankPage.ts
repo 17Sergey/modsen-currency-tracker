@@ -6,6 +6,10 @@ export const DEFAULT_COORDINATES = {
 
 export const DEFAULT_MAP_POPUP_OFFSET = [0, -30];
 
+export const DEFAULT_ZOOM = 12;
+
+export const DEFAULT_MAP_HEIGHT = 500;
+
 export const BANKS_DATA = {
     BELARUSBANKS: [
         {

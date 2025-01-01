@@ -36,12 +36,13 @@ export const StyledOptionsList = styled.div`
     top: 100%;
     left: 0;
     right: 0;
+    z-index: 100;
+
     display: flex;
     flex-direction: column;
     background-color: ${({ theme }) => theme.colors.backgroundNeutral};
     border-radius: ${({ theme }) => theme.paddings.sm};
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 100;
 `;
 
 export const StyledOption = styled.button`

@@ -1,9 +1,6 @@
-import { CSSProperties, FC, MouseEvent, useEffect, useRef, useState } from "react";
-import { useOnClickOutside } from "usehooks-ts";
+import { FC, useEffect, useState } from "react";
 
 import { IconMatcher } from "@components/IconMatcher/IconMatcher.tsx";
-import Portal from "@components/Portal";
-import { Z_INDEX_MANAGER } from "@constants/constants.ts";
 
 import {
     StyleCustomSelect,
@@ -25,20 +22,6 @@ type CustomSelectProps = {
 export const CustomSelect: FC<CustomSelectProps> = ({ options, currenctValue, onSelect }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(currenctValue);
-    const selectRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        setSelectedOption(currenctValue);
-    }, [currenctValue]);
-
-    const handleClickOutside = (event: MouseEvent | TouchEvent | FocusEvent) => {
-        const target = event.target as HTMLElement;
-        if (target.id === "dropdown_option" || target.id === "dropdown_list") return;
-
-        setIsOpen(false);
-    };
-
-    useOnClickOutside(selectRef, handleClickOutside);
 
     const handleOptionClick = (option: string) => {
         setSelectedOption(option);
@@ -47,32 +30,16 @@ export const CustomSelect: FC<CustomSelectProps> = ({ options, currenctValue, on
     };
 
     const toggleOpen = () => {
-        setIsOpen(!isOpen);
+        setIsOpen((prev) => !prev);
     };
 
-    const getDropdownStyle = (): CSSProperties => {
-        if (selectRef.current) {
-            const rect = selectRef.current.getBoundingClientRect();
-            return {
-                position: "absolute",
-                top: `${rect.bottom + window.scrollY}px`,
-                left: `${rect.left + window.scrollX}px`,
-                width: `${rect.width}px`,
-                zIndex: Z_INDEX_MANAGER.DROWDOWN,
-            };
-        }
-        return {};
-    };
+    useEffect(() => {
+        setSelectedOption(currenctValue);
+    }, [currenctValue]);
 
     return (
-        <StyledSelectWrapper ref={selectRef}>
-            <StyleCustomSelect
-                role="combobox"
-                aria-expanded={isOpen}
-                aria-haspopup="listbox"
-                tabIndex={0}
-                onClick={toggleOpen}
-            >
+        <StyledSelectWrapper>
+            <StyleCustomSelect role="combobox" aria-expanded={isOpen} aria-haspopup="listbox" onClick={toggleOpen}>
                 <StyledSelectVisualPart>
                     <StyledSelectedOption>
                         <StyledIcon>
@@ -83,31 +50,17 @@ export const CustomSelect: FC<CustomSelectProps> = ({ options, currenctValue, on
                     <StyledChevronIcon />
                 </StyledSelectVisualPart>
             </StyleCustomSelect>
-
             {isOpen && (
-                <Portal rootId="dropdown-root">
-                    <StyledDropdownList
-                        role="listbox"
-                        aria-label="Select an option"
-                        style={getDropdownStyle()}
-                        id={"dropdown_list"}
-                    >
-                        {options.map((option) => (
-                            <StyledDropdownOption
-                                key={option}
-                                role="option"
-                                tabIndex={0}
-                                onClick={() => handleOptionClick(option)}
-                                id={"dropdown_option"}
-                            >
-                                <StyledIcon>
-                                    <IconMatcher code={option} />
-                                </StyledIcon>
-                                <span>{option}</span>
-                            </StyledDropdownOption>
-                        ))}
-                    </StyledDropdownList>
-                </Portal>
+                <StyledDropdownList role="listbox" aria-label="Select an option">
+                    {options.map((option) => (
+                        <StyledDropdownOption key={option} role="option" onClick={() => handleOptionClick(option)}>
+                            <StyledIcon>
+                                <IconMatcher code={option} />
+                            </StyledIcon>
+                            <span>{option}</span>
+                        </StyledDropdownOption>
+                    ))}
+                </StyledDropdownList>
             )}
         </StyledSelectWrapper>
     );

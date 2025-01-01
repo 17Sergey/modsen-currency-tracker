@@ -18,13 +18,8 @@ export const App = () => (
             <StyledMain>
                 <Suspense fallback={<Loader variant="sm" />}>
                     <Routes>
-                        {ROUTES.map((route) => (
-                            <Route
-                                key={route.path}
-                                index={route.path === PATHS.HOME}
-                                path={route.path}
-                                element={<route.component />}
-                            />
+                        {ROUTES.map(({ path, Component }) => (
+                            <Route key={path} index={path === PATHS.HOME} path={path} element={<Component />} />
                         ))}
                     </Routes>
                 </Suspense>

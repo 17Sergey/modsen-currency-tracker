@@ -13,8 +13,9 @@ export const button = css`
         background-color: ${({ theme }) => theme.colors.textNeutralTransparent};
         opacity: 0.8;
     }
+
     &:active {
-        transform: scale(0.9);
+        transform: scale(0.95);
     }
 
     &:disabled {

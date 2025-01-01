@@ -11,7 +11,12 @@ export const StyledSelectWrapper = styled.div`
 `;
 
 export const StyleCustomSelect = styled.div`
-    ${button}
+    ${button};
+
+    &:active {
+        transform: scale(1);
+    }
+
     padding: ${({ theme }) => theme.paddings.m} ${({ theme }) => theme.paddings.base};
     font-weight: ${({ theme }) => theme.fonts.weight.semibold};
 `;
@@ -44,6 +49,13 @@ export const StyledDropdownList = styled.div`
     overflow-y: auto;
 
     ${customScroll}
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateY(100%);
 `;
 
 export const StyledDropdownOption = styled.li`

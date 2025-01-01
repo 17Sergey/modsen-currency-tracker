@@ -24,7 +24,7 @@ export const CardsSection: FC<CardsSectionProps> = ({ currencies, isLoading, err
             <StyledSectionHeading>Quotes</StyledSectionHeading>
             <ErrorBoundary fallback={errorRedrerProp}>
                 {isLoading && <Loader variant="md" />}
-                {currencies && <CurrenciesCardsList currencies={currencies} />}
+                {!!currencies && <CurrenciesCardsList currencies={currencies} />}
             </ErrorBoundary>
         </StyledCardsSection>
     );

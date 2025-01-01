@@ -2,8 +2,6 @@ import styled from "styled-components";
 
 import { device } from "@styles/breakpoints";
 
-export const StyledWrapper = styled.div``;
-
 export const StyledList = styled.ul`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -17,5 +15,3 @@ export const StyledList = styled.ul`
         grid-template-columns: 1fr;
     }
 `;
-
-export const StyledListItem = styled.li``;

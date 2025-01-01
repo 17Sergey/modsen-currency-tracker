@@ -15,3 +15,8 @@ export const CURRENCIES_DATA_EXPIRY_TIME = 60 * 1000; // 60 seconds
 export const CURRENCIES_LIST = "EUR,AUD,JPY,CZK,GBP,PLN,RUB,CAD";
 
 export const BASE_CURRENCY = "USD";
+
+export const CURRENCY_INPUTS = {
+    BASE_CURRENCY_INPUT: "baseCurrencyValue",
+    TARGET_CURRENCY_INPUT: "targetCurrencyValue",
+};

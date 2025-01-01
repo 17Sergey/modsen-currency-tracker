@@ -2,7 +2,7 @@ import { FC } from "react";
 
 import { CustomSelect } from "@components/CustomSelect/CustomSelect.tsx";
 
-import { StyledSelect, StyledSelectWrapper } from "./styled.ts";
+import { StyledSelect } from "./styled.ts";
 
 type SelectTargetCurrencyProps = {
     curreciesArray: CurrencyData[];
@@ -18,16 +18,8 @@ export const SelectTargetCurrency: FC<SelectTargetCurrencyProps> = ({
     const formattedOptions = curreciesArray.map(({ currency }) => currency);
 
     return (
-        <>
-            <StyledSelectWrapper>
-                <StyledSelect>
-                    <CustomSelect
-                        options={formattedOptions}
-                        currenctValue={selectedCurrency}
-                        onSelect={onHandleSelectChange}
-                    />
-                </StyledSelect>
-            </StyledSelectWrapper>
-        </>
+        <StyledSelect>
+            <CustomSelect options={formattedOptions} currenctValue={selectedCurrency} onSelect={onHandleSelectChange} />
+        </StyledSelect>
     );
 };

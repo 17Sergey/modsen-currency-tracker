@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Map from "react-map-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import { BANKS_DATA, DEFAULT_COORDINATES } from "@constants/bankPage.ts";
+import { BANKS_DATA, DEFAULT_COORDINATES, DEFAULT_MAP_HEIGHT, DEFAULT_ZOOM } from "@constants/bankPage.ts";
 import { findBanksByCurrency } from "@utils/findBanksByCurrency.ts";
 
 import BankMarker from "./BankMarker/index.ts";
@@ -43,7 +43,7 @@ export class BankMap extends Component<BankMapProps, BankMapState> {
                     userLocation: {
                         longitude,
                         latitude,
-                        zoom: 12,
+                        zoom: DEFAULT_ZOOM,
                     },
                 });
             });
@@ -69,10 +69,10 @@ export class BankMap extends Component<BankMapProps, BankMapState> {
                     reuseMaps
                     initialViewState={DEFAULT_COORDINATES}
                     mapboxAccessToken={process.env.MAPBOX_GL_TOKEN}
-                    style={{ width: "100%", height: 500 }}
+                    style={{ width: "100%", height: DEFAULT_MAP_HEIGHT }}
                     mapStyle="mapbox://styles/mapbox/streets-v9"
                 >
-                    {userLocation && <UserLocationMarker userLocation={userLocation} />}
+                    {!!userLocation && <UserLocationMarker userLocation={userLocation} />}
                     {bankMarkers}
                 </Map>
             </StyledWrapper>

@@ -1,8 +1,5 @@
-import { ChangeEvent, CSSProperties, FC, useEffect, useRef, useState } from "react";
+import { ChangeEvent, FC, useEffect, useState } from "react";
 import { useDebounceValue } from "usehooks-ts";
-
-import Portal from "@components/Portal/index.tsx";
-import { Z_INDEX_MANAGER } from "@constants/constants.ts";
 
 import {
     StyledCrossIcon,
@@ -30,8 +27,6 @@ export const ElasticSearch: FC<CustomSelectProps> = ({ options, placeholder, onS
     const [matchedOptions, setMatchedOptions] = useState<string[]>([]);
     const [isOptionsVisible, setIsOptionsVisible] = useState(false);
 
-    const inputRef = useRef<HTMLInputElement | null>(null);
-
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
         setQuery(e.target.value);
         setIsOptionsVisible(true);
@@ -42,6 +37,13 @@ export const ElasticSearch: FC<CustomSelectProps> = ({ options, placeholder, onS
         setIsOptionsVisible(false);
 
         if (onClear) onClear();
+    };
+
+    const handleOptionClick = (option: string) => {
+        setQuery(option);
+        setMatchedOptions([]);
+        setIsOptionsVisible(false);
+        onSelect(option);
     };
 
     useEffect(() => {
@@ -55,37 +57,10 @@ export const ElasticSearch: FC<CustomSelectProps> = ({ options, placeholder, onS
         }
     }, [debouncedQuery, options]);
 
-    const handleOptionClick = (option: string) => {
-        setQuery(option);
-        setMatchedOptions([]);
-        setIsOptionsVisible(false);
-        onSelect(option);
-    };
-
-    const getDropdownStyle = (): CSSProperties => {
-        if (inputRef.current) {
-            const rect = inputRef.current.getBoundingClientRect();
-            return {
-                position: "absolute",
-                top: `${rect.bottom + window.scrollY + 4}px`,
-                left: `${rect.left + window.scrollX}px`,
-                width: `${rect.width}px`,
-                zIndex: Z_INDEX_MANAGER.DROWDOWN,
-            };
-        }
-        return {};
-    };
-
     return (
         <StyledElasticWrapper>
             <StyledInputWrapper>
-                <StyledInput
-                    ref={inputRef}
-                    type="text"
-                    placeholder={placeholder}
-                    value={query}
-                    onChange={handleInputChange}
-                />
+                <StyledInput type="text" placeholder={placeholder} value={query} onChange={handleInputChange} />
                 {query ? (
                     <StyledInputButton onClick={handleClear}>
                         <StyledCrossIcon aria-label="Clear" />
@@ -97,19 +72,17 @@ export const ElasticSearch: FC<CustomSelectProps> = ({ options, placeholder, onS
                 )}
             </StyledInputWrapper>
             {isOptionsVisible && matchedOptions.length > 0 && (
-                <Portal rootId="dropdown-root">
-                    <StyledOptionsList style={getDropdownStyle()}>
-                        {matchedOptions.map((option) =>
-                            renderOption ? (
-                                renderOption({ option, onOptionClick: handleOptionClick })
-                            ) : (
-                                <StyledOption key={option} onClick={() => handleOptionClick(option)}>
-                                    {option}
-                                </StyledOption>
-                            )
-                        )}
-                    </StyledOptionsList>
-                </Portal>
+                <StyledOptionsList>
+                    {matchedOptions.map((option) =>
+                        renderOption ? (
+                            renderOption({ option, onOptionClick: handleOptionClick })
+                        ) : (
+                            <StyledOption key={option} onClick={() => handleOptionClick(option)}>
+                                {option}
+                            </StyledOption>
+                        )
+                    )}
+                </StyledOptionsList>
             )}
         </StyledElasticWrapper>
     );

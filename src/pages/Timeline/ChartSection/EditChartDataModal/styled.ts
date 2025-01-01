@@ -53,8 +53,6 @@ export const StyledButton = styled.button`
     }
 `;
 
-export const StyledDayButton = styled(StyledButton)``;
-
 export const StyledDayButtons = styled.div`
     display: flex;
     justify-content: space-between;

@@ -1,13 +1,17 @@
 import { ChangeEvent, useEffect, useState } from "react";
 
+import { CURRENCY_INPUTS } from "@constants/homePage";
 import { convertCurrency } from "@utils/convertCurrency.ts";
 import { isValidCurrencyAmount } from "@utils/isValidCurrencyAmount";
 import { isValidNumericInput } from "@utils/isValidNumericInput";
 
+const baseCurrencyValue = CURRENCY_INPUTS.BASE_CURRENCY_INPUT;
+const targetCurrencyValue = CURRENCY_INPUTS.TARGET_CURRENCY_INPUT;
+
 export const useCurrencyConverter = (baseCurrency: CurrencyData, initialCurrencies: CurrencyData[]) => {
     const [formData, setFormData] = useState({
-        baseCurrencyValue: "",
-        targetCurrencyValue: "",
+        [baseCurrencyValue]: "",
+        [targetCurrencyValue]: "",
         selectedTargetCurrency: initialCurrencies[0],
     });
 
@@ -16,7 +20,7 @@ export const useCurrencyConverter = (baseCurrency: CurrencyData, initialCurrenci
     useEffect(() => {
         if (changedInput === "") return;
 
-        if (changedInput === "baseCurrencyValue") {
+        if (changedInput === baseCurrencyValue) {
             const result = convertCurrency(
                 Number(formData.baseCurrencyValue),
                 baseCurrency.value,
@@ -25,7 +29,7 @@ export const useCurrencyConverter = (baseCurrency: CurrencyData, initialCurrenci
             setFormData((prevState) => ({ ...prevState, targetCurrencyValue: result.toString() }));
         }
 
-        if (changedInput === "targetCurrencyValue") {
+        if (changedInput === targetCurrencyValue) {
             const result = convertCurrency(
                 Number(formData.targetCurrencyValue),
                 formData.selectedTargetCurrency.value,

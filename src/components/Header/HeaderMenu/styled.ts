@@ -59,7 +59,7 @@ export const StyledBurgerMenu = styled.div<{
     gap: 2rem;
 
     height: 100vh;
-    padding: ${({ theme }) => theme.paddings.xxl};
+    padding: ${({ theme }) => theme.paddings.xl} ${({ theme }) => theme.paddings.xxl};
 
     transition: all 0.3s ease;
     background-color: ${({ $isMenuOpen, theme }) => $isMenuOpen && theme.colors.background};
@@ -81,8 +81,8 @@ export const StyledCloseButton = styled.button`
     height: ${({ theme }) => theme.widths.icons.base};
     align-self: flex-end;
     position: relative;
-    left: 0.75rem;
-    top: -0.5rem;
+    left: 0;
+    top: 0;
 `;
 
 export const StyledCrossIcon = styled(CrossIcon)`

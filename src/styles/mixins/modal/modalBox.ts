@@ -15,7 +15,7 @@ export const modalBox = css`
     padding: ${({ theme }) => theme.paddings.xl};
 
     background-color: ${({ theme }) =>
-        theme.name === THEMES.DARK ? theme.colors.modalBox : theme.colors.backgroundNeutral};
+        theme.name === THEMES.DARK ? theme.colors.border : theme.colors.backgroundNeutral};
     border-radius: ${({ theme }) => theme.paddings.sm};
 
     display: flex;

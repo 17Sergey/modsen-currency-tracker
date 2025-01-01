@@ -19,6 +19,7 @@ export const StyledCard = styled.div`
         background-color: ${({ theme }) => theme.colors.border};
     }
 `;
+
 export const StyledMockButton = styled.button`
     position: absolute;
     top: 0;

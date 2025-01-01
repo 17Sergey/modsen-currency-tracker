@@ -6,9 +6,9 @@ import { LazyTimeline } from "@pages/Timeline/LazyTimeline.tsx";
 import { PATHS } from "./constants.ts";
 
 export const ROUTES = [
-    { path: PATHS.HOME, component: LazyHome },
-    { path: PATHS.TIMELINE, component: LazyTimeline },
-    { path: PATHS.BANK, component: LazyBank },
-    { path: PATHS.CONTACTS, component: LazyContacts },
-    { path: PATHS.CATCH_ALL, component: LazyHome },
+    { path: PATHS.HOME, Component: LazyHome },
+    { path: PATHS.TIMELINE, Component: LazyTimeline },
+    { path: PATHS.BANK, Component: LazyBank },
+    { path: PATHS.CONTACTS, Component: LazyContacts },
+    { path: PATHS.CATCH_ALL, Component: LazyHome },
 ];

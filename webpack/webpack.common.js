@@ -1,7 +1,6 @@
 /* eslint-disable */
 
 import CopyPlugin from "copy-webpack-plugin";
-import TerserPlugin from "terser-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { dirname, resolve } from "path";
 import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
@@ -59,10 +58,6 @@ const config = {
     output: {
         path: resolve(__dirname, "../dist"),
         filename: "bundle.js",
-    },
-    optimization: {
-        minimize: true,
-        minimizer: [new TerserPlugin()],
     },
     plugins: [
         new HtmlWebpackPlugin({

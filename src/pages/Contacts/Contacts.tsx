@@ -1,34 +1,23 @@
 import LayoutContainer from "@components/LayoutContainer";
 
-import {
-    SectionHeading,
-    StyledAddress,
-    StyledContactsSection,
-    StyledInfoItem,
-    StyledInfoItemHeading,
-    StyledInfoItemText,
-    StyledInfoList,
-    StyledStrong,
-} from "./styled.ts";
+import { SectionHeading, StyledAddress, StyledInfoItemHeading, StyledInfoList, StyledStrong } from "./styled.ts";
 
 export const Contacts = () => (
     <LayoutContainer>
-        <StyledContactsSection>
+        <section>
             <SectionHeading>Our contacts:</SectionHeading>
             <StyledInfoList>
-                <StyledInfoItem>
+                <li>
                     <StyledInfoItemHeading>Address</StyledInfoItemHeading>
-                    <StyledInfoItemText>Republic of Belarus, Minsk, prospekt Nezalezhnasci, 220</StyledInfoItemText>
-                </StyledInfoItem>
-                <StyledInfoItem>
+                    <div>Republic of Belarus, Minsk, prospekt Nezalezhnasci, 220</div>
+                </li>
+                <li>
                     <StyledInfoItemHeading>Since 2016</StyledInfoItemHeading>
-                    <StyledInfoItemText>
-                        The company was created in 2016 and still is growing it&apos;s potential and income
-                    </StyledInfoItemText>
-                </StyledInfoItem>
-                <StyledInfoItem>
+                    <div>The company was created in 2016 and still is growing it&apos;s potential and income</div>
+                </li>
+                <li>
                     <StyledInfoItemHeading>Contact us:</StyledInfoItemHeading>
-                    <StyledInfoItemText>
+                    <div>
                         <StyledAddress>
                             <StyledStrong>Email:</StyledStrong>{" "}
                             <a href="mailto:modsencurrencytracker@gmail.com">modsencurrencytracker@gmail.com</a>
@@ -37,9 +26,9 @@ export const Contacts = () => (
                             <StyledStrong>Phone:</StyledStrong>
                             <a href="tel:+375292048885">+375 (29) 209-80-81</a>
                         </StyledAddress>
-                    </StyledInfoItemText>
-                </StyledInfoItem>
+                    </div>
+                </li>
             </StyledInfoList>
-        </StyledContactsSection>
+        </section>
     </LayoutContainer>
 );

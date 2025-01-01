@@ -84,7 +84,6 @@ export const StyledNavBlock = styled.div`
     ul {
         margin-top: ${({ theme }) => theme.margins.m};
 
-        // TODO: mixins for repeated css
         li {
             font-weight: ${({ theme }) => theme.fonts.weight.regular};
             color: ${({ theme }) => theme.colors.textFooter};

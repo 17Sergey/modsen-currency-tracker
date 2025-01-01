@@ -9,10 +9,10 @@ import { CurrentStocksCard } from "../CurrentStocksCard/CurrentStocksCard.tsx";
 
 import {
     StyledBoxWrapper,
+    StyledButton,
     StyledButtons,
     StyledCloseBtn,
     StyledCrossIcon,
-    StyledDayButton,
     StyledDayButtons,
     StyledScrollableContent,
     StyledUpdateButton,
@@ -116,15 +116,15 @@ export class EditChartDataModal extends Component<EditChartDataModalProps, EditC
                     </StyledScrollableContent>
                     <StyledButtons>
                         <StyledDayButtons>
-                            <StyledDayButton
+                            <StyledButton
                                 disabled={disabledBtn === EDIT_DAY_BUTTONS.PREVIOUS}
                                 onClick={this.goPreviousDay}
                             >
                                 Previous day
-                            </StyledDayButton>
-                            <StyledDayButton disabled={disabledBtn === EDIT_DAY_BUTTONS.NEXT} onClick={this.goNextDay}>
+                            </StyledButton>
+                            <StyledButton disabled={disabledBtn === EDIT_DAY_BUTTONS.NEXT} onClick={this.goNextDay}>
                                 Next day
-                            </StyledDayButton>
+                            </StyledButton>
                         </StyledDayButtons>
                         <StyledUpdateButton onClick={this.handleUpdateBtn} disabled={!this.state.isDataModified}>
                             Update data

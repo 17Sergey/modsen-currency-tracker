@@ -7,7 +7,7 @@ import CardsSection from "@pages/Home/CardsSection";
 export const Home = () => {
     const { displayedCurrencies, error, isLoading, lastUpdatedAt } = useFetchCachedCurrencies();
 
-    const dataExists = Boolean(displayedCurrencies.length > 0);
+    const dataExists = displayedCurrencies.length > 0;
     const errorMessage = error ? "We failed to fetch currencies data" : null;
 
     return (

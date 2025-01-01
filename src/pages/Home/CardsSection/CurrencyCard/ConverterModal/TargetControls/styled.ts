@@ -3,8 +3,6 @@ import styled from "styled-components";
 import { device } from "@styles/breakpoints";
 import { input } from "@styles/mixins/input";
 
-export const StyledTargetCurrency = styled.div``;
-
 export const StyledInput = styled.input`
     ${input}
 `;

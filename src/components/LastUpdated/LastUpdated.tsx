@@ -29,7 +29,7 @@ export const LastUpdated: FC<LastUpdatedProps> = ({ dataExists, lastUpdatedAt, i
             <StyledCircleInner />
         </StyledPulse>
         <StyledCaption>
-            {!isLoading && errorMessage && (
+            {!isLoading && !!errorMessage && (
                 <>
                     Last update is unkown. <StyledError>{errorMessage}</StyledError>
                 </>
@@ -39,7 +39,7 @@ export const LastUpdated: FC<LastUpdatedProps> = ({ dataExists, lastUpdatedAt, i
                     Last updated at <Loader variant="sm" />
                 </StyledLoading>
             )}
-            {!isLoading && dataExists && lastUpdatedAt && (
+            {!isLoading && dataExists && !!lastUpdatedAt && (
                 <>
                     Last updated {dateHelper.extractDateToPrettyString(lastUpdatedAt)} at&nbsp;
                     {dateHelper.extractHoursAndMinutes(lastUpdatedAt)}

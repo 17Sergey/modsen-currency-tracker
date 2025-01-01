@@ -1,6 +1,7 @@
 import { FC, FormEvent } from "react";
 
 import Modal from "@components/Modal";
+import { CURRENCY_INPUTS } from "@constants/homePage.ts";
 import { useAvailiableCurrencies } from "@hooks/useAvailiableCurrencies.ts";
 import { useCurrencyConverter } from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/_hooks/useCurrencyConverter.ts";
 import BaseInput from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/BaseInput/index.tsx";
@@ -13,7 +14,6 @@ import {
     StyledExchangeIcon,
     StyledForm,
     StyledHeading,
-    StyledScrollableContent,
     StyledWrapper,
 } from "./styled.ts";
 
@@ -45,23 +45,21 @@ export const ConverterModal: FC<ConverterModalProps> = ({ baseCurrency, onClose 
                         <StyledCrossIcon />
                     </StyledCloseBtn>
                 </StyledWrapper>
-                <StyledScrollableContent>
-                    <StyledForm onSubmit={handleSubmit}>
-                        <BaseInput
-                            name={"baseCurrencyValue"}
-                            currencyItem={baseCurrencyItem}
-                            onHandleInputChange={handleInputChange}
-                        />
-                        <StyledExchangeIcon />
-                        <TargetControls
-                            name={"targetCurrencyValue"}
-                            currencyItem={targetCurrencyItem}
-                            onHandleInputChange={handleInputChange}
-                            curreciesArray={currenciesArray}
-                            onHandleSelectChange={handleSelectChange}
-                        />
-                    </StyledForm>
-                </StyledScrollableContent>
+                <StyledForm onSubmit={handleSubmit}>
+                    <BaseInput
+                        name={CURRENCY_INPUTS.BASE_CURRENCY_INPUT}
+                        currencyItem={baseCurrencyItem}
+                        onHandleInputChange={handleInputChange}
+                    />
+                    <StyledExchangeIcon />
+                    <TargetControls
+                        name={CURRENCY_INPUTS.TARGET_CURRENCY_INPUT}
+                        currencyItem={targetCurrencyItem}
+                        onHandleInputChange={handleInputChange}
+                        curreciesArray={currenciesArray}
+                        onHandleSelectChange={handleSelectChange}
+                    />
+                </StyledForm>
             </StyledBox>
         </Modal>
     );

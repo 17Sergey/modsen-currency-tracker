@@ -6,7 +6,6 @@ import { device } from "@styles/breakpoints";
 import { closeBtn } from "@styles/mixins/modal/closeBtn";
 import { crossIcon } from "@styles/mixins/modal/crossIcon";
 import { modalBox } from "@styles/mixins/modal/modalBox";
-import { scrollableContent } from "@styles/mixins/modal/scrollableContent";
 
 export const StyledBox = styled.div`
     ${modalBox}
@@ -23,11 +22,6 @@ export const StyledHeading = styled.h2`
     font-weight: ${({ theme }) => theme.fonts.weight.regular};
     font-size: ${({ theme }) => theme.fonts.size.lg};
 
-    padding-left: ${({ theme }) => theme.paddings.xs};
-`;
-
-export const StyledScrollableContent = styled.div`
-    ${scrollableContent}
     padding-left: ${({ theme }) => theme.paddings.xs};
 `;
 
@@ -54,6 +48,8 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledExchangeIcon = styled(ExchangeIcon)`
+    display: block;
+
     width: ${({ theme }) => theme.widths.icons.sm};
     height: ${({ theme }) => theme.widths.icons.sm};
     fill: ${({ theme }) => theme.colors.textPrimary};

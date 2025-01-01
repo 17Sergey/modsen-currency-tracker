@@ -32,7 +32,7 @@ export const Timeline = () => {
                 errorMessage={errorMessage}
             />
             <ErrorBoundary fallback={errorRedrerProp}>
-                {!error && chartData && (
+                {!error && !!chartData && (
                     <ChartSection
                         chartData={chartData}
                         isLoading={isLoadingOrRefetching}
