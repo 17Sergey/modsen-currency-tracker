@@ -1,6 +1,8 @@
 import { ChangeEvent, FC, useEffect, useState } from "react";
 import { useDebounceValue } from "usehooks-ts";
 
+import { DATA_CY } from "@constants/cypress.ts";
+
 import {
     StyledCrossIcon,
     StyledElasticWrapper,
@@ -20,7 +22,14 @@ type CustomSelectProps = {
     renderOption?: (props: RenderOptionProps) => JSX.Element;
 };
 
-export const ElasticSearch: FC<CustomSelectProps> = ({ options, placeholder, onSelect, onClear, renderOption }) => {
+export const ElasticSearch: FC<CustomSelectProps> = ({
+    options,
+    placeholder,
+    onSelect,
+    onClear,
+    renderOption,
+    ...props
+}) => {
     const [query, setQuery] = useState("");
     const [debouncedQuery] = useDebounceValue(query, 300);
 
@@ -58,11 +67,11 @@ export const ElasticSearch: FC<CustomSelectProps> = ({ options, placeholder, onS
     }, [debouncedQuery, options]);
 
     return (
-        <StyledElasticWrapper>
+        <StyledElasticWrapper {...props}>
             <StyledInputWrapper>
                 <StyledInput type="text" placeholder={placeholder} value={query} onChange={handleInputChange} />
                 {query ? (
-                    <StyledInputButton onClick={handleClear}>
+                    <StyledInputButton onClick={handleClear} data-cy={DATA_CY.SEARCH_CLEAR_BUTTON}>
                         <StyledCrossIcon aria-label="Clear" />
                     </StyledInputButton>
                 ) : (
@@ -72,7 +81,7 @@ export const ElasticSearch: FC<CustomSelectProps> = ({ options, placeholder, onS
                 )}
             </StyledInputWrapper>
             {isOptionsVisible && matchedOptions.length > 0 && (
-                <StyledOptionsList>
+                <StyledOptionsList aria-label="optionsList">
                     {matchedOptions.map((option) =>
                         renderOption ? (
                             renderOption({ option, onOptionClick: handleOptionClick })

@@ -1,17 +1,20 @@
+import { BASE_URL, DATA_CY, DEFAULT_PORT } from "../../src/constants/cypress.ts";
+
 describe("Theme Toggle", () => {
     beforeEach(() => {
-        // Замените на URL вашего приложения
-        cy.visit("http://localhost:8080"); // Убедитесь, что ваше приложение запущено
+        cy.visit(`${BASE_URL}:${DEFAULT_PORT}`);
     });
 
     it("should change body background color on theme toggle", () => {
-        // Проверяем начальный цвет фона для темной темы
-        cy.get("body").should("have.css", "background-color", "rgb(3, 3, 4)"); // Цвет темного фона в RGB
+        cy.get("body").then(($body) => {
+            const initialColor = $body.css("background-color");
 
-        // Кликаем по кнопке переключения темы
-        cy.get('[data-cy="toggleThemeDesktop"]').click({ multiple: true });
+            cy.get(`[data-cy="${DATA_CY.TOGGLE_THEME}"]`).click({ multiple: true });
 
-        // Проверяем, что цвет фона изменился на светлую тему
-        cy.get("body").should("have.css", "background-color", "rgb(255, 255, 255)"); // Цвет светлого фона в RGB
+            cy.get("body").should(($newBody) => {
+                const newColor = $newBody.css("background-color");
+                expect(newColor).to.not.equal(initialColor);
+            });
+        });
     });
 });

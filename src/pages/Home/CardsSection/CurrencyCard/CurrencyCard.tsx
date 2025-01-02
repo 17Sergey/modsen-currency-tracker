@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useRef } from "react";
 
 import IconMatcher from "@components/IconMatcher/index.tsx";
 import { useModal } from "@hooks/useModal.ts";
@@ -12,8 +12,15 @@ type CurrencyCardProps = CurrencyData;
 export const CurrencyCard: FC<CurrencyCardProps> = ({ currency, value }) => {
     const { isModalOpen, openModal, closeModal } = useModal();
 
+    const cardRef = useRef<HTMLDivElement | null>(null);
+
+    const handleBtnClick = () => {
+        if (cardRef.current) cardRef.current.click();
+        openModal();
+    };
+
     return (
-        <StyledCard>
+        <StyledCard ref={cardRef} onClick={openModal}>
             <StyledIcon>
                 <IconMatcher code={currency} />
             </StyledIcon>
@@ -23,7 +30,7 @@ export const CurrencyCard: FC<CurrencyCardProps> = ({ currency, value }) => {
                     1 USD = {value} {currency}
                 </StyledValue>
             </StyledInfo>
-            <StyledMockButton aria-label="Open converter modal" onClick={openModal}></StyledMockButton>
+            <StyledMockButton aria-label="Open converter modal" onClick={handleBtnClick}></StyledMockButton>
             {isModalOpen && <ConverterModal baseCurrency={{ currency, value }} onClose={closeModal} />}
         </StyledCard>
     );

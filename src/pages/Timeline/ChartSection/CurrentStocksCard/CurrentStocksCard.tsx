@@ -1,6 +1,7 @@
 import React, { PureComponent } from "react";
 
 import { IconMatcher } from "@components/IconMatcher/IconMatcher.tsx";
+import { DATA_CY } from "@constants/cypress.ts";
 
 import { StyledCard, StyledCode, StyledIcon, StyledName, StyledText } from "./styled.ts";
 
@@ -13,7 +14,7 @@ export class CurrentStocksCard extends PureComponent<CurrentStocksCardProps> {
         const { stock } = this.props;
 
         return (
-            <StyledCard>
+            <StyledCard data-cy={DATA_CY.STOCK_CARD}>
                 <StyledIcon>
                     <IconMatcher code={stock.code} />
                 </StyledIcon>

@@ -41,7 +41,7 @@ export const StyledChevronIcon = styled(ChevronIcon)`
     fill: ${({ theme }) => theme.colors.textPrimary};
 `;
 
-export const StyledDropdownList = styled.div`
+export const StyledDropdownList = styled.ul`
     background-color: ${({ theme }) => theme.colors.backgroundNeutral};
     border-radius: ${({ theme }) => theme.paddings.sm};
 

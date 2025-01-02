@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { Loader } from "@components/Loader/Loader.tsx";
+import { DATA_CY } from "@constants/cypress.ts";
 import { dateHelper } from "@utils/dateHelper.ts";
 
 import {
@@ -28,10 +29,11 @@ export const LastUpdated: FC<LastUpdatedProps> = ({ dataExists, lastUpdatedAt, i
             <StyledCircleMiddle />
             <StyledCircleInner />
         </StyledPulse>
-        <StyledCaption>
+        <StyledCaption data-cy={DATA_CY.LAST_UPDATED}>
             {!isLoading && !!errorMessage && (
                 <>
-                    Last update is unkown. <StyledError>{errorMessage}</StyledError>
+                    Last update is unkown.{" "}
+                    <StyledError data-cy={DATA_CY.LAST_UPDATED_ERROR}>{errorMessage}</StyledError>
                 </>
             )}
             {isLoading && (

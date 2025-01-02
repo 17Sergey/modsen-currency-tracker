@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ElasticSearch } from "@components/ElasticSearch/ElasticSearch.tsx";
 import { IconMatcher } from "@components/IconMatcher/IconMatcher.tsx";
 import LayoutContainer from "@components/LayoutContainer";
+import { DATA_CY } from "@constants/cypress.ts";
 import { useAvailiableCurrencies } from "@hooks/useAvailiableCurrencies.ts";
 import BankMap from "@pages/Bank/BankMap";
 
@@ -42,9 +43,10 @@ export const Bank = () => {
                         onSelect={handleSelectFoundCurrency}
                         onClear={handleClearSearch}
                         renderOption={renderOption}
+                        data-cy={DATA_CY.MAP_SEARCH_INPUT}
                     />
                 </StyledElastic>
-                <StyledMap>
+                <StyledMap data-cy={DATA_CY.MAP}>
                     <BankMap foundCurrency={foundCurrency} />
                 </StyledMap>
             </LayoutContainer>

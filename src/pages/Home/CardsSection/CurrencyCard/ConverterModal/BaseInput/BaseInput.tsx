@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import { DATA_CY } from "@constants/cypress.ts";
 import { getCurrencyCaption } from "@utils/getCurrencyCaption.ts";
 
 import { StyledInput } from "./styled.ts";
@@ -11,6 +12,13 @@ export const BaseInput: FC<BaseInputProps> = ({ name, currencyItem, onHandleInpu
         <div>
             <label htmlFor={name}>{getCurrencyCaption(currencyItem.currency)}</label>
         </div>
-        <StyledInput type="text" id={name} name={name} value={currencyItem.value} onChange={onHandleInputChange} />
+        <StyledInput
+            type="text"
+            id={name}
+            name={name}
+            value={currencyItem.value}
+            onChange={onHandleInputChange}
+            data-cy={DATA_CY.BASE_CURRENCY_INPUT}
+        />
     </>
 );

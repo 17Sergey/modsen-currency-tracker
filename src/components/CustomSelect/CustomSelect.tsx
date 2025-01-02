@@ -19,7 +19,7 @@ type CustomSelectProps = {
     onSelect: (value: string) => void;
 };
 
-export const CustomSelect: FC<CustomSelectProps> = ({ options, currenctValue, onSelect }) => {
+export const CustomSelect: FC<CustomSelectProps> = ({ options, currenctValue, onSelect, ...props }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(currenctValue);
 
@@ -38,7 +38,7 @@ export const CustomSelect: FC<CustomSelectProps> = ({ options, currenctValue, on
     }, [currenctValue]);
 
     return (
-        <StyledSelectWrapper>
+        <StyledSelectWrapper {...props}>
             <StyleCustomSelect role="combobox" aria-expanded={isOpen} aria-haspopup="listbox" onClick={toggleOpen}>
                 <StyledSelectVisualPart>
                     <StyledSelectedOption>

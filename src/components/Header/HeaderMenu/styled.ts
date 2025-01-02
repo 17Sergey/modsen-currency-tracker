@@ -27,10 +27,12 @@ export const StyledDesktopMenu = styled.ul`
     }
 `;
 
-export const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)<{ $isCurrentPage: boolean }>`
     color: ${({ theme }) => theme.colors.textPrimary};
     font-size: ${({ theme }) => theme.fonts.size.base};
     font-weight: ${({ theme }) => theme.fonts.weight.light};
+
+    ${({ $isCurrentPage }) => $isCurrentPage && "font-weight: bold"};
 
     &:hover {
         text-decoration: underline;

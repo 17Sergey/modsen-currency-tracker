@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import { CustomSelect } from "@components/CustomSelect/CustomSelect.tsx";
+import { DATA_CY } from "@constants/cypress.ts";
 
 import { StyledSelect } from "./styled.ts";
 
@@ -19,7 +20,12 @@ export const SelectTargetCurrency: FC<SelectTargetCurrencyProps> = ({
 
     return (
         <StyledSelect>
-            <CustomSelect options={formattedOptions} currenctValue={selectedCurrency} onSelect={onHandleSelectChange} />
+            <CustomSelect
+                options={formattedOptions}
+                currenctValue={selectedCurrency}
+                onSelect={onHandleSelectChange}
+                data-cy={DATA_CY.SELECT_CURRENCY_CONTROL}
+            />
         </StyledSelect>
     );
 };

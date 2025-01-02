@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { Marker } from "react-map-gl";
 
+import { DATA_CY } from "@constants/cypress.ts";
 import CustomPopup from "@pages/Bank/BankMap/CustomPopup";
 
 import { StyledMapMarkerDefault, StyledPopupContent } from "./styled.ts";
@@ -40,7 +41,7 @@ export class UserLocationMarker extends Component<UserLocationMarkerProps, UserL
 
         return (
             <Marker latitude={userLocation.latitude} longitude={userLocation.longitude} onClick={this.openPopup}>
-                <StyledMapMarkerDefault />
+                <StyledMapMarkerDefault data-cy={DATA_CY.USER_LOCATION_MARKER} />
                 {showPopup && (
                     <CustomPopup
                         latitude={userLocation.latitude}

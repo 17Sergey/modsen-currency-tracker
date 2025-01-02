@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { CustomSelect } from "@components/CustomSelect/CustomSelect.tsx";
+import { DATA_CY } from "@constants/cypress.ts";
 
 import { StyledStocksSelect } from "./styled.ts";
 
@@ -16,7 +17,12 @@ export class StocksSelect extends Component<StocksSelectProps> {
 
         return (
             <StyledStocksSelect>
-                <CustomSelect options={options} currenctValue={currentStock.code} onSelect={onSelect} />
+                <CustomSelect
+                    options={options}
+                    currenctValue={currentStock.code}
+                    onSelect={onSelect}
+                    data-cy={DATA_CY.STOCK_SELECT}
+                />
             </StyledStocksSelect>
         );
     }

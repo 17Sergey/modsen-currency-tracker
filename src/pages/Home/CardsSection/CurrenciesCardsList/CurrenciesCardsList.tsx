@@ -1,3 +1,4 @@
+import { DATA_CY } from "@constants/cypress.ts";
 import CurrencyCard from "@pages/Home/CardsSection/CurrencyCard";
 
 import { StyledList } from "./styled.ts";
@@ -8,9 +9,9 @@ interface CurrenciesCardsListInterface {
 
 export const CurrenciesCardsList: React.FC<CurrenciesCardsListInterface> = ({ currencies }) => (
     <div>
-        <StyledList>
+        <StyledList data-cy={DATA_CY.CURRENCIES_CARDS_LIST}>
             {currencies.map(({ currency, value }) => (
-                <li key={currency}>
+                <li key={currency} data-cy={DATA_CY.CURRENCY_CARD}>
                     <CurrencyCard currency={currency} value={value} />
                 </li>
             ))}

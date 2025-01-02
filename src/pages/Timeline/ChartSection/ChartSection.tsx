@@ -2,6 +2,7 @@ import { Component } from "react";
 
 import { Loader } from "@components/Loader/Loader.tsx";
 import { Toast } from "@components/Toast/Toast.tsx";
+import { DATA_CY } from "@constants/cypress.ts";
 import { DEFAULT_TOAST_LIFETIME, STOCKS_OPTIONS } from "@constants/timelinePage.ts";
 import CurrentStocksCard from "@pages/Timeline/ChartSection/CurrentStocksCard";
 import EditChartDataModal from "@pages/Timeline/ChartSection/EditChartDataModal";
@@ -67,9 +68,9 @@ export class ChartSection extends Component<ChartDataProps, ChartDataState> {
         const { isModalOpen, isToastVisible } = this.state;
 
         return (
-            <section>
+            <section data-cy={DATA_CY.CHART_SECTION}>
                 {isToastVisible && (
-                    <Toast lifetimeInSeconds={DEFAULT_TOAST_LIFETIME}>
+                    <Toast lifetimeInSeconds={DEFAULT_TOAST_LIFETIME} data-cy={DATA_CY.UPDATE_CHART_TOAST}>
                         <p>Data was changed successfully</p>
                     </Toast>
                 )}
@@ -82,7 +83,9 @@ export class ChartSection extends Component<ChartDataProps, ChartDataState> {
                                 currentStock={currentStock}
                                 onSelect={handleSelectStock}
                             />
-                            <StyledButton onClick={this.openModal}>Edit chart data</StyledButton>
+                            <StyledButton onClick={this.openModal} data-cy={DATA_CY.EDIT_CHART_BTN}>
+                                Edit chart data
+                            </StyledButton>
                             {isModalOpen && (
                                 <EditChartDataModal
                                     currentStock={currentStock}

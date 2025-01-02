@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Marker } from "react-map-gl";
 
+import { DATA_CY } from "@constants/cypress.ts";
+
 import CustomPopup from "../CustomPopup/index.tsx";
 
 import { StyledMapMarker, StyledPopupContent } from "./styled.ts";
@@ -37,10 +39,10 @@ export class BankMarker extends Component<BankMarkerProps, BankMarkerState> {
 
         return (
             <Marker key={`${latitude}:${longitude}`} longitude={longitude} latitude={latitude} onClick={this.openPopup}>
-                <StyledMapMarker />
+                <StyledMapMarker data-cy={DATA_CY.MAP_MARKER} />
                 {showPopup && (
                     <CustomPopup latitude={latitude} longitude={longitude} onClose={this.closePopup}>
-                        <StyledPopupContent>
+                        <StyledPopupContent data-cy={DATA_CY.POPUP_CONTENT}>
                             <strong>{bank}</strong>
                             <ul>
                                 {currencies.map((currency) => (

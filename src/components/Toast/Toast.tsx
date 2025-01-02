@@ -6,6 +6,8 @@ type ToastProps = PropsWithChildren & {
     lifetimeInSeconds: number;
 };
 
-export const Toast = ({ children, lifetimeInSeconds }: ToastProps) => (
-    <StyledToast $lifetimeInSeconds={lifetimeInSeconds}>{children}</StyledToast>
+export const Toast = ({ children, lifetimeInSeconds, ...props }: ToastProps) => (
+    <StyledToast $lifetimeInSeconds={lifetimeInSeconds} {...props}>
+        {children}
+    </StyledToast>
 );

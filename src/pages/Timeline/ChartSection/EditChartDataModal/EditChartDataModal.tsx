@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Modal from "@components/Modal";
+import { DATA_CY } from "@constants/cypress.ts";
 import { EDIT_DAY_BUTTONS } from "@constants/timelinePage.ts";
 import EditDayForm from "@pages/Timeline/ChartSection/EditChartDataModal/EditDayForm";
 import { ChartPublisher } from "@utils/Publisher/ChartPublisher.ts";
@@ -101,8 +102,8 @@ export class EditChartDataModal extends Component<EditChartDataModalProps, EditC
 
         return (
             <Modal onClose={onClose}>
-                <StyledBoxWrapper>
-                    <StyledCloseBtn aria-label="Close modal" onClick={onClose}>
+                <StyledBoxWrapper data-cy={DATA_CY.EDIT_CHART_MODAL}>
+                    <StyledCloseBtn aria-label="Close modal" onClick={onClose} data-cy={DATA_CY.CLOSE_MODAL}>
                         <StyledCrossIcon />
                     </StyledCloseBtn>
                     <CurrentStocksCard stock={currentStock} />
@@ -119,14 +120,23 @@ export class EditChartDataModal extends Component<EditChartDataModalProps, EditC
                             <StyledButton
                                 disabled={disabledBtn === EDIT_DAY_BUTTONS.PREVIOUS}
                                 onClick={this.goPreviousDay}
+                                data-cy={DATA_CY.PREV_DAY_BTN}
                             >
                                 Previous day
                             </StyledButton>
-                            <StyledButton disabled={disabledBtn === EDIT_DAY_BUTTONS.NEXT} onClick={this.goNextDay}>
+                            <StyledButton
+                                disabled={disabledBtn === EDIT_DAY_BUTTONS.NEXT}
+                                onClick={this.goNextDay}
+                                data-cy={DATA_CY.NEXT_DAY_BTN}
+                            >
                                 Next day
                             </StyledButton>
                         </StyledDayButtons>
-                        <StyledUpdateButton onClick={this.handleUpdateBtn} disabled={!this.state.isDataModified}>
+                        <StyledUpdateButton
+                            onClick={this.handleUpdateBtn}
+                            disabled={!this.state.isDataModified}
+                            data-cy={DATA_CY.UPDATE_CHART_BTN}
+                        >
                             Update data
                         </StyledUpdateButton>
                     </StyledButtons>

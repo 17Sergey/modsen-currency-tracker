@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router";
 
 import { MENU_ITEMS } from "@constants/constants.ts";
 import { useDisableBodyScroll } from "@hooks/useDisableBodyScroll.ts";
@@ -28,10 +29,14 @@ export const HeaderMenu = () => {
 
     useDisableBodyScroll(isMenuOpen);
 
+    const meta = useLocation();
+
     const getMenuItemsJSX = () =>
         MENU_ITEMS.map(({ caption, location }: MenuItem) => (
             <li key={caption}>
-                <StyledLink to={location}>{caption}</StyledLink>
+                <StyledLink to={location} $isCurrentPage={meta.pathname === location}>
+                    {caption}
+                </StyledLink>
             </li>
         ));
 

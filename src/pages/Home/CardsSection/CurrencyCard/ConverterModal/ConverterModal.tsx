@@ -1,6 +1,7 @@
 import { FC, FormEvent } from "react";
 
 import Modal from "@components/Modal";
+import { DATA_CY } from "@constants/cypress.ts";
 import { CURRENCY_INPUTS } from "@constants/homePage.ts";
 import { useAvailiableCurrencies } from "@hooks/useAvailiableCurrencies.ts";
 import { useCurrencyConverter } from "@pages/Home/CardsSection/CurrencyCard/ConverterModal/_hooks/useCurrencyConverter.ts";
@@ -38,10 +39,10 @@ export const ConverterModal: FC<ConverterModalProps> = ({ baseCurrency, onClose 
 
     return (
         <Modal onClose={onClose}>
-            <StyledBox>
+            <StyledBox data-cy={DATA_CY.CONVERTER_MODAL}>
                 <StyledWrapper>
                     <StyledHeading>Currency Converter</StyledHeading>
-                    <StyledCloseBtn aria-label="Close modal" onClick={onClose}>
+                    <StyledCloseBtn data-cy={DATA_CY.CLOSE_MODAL} aria-label="Close modal" onClick={onClose}>
                         <StyledCrossIcon />
                     </StyledCloseBtn>
                 </StyledWrapper>

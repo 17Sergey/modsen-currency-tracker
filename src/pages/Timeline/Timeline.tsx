@@ -2,6 +2,7 @@ import { ErrorBoundary } from "react-error-boundary";
 
 import LastUpdated from "@components/LastUpdated";
 import LayoutContainer from "@components/LayoutContainer";
+import { DATA_CY } from "@constants/cypress.ts";
 import ChartSection from "@pages/Timeline/ChartSection";
 
 import { useChartData } from "./_hooks/useChartData.ts";
@@ -19,7 +20,7 @@ export const Timeline = () => {
 
     const errorRedrerProp = (
         <p>
-            Error occurred. <StyledError>{errorMessage}</StyledError>
+            Error occurred. <StyledError data-cy={DATA_CY.TIMELINE_ERROR}>{errorMessage}</StyledError>
         </p>
     );
 

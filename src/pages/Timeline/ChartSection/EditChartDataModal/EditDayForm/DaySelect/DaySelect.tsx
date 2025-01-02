@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import { CustomSelect } from "@components/CustomSelect/CustomSelect.tsx";
+import { DATA_CY } from "@constants/cypress.ts";
 import { dateHelper } from "@utils/dateHelper.ts";
 
 import { StyledDaySelect } from "./styled.ts";
@@ -50,6 +51,7 @@ export class DaySelect extends Component<DaySelectProps, DaySelectState> {
                     options={formattedDays}
                     currenctValue={formattedCurrentDay}
                     onSelect={this.handleSelectDay}
+                    data-cy={DATA_CY.SELECT_CHART_DAY}
                 />
             </StyledDaySelect>
         );

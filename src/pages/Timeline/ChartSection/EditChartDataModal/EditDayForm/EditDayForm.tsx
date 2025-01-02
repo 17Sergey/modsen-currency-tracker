@@ -1,5 +1,6 @@
 import { ChangeEvent, Component, FormEvent } from "react";
 
+import { DATA_CY } from "@constants/cypress.ts";
 import { EDIT_DAY_INPUTS } from "@constants/timelinePage.ts";
 import { isValidNumericInput } from "@utils/isValidNumericInput.ts";
 
@@ -65,6 +66,7 @@ export class EditDayForm extends Component<EditDayFormProps, EditDayFormState> {
                         name={EDIT_DAY_INPUTS.OPEN}
                         value={formData.open}
                         onChange={this.handleInputChange}
+                        dataCy={DATA_CY.OPEN_INPUT}
                     />
                     <EditDayInput
                         label="Closed:"
