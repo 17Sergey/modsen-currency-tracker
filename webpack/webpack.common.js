@@ -1,11 +1,16 @@
-const path = require("path");
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const Dotenv = require("dotenv-webpack");
-const CopyPlugin = require("copy-webpack-plugin");
-const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
+/* eslint-disable */
 
-module.exports = {
-    entry: path.resolve(__dirname, "..", "./src/index.tsx"),
+import CopyPlugin from "copy-webpack-plugin";
+import HtmlWebpackPlugin from "html-webpack-plugin";
+import { dirname, resolve } from "path";
+import TsconfigPathsPlugin from "tsconfig-paths-webpack-plugin";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const config = {
+    entry: resolve(__dirname, "../src/index.tsx"),
     resolve: {
         extensions: [".tsx", ".ts", ".js"],
         plugins: [
@@ -51,17 +56,18 @@ module.exports = {
         ],
     },
     output: {
-        path: path.resolve(__dirname, "..", "./dist"),
+        path: resolve(__dirname, "../dist"),
         filename: "bundle.js",
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, "..", "./src/index.html"),
+            template: resolve(__dirname, "../src/index.html"),
         }),
-        new Dotenv(),
         new CopyPlugin({
             patterns: [{ from: "public", to: "./public" }],
         }),
     ],
     stats: "errors-only",
 };
+
+export default config;

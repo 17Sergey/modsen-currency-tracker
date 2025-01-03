@@ -5,6 +5,20 @@ export const darkTheme = {
     widths: {
         container: "1224px",
         currencyIcon: "5rem",
+        icons: {
+            xs: "1rem",
+            xxs: "1.5rem",
+            sm: "2rem",
+            base: "2.5rem",
+            md: "3rem",
+            xl: "4rem",
+        },
+        loader: {
+            sm: "2rem",
+            md: "5rem",
+            lg: "7rem",
+        },
+        customScroll: "0.25rem",
     },
     colors: {
         background: "#030304",
@@ -22,10 +36,16 @@ export const darkTheme = {
         gray: "#9E9E9E",
         inputBg: "#1B2028",
 
+        modalOverlay: "#00000060",
+        modalBox: "#4A4E69",
+
         chartHighlight: "#FF971D",
         chartUp: "#16C782",
         chartDown: "#EA3943",
-        mapSelectedTag: "#185CFF",
+        chartGrid: "#FFFFFF30",
+        mapSelectedTag: "#3FB1CE",
+
+        error: "#EA3943",
 
         logoGradient: {
             first: "#2ADD50",
@@ -53,18 +73,14 @@ export const darkTheme = {
         primary: "Poppins",
         secondary: "Inter",
         size: {
-            small: "0.75rem", // 12px
-            base: "1rem", // 16px
-            medium: "1.25rem", // 20px
-            subheading: "1.5rem", // 24px
-            heading: "2rem", // 32px
-            headingL: "2.1875rem", // 35px
-            headingXL: "2.375rem", // 38px
-            footerCaption: "1.625rem", // 26px
-            footerMenu: "1.75rem", // 28px
-            captionMedium: "3.25rem",
-            captionLarge: "4.25rem",
-            captionLargeWord: "5rem",
+            sm: "0.75rem",
+            base: "1rem",
+            md: "1.25rem",
+            lg: "1.5rem",
+            xl: "2rem",
+            xxl: "3rem",
+            large: "4.25rem",
+            largest: "5rem",
         },
         weight: {
             light: 300,
@@ -75,14 +91,26 @@ export const darkTheme = {
         },
     },
     paddings: {
-        container: "1rem",
-        pageTop: "2rem",
-        searchInput: "1.25rem",
-        currencyIcon: "2rem",
-        currencyCard: "2rem",
+        xs: "0.25rem",
+        sm: "0.5rem",
+        m: "0.75rem",
+        base: "1rem",
+        md: "1.25rem",
+        xl: "1.5rem",
+        xxl: "2rem",
+        lg: "3rem",
+        large: "4rem",
     },
     margins: {
-        sectionTop: "3.5rem",
+        xs: "0.25rem",
+        sm: "0.5rem",
+        base: "1rem",
+        m: "1.5rem",
+        md: "2rem",
+        xl: "4rem",
+        xxl: "6rem",
+        lg: "9rem",
+        toast: "0.5rem",
     },
 };
 
@@ -102,9 +130,11 @@ export const lightTheme = {
         primary: "#00BC4F",
         primaryTransparent: "#02471F",
 
-        border: "#474747",
+        border: "#EBEBEB",
         gray: "#9E9E9E",
-        inputBg: "#1B2028",
+        inputBg: "#FAFAFA",
+
+        chartGrid: "#00000030",
 
         updatedAtPulses: {
             inner: "#00BC4F",

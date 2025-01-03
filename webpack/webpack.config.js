@@ -1,6 +1,18 @@
-const { merge } = require("webpack-merge");
-const commonConfig = require("./webpack.common.js");
-const envConfig = require(`./webpack.${process.env.NODE_ENV}.js`);
+/* eslint-disable */
+
+import { merge } from "webpack-merge";
+
+import commonConfig from "./webpack.common.js";
+import developmentConfig from "./webpack.dev.js";
+import productionConfig from "./webpack.prod.js";
+
+let envConfig;
+
+if (process.env.NODE_ENV === "production") {
+    envConfig = productionConfig;
+} else {
+    envConfig = developmentConfig;
+}
 
 const config = merge(commonConfig, envConfig);
-module.exports = config;
+export default config;

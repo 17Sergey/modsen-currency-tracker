@@ -23,9 +23,11 @@
             "@hooks/*": ["./src/hooks/*"],
             "@pages/*": ["./src/pages/*"],
             "@styles/*": ["./src/styles/*"],
+            "@store/*": ["./src/store/*"],
             "@types/*": ["./src/types/*"],
             "@utils/*": ["./src/utils/*"]
         }
     },
-    "include": ["src/**/*", "src/styles/styled.d.ts"]
+    "include": ["src/**/*", "src/styles/styled.d.ts", "jest-setup.js", "src/utils/testing/__mocks__", "cypress"],
+    "types": ["node", "jest", "@testing-library/jest-dom"]
 }
