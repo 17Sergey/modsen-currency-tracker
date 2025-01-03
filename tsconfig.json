@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "lib": ["DOM", "ESNext"],
+        "jsx": "react-jsx",
+        "isolatedModules": true,
+        "strict": true,
+        "skipLibCheck": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "allowJs": true,
+        "esModuleInterop": true,
+        "noEmit": true,
+        "allowImportingTsExtensions": true,
+        "paths": {
+            "@api/*": ["./src/api/*"],
+            "@assets/*": ["./src/assets/*"],
+            "@components/*": ["./src/components/*"],
+            "@constants/*": ["./src/constants/*"],
+            "@context/*": ["./src/context/*"],
+            "@hooks/*": ["./src/hooks/*"],
+            "@pages/*": ["./src/pages/*"],
+            "@styles/*": ["./src/styles/*"],
+            "@store/*": ["./src/store/*"],
+            "@types/*": ["./src/types/*"],
+            "@utils/*": ["./src/utils/*"]
+        }
+    },
+    "include": ["src/**/*", "src/styles/styled.d.ts", "jest-setup.js", "src/utils/testing/__mocks__", "cypress"],
+    "types": ["node", "jest", "@testing-library/jest-dom"]
+}
