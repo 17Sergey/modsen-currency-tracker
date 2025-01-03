@@ -3,8 +3,6 @@
 import Dotenv from "dotenv-webpack";
 import TerserPlugin from "terser-webpack-plugin";
 
-/* eslint-disable */
-
 import CopyPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { dirname, resolve } from "path";
